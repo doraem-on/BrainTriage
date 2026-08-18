@@ -6,6 +6,7 @@ import ExplainabilityChart from '../components/ExplainabilityChart'
 import TrajectoryChart from '../components/TrajectoryChart'
 import StageForm from '../components/StageForm'
 import PriorityBadge from '../components/PriorityBadge'
+import WhatIfSimulator from '../components/WhatIfSimulator'
 
 export default function PatientDetail() {
   const { id } = useParams()
@@ -67,6 +68,9 @@ export default function PatientDetail() {
         <div className="card" style={{ marginBottom: 20 }}>
           <h3>Diagnostic Pathway</h3>
           <PipelineStages stageOrder={schema.stage_order} stageLabels={schema.stage_labels} stageResults={result.stage_results} />
+          {lastStageResult?.narrative && (
+            <div className="narrative-box" style={{ marginTop: 14 }}>{lastStageResult.narrative}</div>
+          )}
           <div style={{ marginTop: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
             <div>
               <strong>{result.predicted_class}</strong> · risk {(result.final_risk_probability * 100).toFixed(0)}% ·
@@ -96,6 +100,7 @@ export default function PatientDetail() {
 
       <div className="tabbar">
         <button className={tab === 'overview' ? 'active' : ''} onClick={() => setTab('overview')}>Explainability</button>
+        <button className={tab === 'whatif' ? 'active' : ''} onClick={() => setTab('whatif')}>What-If Simulator</button>
         <button className={tab === 'trajectory' ? 'active' : ''} onClick={() => setTab('trajectory')}>Trajectory</button>
       </div>
 
@@ -103,6 +108,19 @@ export default function PatientDetail() {
         <div className="card" style={{ marginBottom: 20 }}>
           <h3>Top Contributing Factors — {schema.stage_labels[lastStageResult.stage]} stage</h3>
           <ExplainabilityChart contributors={lastStageResult.top_contributors} />
+        </div>
+      )}
+
+      {tab === 'whatif' && lastStageResult && (
+        <div className="card" style={{ marginBottom: 20 }}>
+          <h3>What-If Simulator — {schema.stage_labels[lastStageResult.stage]} stage</h3>
+          <WhatIfSimulator
+            patientId={id}
+            stage={lastStageResult.stage}
+            stageLabel={schema.stage_labels[lastStageResult.stage]}
+            featureLabels={schema.feature_labels}
+            inputs={lastStageResult.inputs}
+          />
         </div>
       )}
 

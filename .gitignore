@@ -5,6 +5,8 @@ backend/app/__pycache__/
 backend/app/**/__pycache__/
 backend/app/ml/artifacts/
 backend/braintriage.db
+# CC BY-NC-ND licensed — fetched at setup time, not redistributed in-repo
+backend/app/data_external/
 **/*.pyc
 
 # Node

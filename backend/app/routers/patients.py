@@ -20,7 +20,11 @@ STAGE_DATA_FIELD = {
 
 
 def _assembled_patient_data(patient: Patient) -> dict:
-    merged: dict = {"age": patient.age, "education_years": patient.education_years}
+    merged: dict = {
+        "age": patient.age,
+        "education_years": patient.education_years,
+        "sex_male": 1 if patient.sex == "male" else 0,
+    }
     for stage in STAGE_ORDER:
         d = getattr(patient, STAGE_DATA_FIELD[stage])
         if d:
@@ -104,6 +108,26 @@ def submit_stage(patient_id: int, payload: StageSubmit, session: Session = Depen
     _evaluate_and_store(patient, session)
     session.refresh(patient)
     return patient
+
+
+@router.post("/{patient_id}/simulate")
+def simulate(patient_id: int, overrides: dict, session: Session = Depends(get_session)):
+    """What-if: recompute risk with feature overrides layered on top of the
+    patient's real recorded data, WITHOUT persisting anything. Powers the
+    interactive sliders on the patient detail page — lets a clinician see
+    how the model's risk score would move if e.g. MMSE dropped by 3 points,
+    without touching the patient's actual record or assessment history.
+    """
+    patient = session.get(Patient, patient_id)
+    if not patient:
+        raise HTTPException(status_code=404, detail="patient not found")
+
+    data = _assembled_patient_data(patient)
+    data.update(overrides)
+    result = run_pipeline(data)
+    if "error" in result:
+        raise HTTPException(status_code=400, detail=result["message"])
+    return result
 
 
 @router.get("/{patient_id}/history")

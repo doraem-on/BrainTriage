@@ -2,14 +2,13 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createPatient } from '../api'
 
-const CDR_OPTIONS = [0, 0.5, 1, 2, 3]
+const SES_OPTIONS = [1, 2, 3, 4, 5]
 
 export default function NewPatient() {
   const navigate = useNavigate()
   const [form, setForm] = useState({
     external_id: '', name: '', age: '', sex: 'unspecified', education_years: '',
-    moca_score: '', mmse_score: '', cdr_global: '0', cdr_sob: '',
-    family_history: false, memory_complaint: false,
+    mmse_score: '', ses: '3',
   })
   const [error, setError] = useState(null)
   const [submitting, setSubmitting] = useState(false)
@@ -28,12 +27,8 @@ export default function NewPatient() {
         sex: form.sex,
         education_years: form.education_years ? parseFloat(form.education_years) : null,
         cognitive: {
-          moca_score: parseFloat(form.moca_score),
           mmse_score: parseFloat(form.mmse_score),
-          cdr_global: parseFloat(form.cdr_global),
-          cdr_sob: parseFloat(form.cdr_sob),
-          family_history: form.family_history ? 1 : 0,
-          memory_complaint: form.memory_complaint ? 1 : 0,
+          ses: parseFloat(form.ses),
         },
       }
       const patient = await createPatient(payload)
@@ -79,39 +74,20 @@ export default function NewPatient() {
             <label>Education (years)</label>
             <input type="number" step="0.5" value={form.education_years} onChange={e => set('education_years', e.target.value)} />
           </div>
+          <div className="field">
+            <label>Socioeconomic index (1=highest–5=lowest)</label>
+            <select value={form.ses} onChange={e => set('ses', e.target.value)}>
+              {SES_OPTIONS.map(v => <option key={v} value={v}>{v}</option>)}
+            </select>
+          </div>
         </div>
 
         <h3>Cognitive Screening</h3>
         <div className="form-grid">
           <div className="field">
-            <label>MoCA score (0–30)</label>
-            <input type="number" min="0" max="30" value={form.moca_score} onChange={e => set('moca_score', e.target.value)} required />
-          </div>
-          <div className="field">
             <label>MMSE score (0–30)</label>
             <input type="number" min="0" max="30" value={form.mmse_score} onChange={e => set('mmse_score', e.target.value)} required />
-          </div>
-          <div className="field">
-            <label>CDR Global</label>
-            <select value={form.cdr_global} onChange={e => set('cdr_global', e.target.value)}>
-              {CDR_OPTIONS.map(v => <option key={v} value={v}>{v}</option>)}
-            </select>
-          </div>
-          <div className="field">
-            <label>CDR Sum of Boxes (0–18)</label>
-            <input type="number" min="0" max="18" step="0.5" value={form.cdr_sob} onChange={e => set('cdr_sob', e.target.value)} required />
-          </div>
-          <div className="field">
-            <label>
-              <input type="checkbox" checked={form.family_history} onChange={e => set('family_history', e.target.checked)} style={{ marginRight: 6 }} />
-              Family history of Alzheimer's
-            </label>
-          </div>
-          <div className="field">
-            <label>
-              <input type="checkbox" checked={form.memory_complaint} onChange={e => set('memory_complaint', e.target.checked)} style={{ marginRight: 6 }} />
-              Subjective memory complaint
-            </label>
+            <span className="field-hint">Mini-Mental State Examination</span>
           </div>
         </div>
 

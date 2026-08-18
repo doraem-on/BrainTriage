@@ -17,16 +17,40 @@ import numpy as np
 
 from app.ml.features import (
     STAGE_ORDER, STAGE_FEATURES, ESCALATION_THRESHOLDS,
-    DIAGNOSIS_CLASSES, STAGE_COST_UNITS,
+    DIAGNOSIS_CLASSES, STAGE_COST_UNITS, STAGE_UPSTREAM_INPUTS, STAGE_LABELS,
 )
 from app.ml.explain import explain_prediction, _load_model
 
 MODEL_DIR = os.path.join(os.path.dirname(__file__), "artifacts")
 
 
+def _build_narrative(stage: str, predicted_class: str, risk_prob: float, top_contributors: list[dict]) -> str:
+    class_text = {
+        "CN": "cognitively normal", "MCI": "mild cognitive impairment", "AD": "Alzheimer's disease",
+    }[predicted_class]
+    drivers = [c for c in top_contributors if c["contribution"] > 0][:2]
+    protectors = [c for c in top_contributors if c["contribution"] < 0][:1]
+
+    sentence = (
+        f"At the {STAGE_LABELS[stage]} stage, the model estimates a {risk_prob:.0%} probability "
+        f"of MCI or AD, most consistent with {class_text}."
+    )
+    if drivers:
+        driver_text = " and ".join(f"{d['label'].lower()} ({d['value']:.2g})" for d in drivers)
+        sentence += f" This is driven primarily by {driver_text}."
+    if protectors:
+        p = protectors[0]
+        sentence += f" {p['label']} ({p['value']:.2g}) is comparatively reassuring."
+    return sentence
+
+
 def _cumulative_columns(stage: str) -> list[str]:
-    idx = STAGE_ORDER.index(stage)
-    return [f"risk_prob_{s}" for s in STAGE_ORDER[:idx]]
+    # Which upstream risk_prob_* a stage's model actually consumes — a real
+    # patient always has all of these available by the time they reach this
+    # stage (each is computed from their own prior stage in this same
+    # pipeline run), so no imputation is needed at inference time; the
+    # cross-cohort imputation in train.py is a training-time-only concern.
+    return [f"risk_prob_{s}" for s in STAGE_UPSTREAM_INPUTS[stage]]
 
 
 def run_pipeline(patient_data: dict) -> dict:
@@ -59,6 +83,7 @@ def run_pipeline(patient_data: dict) -> dict:
         diagnosis_proba = proba
 
         explanation = explain_prediction(stage, feature_cols, x_row)
+        stage_predicted_class = DIAGNOSIS_CLASSES[int(np.argmax(proba))]
 
         threshold = ESCALATION_THRESHOLDS.get(stage)
         escalate = threshold is not None and risk_prob >= threshold
@@ -71,6 +96,11 @@ def run_pipeline(patient_data: dict) -> dict:
             "threshold": threshold,
             "top_contributors": explanation[:5],
             "cost_units": STAGE_COST_UNITS[stage],
+            "narrative": _build_narrative(stage, stage_predicted_class, risk_prob, explanation),
+            # this stage's own raw input values (not the upstream risk_prob_*
+            # columns) — used by the frontend's What-If simulator to seed
+            # slider baselines with the patient's actually recorded data
+            "inputs": {f: patient_data[f] for f in feats},
         })
         last_completed = stage
 
@@ -90,7 +120,7 @@ def run_pipeline(patient_data: dict) -> dict:
         recommendation = "Routine monitoring; re-screen in 12 months."
     elif final_risk < 0.55:
         urgency = "moderate"
-        recommendation = f"Elevated risk signal at {stage.capitalize()} stage; re-screen in 6 months or escalate sooner if symptoms progress."
+        recommendation = f"Elevated risk signal at {last_completed.capitalize()} stage; re-screen in 6 months or escalate sooner if symptoms progress."
     elif final_risk < 0.75:
         urgency = "high"
         recommendation = "Refer to specialist for confirmatory workup." if not reached_pet else "Refer to specialist; imaging-confirmed elevated risk."

@@ -1,18 +1,30 @@
 """Feature schemas for each diagnostic stage.
 
-Ranges and field names are modeled on the documented variable dictionaries
-published by ADNI (adni.loni.usc.edu) and OASIS (oasis-brains.org) — e.g. MoCA/MMSE/CDR
-scoring, ADNI blood biomarker panels (Amyloid-beta 42/40, p-tau181, NfL, GFAP),
-FreeSurfer-derived MRI volumetrics, and Amyloid/FDG PET SUVR conventions.
-This project does not ship real ADNI/OASIS subject data (both require a signed
-Data Use Agreement); see docs/DATA_NOTE.md.
+Three of four stages train on real, published research data:
+  - Cognitive & MRI: the OASIS cross-sectional + longitudinal cohorts.
+  - Blood/CSF: a real cerebrospinal-fluid biomarker cohort (Dakterzada et al.
+    2023) — labeled "Blood" in the UI/cost model for pipeline-narrative
+    consistency, but the real measurements are CSF (lumbar puncture), which
+    is why its cost/invasiveness sits between a blood draw and an MRI.
+  - PET: no real, freely-available PET SUVR tabular dataset exists (ADNI's
+    requires a signed Data Use Agreement), so this stage remains synthetic.
+
+See docs/DATA_NOTE.md for full provenance, citations, and licenses.
+
+Each stage's classifier is trained with its own real features PLUS a fixed
+set of upstream risk_prob_* columns (STAGE_UPSTREAM_INPUTS below) — NOT
+simply "every prior stage" — because Cognitive+MRI live on one real cohort
+(OASIS) and Blood/CSF lives on a different one (Dakterzada et al.), so a
+stage can only stack on an upstream risk score if that upstream model can
+legitimately be evaluated on (a subset of) this stage's own cohort. See
+app/ml/train.py for exactly how each cross-cohort risk_prob is computed.
 """
 
 STAGE_ORDER = ["cognitive", "blood", "mri", "pet"]
 
 STAGE_LABELS = {
     "cognitive": "Cognitive Screening",
-    "blood": "Blood Biomarkers",
+    "blood": "CSF Biomarkers (Lumbar Puncture)",
     "mri": "MRI Volumetrics",
     "pet": "PET Imaging",
 }
@@ -20,36 +32,50 @@ STAGE_LABELS = {
 # Approximate relative cost/invasiveness, used purely for UI + reporting.
 STAGE_COST_UNITS = {
     "cognitive": 1,
-    "blood": 3,
+    "blood": 6,   # CSF via lumbar puncture: more invasive than a routine blood draw
     "mri": 12,
     "pet": 40,
+}
+
+# Which upstream stages' risk_prob_* columns feed into each stage's model.
+STAGE_UPSTREAM_INPUTS = {
+    "cognitive": [],
+    "blood": ["cognitive"],
+    "mri": ["cognitive"],
+    "pet": ["cognitive", "mri"],
+}
+
+# Whether the stage's training features/labels come from real data, and
+# which real cohort — or "synthetic" if generated (conditioned on a real
+# diagnosis label so the pipeline stays internally consistent, but not real
+# measurements). Surfaced in the Model Card so nobody mistakes one for
+# the other.
+STAGE_DATA_SOURCE = {
+    "cognitive": "real_oasis",
+    "blood": "real_csf",
+    "mri": "real_oasis",
+    "pet": "synthetic",
 }
 
 COGNITIVE_FEATURES = [
     "age",
     "education_years",
-    "moca_score",       # 0-30, lower = worse
-    "mmse_score",        # 0-30, lower = worse
-    "cdr_global",        # 0, 0.5, 1, 2, 3
-    "cdr_sob",            # sum of boxes, 0-18
-    "family_history",    # 0/1
-    "memory_complaint",  # 0/1
+    "ses",           # Hollingshead socioeconomic index, 1 (highest) - 5 (lowest)
+    "sex_male",       # 0/1, derived from patient.sex
+    "mmse_score",    # 0-30, lower = worse
 ]
 
 BLOOD_FEATURES = [
-    "apoe4_alleles",       # 0, 1, 2
-    "abeta42_40_ratio",    # ~0.04-0.15, lower = more amyloid pathology
-    "p_tau181",             # pg/mL, higher = worse
-    "nfl",                   # pg/mL, higher = worse (neurodegeneration marker)
-    "gfap",                  # pg/mL, higher = worse (astroglial marker)
+    "apoe4_positive",   # 0/1, carries at least one APOE e4 allele
+    "csf_amyloid",       # pg/mL, lower = more amyloid pathology
+    "csf_ttau",           # pg/mL, higher = worse (total tau)
+    "csf_ptau",           # pg/mL, higher = worse (phosphorylated tau)
 ]
 
 MRI_FEATURES = [
-    "hippocampal_volume",        # mm^3, ICV-normalized, lower = worse
-    "entorhinal_thickness",      # mm, lower = worse
-    "whole_brain_volume",        # mm^3, ICV-normalized, lower = worse
-    "ventricular_volume",        # mm^3, higher = worse
-    "wmh_volume",                  # mm^3, white-matter hyperintensity, higher = worse
+    "etiv",   # estimated total intracranial volume, mm^3
+    "nwbv",   # normalized whole brain volume, fraction of eTIV, lower = worse
+    "asf",     # atlas scaling factor
 ]
 
 PET_FEATURES = [
@@ -68,22 +94,16 @@ STAGE_FEATURES = {
 FEATURE_LABELS = {
     "age": "Age",
     "education_years": "Education (years)",
-    "moca_score": "MoCA Score",
+    "ses": "Socioeconomic Index (1=highest–5=lowest)",
+    "sex_male": "Sex: Male",
     "mmse_score": "MMSE Score",
-    "cdr_global": "CDR Global",
-    "cdr_sob": "CDR Sum of Boxes",
-    "family_history": "Family History of AD",
-    "memory_complaint": "Subjective Memory Complaint",
-    "apoe4_alleles": "APOE4 Allele Count",
-    "abeta42_40_ratio": "Amyloid-β 42/40 Ratio",
-    "p_tau181": "Plasma p-tau181 (pg/mL)",
-    "nfl": "Neurofilament Light (pg/mL)",
-    "gfap": "GFAP (pg/mL)",
-    "hippocampal_volume": "Hippocampal Volume (mm³, norm.)",
-    "entorhinal_thickness": "Entorhinal Cortex Thickness (mm)",
-    "whole_brain_volume": "Whole Brain Volume (mm³, norm.)",
-    "ventricular_volume": "Ventricular Volume (mm³)",
-    "wmh_volume": "White Matter Hyperintensity Volume (mm³)",
+    "apoe4_positive": "APOE4 Positive",
+    "csf_amyloid": "CSF Amyloid-β (pg/mL)",
+    "csf_ttau": "CSF Total Tau (pg/mL)",
+    "csf_ptau": "CSF Phosphorylated Tau (pg/mL)",
+    "etiv": "Estimated Total Intracranial Volume (mm³)",
+    "nwbv": "Normalized Whole Brain Volume",
+    "asf": "Atlas Scaling Factor",
     "amyloid_suvr": "Amyloid PET SUVR",
     "tau_suvr": "Tau PET SUVR",
     "fdg_suvr": "FDG PET SUVR",
@@ -93,22 +113,16 @@ FEATURE_LABELS = {
 FEATURE_HIGHER_IS_WORSE = {
     "age": True,
     "education_years": False,
-    "moca_score": False,
+    "ses": True,
+    "sex_male": False,
     "mmse_score": False,
-    "cdr_global": True,
-    "cdr_sob": True,
-    "family_history": True,
-    "memory_complaint": True,
-    "apoe4_alleles": True,
-    "abeta42_40_ratio": False,
-    "p_tau181": True,
-    "nfl": True,
-    "gfap": True,
-    "hippocampal_volume": False,
-    "entorhinal_thickness": False,
-    "whole_brain_volume": False,
-    "ventricular_volume": True,
-    "wmh_volume": True,
+    "apoe4_positive": True,
+    "csf_amyloid": False,
+    "csf_ttau": True,
+    "csf_ptau": True,
+    "etiv": False,
+    "nwbv": False,
+    "asf": True,
     "amyloid_suvr": True,
     "tau_suvr": True,
     "fdg_suvr": False,
@@ -119,7 +133,7 @@ DIAGNOSIS_CLASSES = ["CN", "MCI", "AD"]  # Cognitively Normal / Mild Cognitive I
 # Escalation thresholds on cumulative risk probability (P(MCI) + P(AD)) that
 # gate advancement to the next, more expensive/invasive stage.
 ESCALATION_THRESHOLDS = {
-    "cognitive": 0.30,  # below this -> routine monitoring, skip blood panel
+    "cognitive": 0.30,  # below this -> routine monitoring, skip CSF panel
     "blood": 0.45,        # below this -> monitor, skip MRI
     "mri": 0.60,           # below this -> monitor, skip PET
 }

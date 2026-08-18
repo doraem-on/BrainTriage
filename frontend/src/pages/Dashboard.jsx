@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { getQueue, getQueueStats } from '../api'
 import PriorityBadge from '../components/PriorityBadge'
-import StatTile from '../components/StatTile'
 import ModelCard from '../components/ModelCard'
+import NeuralBrainCanvas from '../components/NeuralBrainCanvas'
+import TiltCard from '../components/TiltCard'
 
 export default function Dashboard() {
   const [queue, setQueue] = useState(null)
@@ -19,20 +20,54 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1>Triage Dashboard</h1>
-      <p className="subtitle">Patients ranked by AI-prioritized urgency across the adaptive Cognitive → Blood → MRI → PET pathway.</p>
+      <div className="hero-card">
+        <div className="hero-copy">
+          <div className="hero-eyebrow"><span className="dot" /> Live triage engine</div>
+          <h1>Adaptive AI Triage for Early Alzheimer's Diagnosis</h1>
+          <p className="subtitle" style={{ marginBottom: 18 }}>
+            Every patient starts at cognitive screening. The model only escalates to CSF biomarkers,
+            MRI, or PET when the evidence actually justifies the cost — so scarce imaging capacity goes
+            to the patients who need it, not everyone.
+          </p>
+          <div className="source-strip">
+            <span className="source-chip"><span className="dot" style={{ background: 'var(--status-good)' }} /> Cognitive: real OASIS data</span>
+            <span className="source-chip"><span className="dot" style={{ background: 'var(--status-good)' }} /> CSF: real biomarker cohort</span>
+            <span className="source-chip"><span className="dot" style={{ background: 'var(--status-good)' }} /> MRI: real OASIS data</span>
+            <span className="source-chip"><span className="dot" style={{ background: 'var(--text-muted)' }} /> PET: synthetic</span>
+          </div>
+        </div>
+        <div className="hero-viz">
+          <NeuralBrainCanvas height={300} />
+        </div>
+      </div>
 
       {stats && (
         <div className="grid grid-4" style={{ marginBottom: 20 }}>
-          <StatTile label="Patients in cohort" value={stats.total_patients} />
-          <StatTile label="Critical priority" value={stats.by_urgency.critical} accent="var(--status-critical)" />
-          <StatTile label="Reached PET stage" value={stats.stage_reach.pet} accent="var(--series-7)" />
-          <StatTile label="Diagnostic resource saved" value={`${stats.estimated_resource_savings_pct}%`} accent="var(--status-good)" />
+          <TiltCard className="card stat-tile">
+            <div className="stat-value">{stats.total_patients}</div>
+            <div className="stat-label">Patients in cohort</div>
+          </TiltCard>
+          <TiltCard className="card stat-tile">
+            <div className="stat-value" style={{ color: 'var(--status-critical)' }}>{stats.by_urgency.critical}</div>
+            <div className="stat-label">Critical priority</div>
+          </TiltCard>
+          <TiltCard className="card stat-tile">
+            <div className="stat-value" style={{ color: 'var(--series-7)' }}>{stats.stage_reach.pet}</div>
+            <div className="stat-label">Reached PET stage</div>
+          </TiltCard>
+          <TiltCard className="card stat-tile">
+            <div className="stat-value" style={{ color: 'var(--status-good)' }}>{stats.estimated_resource_savings_pct}%</div>
+            <div className="stat-label">Diagnostic resource saved</div>
+          </TiltCard>
         </div>
       )}
 
       <div className="card" style={{ marginBottom: 20 }}>
-        <h3>Priority Queue</h3>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <h3 style={{ margin: 0 }}>Priority Queue</h3>
+          <Link to="/optimize" className="btn" style={{ fontSize: 12.5 }}>Plan this week's capacity →</Link>
+        </div>
+        <div style={{ height: 8 }} />
         {!queue ? (
           <div className="empty-state">Loading…</div>
         ) : queue.length === 0 ? (

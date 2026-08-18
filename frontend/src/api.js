@@ -14,9 +14,12 @@ export const submitStage = (id, stage, data) =>
   api.post(`/api/patients/${id}/stage`, { stage, data }).then(r => r.data)
 export const getHistory = (id) => api.get(`/api/patients/${id}/history`).then(r => r.data)
 export const deletePatient = (id) => api.delete(`/api/patients/${id}`).then(r => r.data)
+export const simulatePatient = (id, overrides) =>
+  api.post(`/api/patients/${id}/simulate`, overrides).then(r => r.data)
 
 export const getQueue = () => api.get('/api/queue').then(r => r.data)
 export const getQueueStats = () => api.get('/api/queue/stats').then(r => r.data)
+export const getOptimize = (slots) => api.get('/api/queue/optimize', { params: slots }).then(r => r.data)
 
 export const reportUrl = (id) => `${api.defaults.baseURL}/api/patients/${id}/report`
 
