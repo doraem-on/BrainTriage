@@ -6,6 +6,7 @@ import PatientDetail from './pages/PatientDetail'
 import ResourceOptimizer from './pages/ResourceOptimizer'
 import CareResources from './pages/CareResources'
 import AIAssistant from './pages/AIAssistant'
+import ImpactDashboard from './pages/ImpactDashboard'
 import Login from './pages/Login'
 import { AuthProvider, useAuth } from './auth'
 
@@ -47,6 +48,10 @@ function Shell() {
         </div>
       </header>
 
+      <div className="safety-gate">
+        ⚠ Decision-support only — not an autonomous diagnosis. Every recommendation requires clinician review, acceptance, or override before it's acted on.
+      </div>
+
       <div className="app-shell">
         <aside className="sidebar">
           <nav className="nav-links">
@@ -61,6 +66,9 @@ function Shell() {
             </NavLink>
             <NavLink to="/optimize" className={({ isActive }) => isActive ? 'active' : ''}>
               <span className="nav-icon">⚙</span> Resource Optimizer
+            </NavLink>
+            <NavLink to="/impact" className={({ isActive }) => isActive ? 'active' : ''}>
+              <span className="nav-icon">📈</span> Impact Dashboard
             </NavLink>
             <NavLink to="/care" className={({ isActive }) => isActive ? 'active' : ''}>
               <span className="nav-icon">✚</span> Care &amp; Resources
@@ -80,6 +88,7 @@ function Shell() {
             <Route path="/records" element={<RequireAuth><PatientRecords /></RequireAuth>} />
             <Route path="/new" element={<RequireAuth><NewPatient /></RequireAuth>} />
             <Route path="/optimize" element={<RequireAuth><ResourceOptimizer /></RequireAuth>} />
+            <Route path="/impact" element={<RequireAuth><ImpactDashboard /></RequireAuth>} />
             <Route path="/care" element={<CareResources />} />
             <Route path="/assistant" element={<RequireAuth><AIAssistant /></RequireAuth>} />
             <Route path="/patients/:id" element={<RequireAuth><PatientDetail /></RequireAuth>} />

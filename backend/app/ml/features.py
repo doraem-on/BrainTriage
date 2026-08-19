@@ -137,3 +137,40 @@ ESCALATION_THRESHOLDS = {
     "blood": 0.45,        # below this -> monitor, skip MRI
     "mri": 0.60,           # below this -> monitor, skip PET
 }
+
+# Abstention: if the top two predicted classes are separated by less than
+# this margin, the model's call is too close to trust at face value — flag
+# it and escalate to the next stage regardless of whether the raw risk
+# probability cleared ESCALATION_THRESHOLDS. This is what stops the pipeline
+# from forcing a confident-looking recommendation out of a genuinely
+# ambiguous case.
+ABSTENTION_MARGIN = 0.15
+
+# Which features are meaningful to run a counterfactual ("what if this had
+# been X instead") against — clinical measurements, not fixed demographic/
+# genetic attributes (age, sex, APOE4 genotype, SES, education aren't
+# "what if" in the same sense).
+COUNTERFACTUAL_ELIGIBLE = {
+    "mmse_score", "csf_amyloid", "csf_ttau", "csf_ptau",
+    "etiv", "nwbv", "asf", "amyloid_suvr", "tau_suvr", "fdg_suvr",
+}
+
+# Plausible clinical range per feature, used to bound the counterfactual
+# search (and reused by the frontend What-If sliders via GET /api/meta/schema).
+FEATURE_RANGES = {
+    "age": (55, 95),
+    "education_years": (0, 20),
+    "ses": (1, 5),
+    "sex_male": (0, 1),
+    "mmse_score": (0, 30),
+    "apoe4_positive": (0, 1),
+    "csf_amyloid": (200, 1000),
+    "csf_ttau": (100, 700),
+    "csf_ptau": (20, 250),
+    "etiv": (1100, 2100),
+    "nwbv": (0.6, 0.85),
+    "asf": (0.85, 1.6),
+    "amyloid_suvr": (0.8, 2.2),
+    "tau_suvr": (0.8, 2.6),
+    "fdg_suvr": (0.85, 1.6),
+}

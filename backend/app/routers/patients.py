@@ -5,8 +5,8 @@ from sqlmodel import Session, select
 
 from app.auth import get_current_user
 from app.database import get_session
-from app.models import Patient, AssessmentHistory
-from app.schemas import PatientCreate, PatientRead, StageSubmit
+from app.models import Patient, AssessmentHistory, ClinicalDecision
+from app.schemas import PatientCreate, PatientRead, StageSubmit, DecisionCreate
 from app.ml.pipeline import run_pipeline
 from app.ml.features import STAGE_ORDER
 
@@ -131,6 +131,51 @@ def simulate(patient_id: int, overrides: dict, session: Session = Depends(get_se
     return result
 
 
+@router.post("/{patient_id}/decision")
+def record_decision(
+    patient_id: int, payload: DecisionCreate,
+    session: Session = Depends(get_session), username: str = Depends(get_current_user),
+):
+    """Human-in-the-loop: log whether the clinician accepted or overrode the
+    AI's CURRENT recommendation for this patient. Required for override:
+    a reason. This is what keeps the system decision-support rather than
+    autonomous — every disposition is attributable to a person and a time.
+    """
+    patient = session.get(Patient, patient_id)
+    if not patient:
+        raise HTTPException(status_code=404, detail="patient not found")
+    if not patient.last_result:
+        raise HTTPException(status_code=400, detail="patient has not been evaluated yet")
+    if payload.decision not in ("accept", "override"):
+        raise HTTPException(status_code=400, detail="decision must be 'accept' or 'override'")
+    if payload.decision == "override" and not payload.override_reason:
+        raise HTTPException(status_code=400, detail="override_reason is required when overriding")
+
+    decision = ClinicalDecision(
+        patient_id=patient_id,
+        decided_by=username,
+        ai_recommendation=patient.last_result["recommendation"],
+        ai_urgency=patient.last_result["urgency"],
+        ai_risk_probability=patient.last_result["final_risk_probability"],
+        decision=payload.decision,
+        override_reason=payload.override_reason,
+        override_note=payload.override_note,
+    )
+    session.add(decision)
+    session.commit()
+    session.refresh(decision)
+    return decision
+
+
+@router.get("/{patient_id}/decisions")
+def list_decisions(patient_id: int, session: Session = Depends(get_session)):
+    return session.exec(
+        select(ClinicalDecision)
+        .where(ClinicalDecision.patient_id == patient_id)
+        .order_by(ClinicalDecision.decided_at.desc())
+    ).all()
+
+
 @router.get("/{patient_id}/history")
 def get_history(patient_id: int, session: Session = Depends(get_session)):
     patient = session.get(Patient, patient_id)
@@ -160,6 +205,8 @@ def delete_patient(patient_id: int, session: Session = Depends(get_session)):
         raise HTTPException(status_code=404, detail="patient not found")
     for r in session.exec(select(AssessmentHistory).where(AssessmentHistory.patient_id == patient_id)).all():
         session.delete(r)
+    for d in session.exec(select(ClinicalDecision).where(ClinicalDecision.patient_id == patient_id)).all():
+        session.delete(d)
     session.delete(patient)
     session.commit()
     return {"ok": True}

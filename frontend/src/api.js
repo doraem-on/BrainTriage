@@ -30,6 +30,10 @@ export const simulatePatient = (id, overrides) =>
 export const getQueue = () => api.get('/api/queue').then(r => r.data)
 export const getQueueStats = () => api.get('/api/queue/stats').then(r => r.data)
 export const getOptimize = (slots) => api.get('/api/queue/optimize', { params: slots }).then(r => r.data)
+export const getImpact = () => api.get('/api/queue/impact').then(r => r.data)
+
+export const recordDecision = (id, payload) => api.post(`/api/patients/${id}/decision`, payload).then(r => r.data)
+export const getDecisions = (id) => api.get(`/api/patients/${id}/decisions`).then(r => r.data)
 
 // Plain <a href> links can't carry the Authorization header, so the PDF is
 // fetched as a blob (picks up the interceptor above) and downloaded via a

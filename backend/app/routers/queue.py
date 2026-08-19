@@ -75,6 +75,46 @@ def get_queue_stats(session: Session = Depends(get_session)):
     }
 
 
+@router.get("/impact")
+def impact_dashboard(session: Session = Depends(get_session)):
+    """The "before vs BrainTriage" comparison: in a traditional pathway,
+    every patient gets every test. Here, a stage only runs if a patient's
+    evidence justified escalating to it — this counts, from real seeded-
+    cohort data, how many CSF/MRI/PET tests that adaptive gating actually
+    avoided vs. running the full battery on everyone.
+
+    These are simulated/seeded-cohort numbers, not a real-world clinical
+    savings claim — labeled as such in the response for the frontend to
+    surface verbatim.
+    """
+    patients = session.exec(select(Patient)).all()
+    total = len(patients)
+
+    attended = {s: 0 for s in STAGE_ORDER}
+    for p in patients:
+        r = p.last_result or {}
+        for sr in r.get("stage_results") or []:
+            if sr["stage"] in attended:
+                attended[sr["stage"]] += 1
+
+    traditional_cost = total * sum(STAGE_COST_UNITS.values())
+    actual_cost = sum(attended[s] * STAGE_COST_UNITS[s] for s in STAGE_ORDER)
+    burden_reduction_pct = (
+        round(100 * (traditional_cost - actual_cost) / traditional_cost, 1) if traditional_cost else 0
+    )
+
+    return {
+        "disclaimer": "Simulated on this seeded/demo cohort — not a real-world clinical savings estimate.",
+        "total_patients": total,
+        "traditional": {s: total for s in STAGE_ORDER},
+        "braintriage": attended,
+        "tests_avoided": {s: total - attended[s] for s in STAGE_ORDER if s != "cognitive"},
+        "traditional_cost_units": traditional_cost,
+        "braintriage_cost_units": actual_cost,
+        "diagnostic_burden_reduction_pct": burden_reduction_pct,
+    }
+
+
 @router.get("/optimize")
 def optimize_resources(
     blood_slots: int = 0, mri_slots: int = 0, pet_slots: int = 0,

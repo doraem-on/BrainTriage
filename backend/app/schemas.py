@@ -36,3 +36,9 @@ class PatientRead(BaseModel):
 class StageSubmit(BaseModel):
     stage: str  # "blood" | "mri" | "pet"
     data: dict
+
+
+class DecisionCreate(BaseModel):
+    decision: str  # "accept" | "override"
+    override_reason: Optional[str] = None
+    override_note: Optional[str] = None

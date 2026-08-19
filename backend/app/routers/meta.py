@@ -7,7 +7,7 @@ from app.auth import get_current_user
 from app.ml.features import (
     STAGE_ORDER, STAGE_LABELS, STAGE_FEATURES, FEATURE_LABELS,
     FEATURE_HIGHER_IS_WORSE, ESCALATION_THRESHOLDS, STAGE_COST_UNITS,
-    DIAGNOSIS_CLASSES, STAGE_DATA_SOURCE,
+    DIAGNOSIS_CLASSES, STAGE_DATA_SOURCE, FEATURE_RANGES, ABSTENTION_MARGIN,
 )
 
 router = APIRouter(prefix="/api/meta", tags=["meta"], dependencies=[Depends(get_current_user)])
@@ -27,6 +27,8 @@ def get_schema():
         "stage_cost_units": STAGE_COST_UNITS,
         "diagnosis_classes": DIAGNOSIS_CLASSES,
         "stage_data_source": STAGE_DATA_SOURCE,
+        "feature_ranges": FEATURE_RANGES,
+        "abstention_margin": ABSTENTION_MARGIN,
     }
 
 

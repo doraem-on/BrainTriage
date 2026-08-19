@@ -7,6 +7,7 @@ import TrajectoryChart from '../components/TrajectoryChart'
 import StageForm from '../components/StageForm'
 import PriorityBadge from '../components/PriorityBadge'
 import WhatIfSimulator from '../components/WhatIfSimulator'
+import ClinicalDecisionPanel from '../components/ClinicalDecisionPanel'
 
 export default function PatientDetail() {
   const { id } = useParams()
@@ -98,12 +99,20 @@ export default function PatientDetail() {
         </div>
       )}
 
+      {result && <ClinicalDecisionPanel patientId={id} />}
+
       {nextStage && (
         <div className="card" style={{ marginBottom: 20 }}>
           <h3>Escalate to {schema.stage_labels[nextStage]}</h3>
           <p className="field-hint" style={{ marginBottom: 12 }}>
-            Cumulative risk crossed the {schema.stage_labels[result.last_stage]} escalation threshold
-            ({Math.round(lastStageResult.threshold * 100)}%). Enter {schema.stage_labels[nextStage].toLowerCase()} results to refine the assessment.
+            {lastStageResult.escalation_reason === 'low_confidence' ? (
+              <>Prediction confidence at the {schema.stage_labels[result.last_stage]} stage was too low to trust
+              (top outcomes separated by only {Math.round(lastStageResult.confidence_margin * 100)}%), so the
+              model is recommending more evidence rather than a forced call.</>
+            ) : (
+              <>Cumulative risk crossed the {schema.stage_labels[result.last_stage]} escalation threshold
+              ({Math.round(lastStageResult.threshold * 100)}%).</>
+            )} Enter {schema.stage_labels[nextStage].toLowerCase()} results to refine the assessment.
           </p>
           <StageForm
             stage={nextStage}
@@ -125,6 +134,29 @@ export default function PatientDetail() {
         <div className="card" style={{ marginBottom: 20 }}>
           <h3>Top Contributing Factors — {schema.stage_labels[lastStageResult.stage]} stage</h3>
           <ExplainabilityChart contributors={lastStageResult.top_contributors} />
+
+          {lastStageResult.counterfactual && (
+            <div className="narrative-box" style={{ marginTop: 16 }}>
+              <strong>Counterfactual:</strong> if {lastStageResult.counterfactual.label.toLowerCase()} had been{' '}
+              <strong>{lastStageResult.counterfactual.counterfactual_value}</strong> instead of{' '}
+              {lastStageResult.counterfactual.current_value}, predicted risk would move to{' '}
+              <strong>{(lastStageResult.counterfactual.resulting_risk * 100).toFixed(0)}%</strong>.
+              <div className="field-hint" style={{ marginTop: 4 }}>Illustrates model sensitivity — not clinical advice about what to change.</div>
+            </div>
+          )}
+
+          <div style={{ marginTop: 16 }}>
+            <div className="field-hint" style={{ fontWeight: 700, marginBottom: 6 }}>EVIDENCE USED</div>
+            <div className="field-hint">
+              This prediction used: {schema.stage_labels[lastStageResult.stage]} data
+              {Object.keys(lastStageResult.upstream_evidence).length > 0 && (
+                <> + prior risk from {Object.entries(lastStageResult.upstream_evidence).map(([s, v]) => `${schema.stage_labels[s]} (${Math.round(v * 100)}%)`).join(', ')}</>
+              )}.
+              {result.missing_stages?.length > 0 && (
+                <> Not yet performed: {result.missing_stages.map(s => schema.stage_labels[s]).join(', ')}.</>
+              )}
+            </div>
+          </div>
         </div>
       )}
 

@@ -117,6 +117,16 @@ body {
   50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--status-good) 10%, transparent); }
 }
 
+.safety-gate {
+  background: color-mix(in srgb, var(--status-warning) 14%, var(--surface-1));
+  border-bottom: 1px solid color-mix(in srgb, var(--status-warning) 30%, transparent);
+  color: #8a6200;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 16px;
+}
+
 .app-shell { display: flex; flex: 1; }
 
 .sidebar {

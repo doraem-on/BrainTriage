@@ -34,3 +34,24 @@ class AssessmentHistory(SQLModel, table=True):
     predicted_class: str
     urgency: str
     result: dict = Field(sa_column=Column(JSON))
+
+
+class ClinicalDecision(SQLModel, table=True):
+    """Human-in-the-loop audit trail: every time a clinician accepts or
+    overrides the AI's recommendation for a patient's CURRENT result, we
+    record who, when, what the AI said, and (if overridden) why. This is
+    what makes the system decision-support rather than autonomous — the
+    model proposes, a clinician disposes, and that disposition is logged.
+    """
+    id: Optional[int] = Field(default=None, primary_key=True)
+    patient_id: int = Field(foreign_key="patient.id", index=True)
+    decided_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    decided_by: str  # username from the auth session
+
+    ai_recommendation: str
+    ai_urgency: str
+    ai_risk_probability: float
+
+    decision: str  # "accept" | "override"
+    override_reason: Optional[str] = None
+    override_note: Optional[str] = None
