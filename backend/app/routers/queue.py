@@ -1,11 +1,12 @@
 from fastapi import APIRouter, Depends
 from sqlmodel import Session, select
 
+from app.auth import get_current_user
 from app.database import get_session
 from app.models import Patient
 from app.ml.features import STAGE_COST_UNITS, STAGE_ORDER, STAGE_LABELS
 
-router = APIRouter(prefix="/api/queue", tags=["queue"])
+router = APIRouter(prefix="/api/queue", tags=["queue"], dependencies=[Depends(get_current_user)])
 
 URGENCY_ORDER = {"critical": 0, "high": 1, "moderate": 2, "low": 3}
 

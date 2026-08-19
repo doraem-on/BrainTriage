@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { getPatient, getSchema, getHistory, submitStage, deletePatient, reportUrl } from '../api'
+import { getPatient, getSchema, getHistory, submitStage, deletePatient, downloadReport } from '../api'
 import PipelineStages from '../components/PipelineStages'
 import ExplainabilityChart from '../components/ExplainabilityChart'
 import TrajectoryChart from '../components/TrajectoryChart'
@@ -17,6 +17,7 @@ export default function PatientDetail() {
   const [error, setError] = useState(null)
   const [submitting, setSubmitting] = useState(false)
   const [tab, setTab] = useState('overview')
+  const [downloading, setDownloading] = useState(false)
 
   const load = useCallback(() => {
     getPatient(id).then(setPatient).catch(() => setError('Patient not found.'))
@@ -50,12 +51,23 @@ export default function PatientDetail() {
   const handleDelete = async () => {
     if (!window.confirm(`Remove ${patient.name} from the cohort?`)) return
     await deletePatient(id)
-    navigate('/')
+    navigate('/records')
+  }
+
+  const handleDownload = async () => {
+    setDownloading(true)
+    try {
+      await downloadReport(id, `braintriage_${patient.external_id}.pdf`)
+    } catch {
+      setError('Failed to download report.')
+    } finally {
+      setDownloading(false)
+    }
   }
 
   return (
     <div>
-      <Link to="/" className="field-hint">← Back to dashboard</Link>
+      <Link to="/records" className="field-hint">← Back to patient records</Link>
       <h1 style={{ marginTop: 8 }}>{patient.name}</h1>
       <p className="subtitle">
         {patient.external_id} · Age {patient.age} · {patient.sex}
@@ -76,7 +88,12 @@ export default function PatientDetail() {
               <strong>{result.predicted_class}</strong> · risk {(result.final_risk_probability * 100).toFixed(0)}% ·
               <span className="field-hint"> {result.recommendation}</span>
             </div>
-            <a className="btn" href={reportUrl(id)} target="_blank" rel="noreferrer">Download PDF report</a>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <Link className="btn" to={`/assistant?patientId=${id}`}>✦ Ask AI about this result</Link>
+              <button className="btn" onClick={handleDownload} disabled={downloading}>
+                {downloading ? 'Preparing…' : 'Download PDF report'}
+              </button>
+            </div>
           </div>
         </div>
       )}

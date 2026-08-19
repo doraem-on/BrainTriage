@@ -1,15 +1,16 @@
 import json
 import os
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 
+from app.auth import get_current_user
 from app.ml.features import (
     STAGE_ORDER, STAGE_LABELS, STAGE_FEATURES, FEATURE_LABELS,
     FEATURE_HIGHER_IS_WORSE, ESCALATION_THRESHOLDS, STAGE_COST_UNITS,
     DIAGNOSIS_CLASSES, STAGE_DATA_SOURCE,
 )
 
-router = APIRouter(prefix="/api/meta", tags=["meta"])
+router = APIRouter(prefix="/api/meta", tags=["meta"], dependencies=[Depends(get_current_user)])
 
 MODEL_DIR = os.path.join(os.path.dirname(__file__), "..", "ml", "artifacts")
 

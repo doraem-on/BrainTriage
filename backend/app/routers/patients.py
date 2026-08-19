@@ -3,13 +3,14 @@ from datetime import datetime, timezone
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session, select
 
+from app.auth import get_current_user
 from app.database import get_session
 from app.models import Patient, AssessmentHistory
 from app.schemas import PatientCreate, PatientRead, StageSubmit
 from app.ml.pipeline import run_pipeline
 from app.ml.features import STAGE_ORDER
 
-router = APIRouter(prefix="/api/patients", tags=["patients"])
+router = APIRouter(prefix="/api/patients", tags=["patients"], dependencies=[Depends(get_current_user)])
 
 STAGE_DATA_FIELD = {
     "cognitive": "cognitive_data",

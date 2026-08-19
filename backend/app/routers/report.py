@@ -12,11 +12,12 @@ from reportlab.platypus import (
 )
 from sqlmodel import Session
 
+from app.auth import get_current_user
 from app.database import get_session
 from app.models import Patient
 from app.ml.features import STAGE_LABELS
 
-router = APIRouter(prefix="/api/patients", tags=["report"])
+router = APIRouter(prefix="/api/patients", tags=["report"], dependencies=[Depends(get_current_user)])
 
 URGENCY_COLOR_HEX = {
     "critical": "#d03b3b",

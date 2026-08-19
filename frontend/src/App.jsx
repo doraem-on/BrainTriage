@@ -1,46 +1,103 @@
-import { Routes, Route, NavLink } from 'react-router-dom'
+import { Routes, Route, Navigate, NavLink, Link, useLocation } from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
+import PatientRecords from './pages/PatientRecords'
 import NewPatient from './pages/NewPatient'
 import PatientDetail from './pages/PatientDetail'
 import ResourceOptimizer from './pages/ResourceOptimizer'
-import NeuralBrainCanvas from './components/NeuralBrainCanvas'
+import CareResources from './pages/CareResources'
+import AIAssistant from './pages/AIAssistant'
+import Login from './pages/Login'
+import { AuthProvider, useAuth } from './auth'
+
+function BackgroundBlobs() {
+  return (
+    <div className="bg-blobs" aria-hidden="true">
+      <div className="bg-blob b1" />
+      <div className="bg-blob b2" />
+      <div className="bg-blob b3" />
+    </div>
+  )
+}
+
+function RequireAuth({ children }) {
+  const { isAuthenticated, checking } = useAuth()
+  const location = useLocation()
+  if (checking) return null
+  if (!isAuthenticated) return <Navigate to="/login" state={{ from: location.pathname }} replace />
+  return children
+}
+
+function Shell() {
+  const { logout, username } = useAuth()
+  return (
+    <div className="app-root">
+      <header className="topbar">
+        <Link to="/" className="topbar-brand">
+          <span className="topbar-mark">B</span>
+          <span className="topbar-word">BrainTriage</span>
+          <span className="topbar-tag">Precision Care Challenge 2026</span>
+        </Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <div className="topbar-status">
+            <span className="dot" /> 3 of 4 stages trained on real published data
+          </div>
+          {username && (
+            <button className="topbar-logout" onClick={logout}>{username} · Sign out</button>
+          )}
+        </div>
+      </header>
+
+      <div className="app-shell">
+        <aside className="sidebar">
+          <nav className="nav-links">
+            <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>
+              <span className="nav-icon">◆</span> Dashboard
+            </NavLink>
+            <NavLink to="/records" className={({ isActive }) => isActive ? 'active' : ''}>
+              <span className="nav-icon">📋</span> Patient Records
+            </NavLink>
+            <NavLink to="/new" className={({ isActive }) => isActive ? 'active' : ''}>
+              <span className="nav-icon">＋</span> New Patient
+            </NavLink>
+            <NavLink to="/optimize" className={({ isActive }) => isActive ? 'active' : ''}>
+              <span className="nav-icon">⚙</span> Resource Optimizer
+            </NavLink>
+            <NavLink to="/care" className={({ isActive }) => isActive ? 'active' : ''}>
+              <span className="nav-icon">✚</span> Care &amp; Resources
+            </NavLink>
+            <NavLink to="/assistant" className={({ isActive }) => isActive ? 'active' : ''}>
+              <span className="nav-icon">✦</span> AI Assistant
+            </NavLink>
+          </nav>
+          <div className="sidebar-footer">
+            <strong>Adaptive AI triage</strong> for early Alzheimer's diagnostic pathways.<br /><br />
+            Research/hackathon prototype — not a validated diagnostic device.
+          </div>
+        </aside>
+        <main className="main">
+          <Routes>
+            <Route path="/" element={<RequireAuth><Dashboard /></RequireAuth>} />
+            <Route path="/records" element={<RequireAuth><PatientRecords /></RequireAuth>} />
+            <Route path="/new" element={<RequireAuth><NewPatient /></RequireAuth>} />
+            <Route path="/optimize" element={<RequireAuth><ResourceOptimizer /></RequireAuth>} />
+            <Route path="/care" element={<CareResources />} />
+            <Route path="/assistant" element={<RequireAuth><AIAssistant /></RequireAuth>} />
+            <Route path="/patients/:id" element={<RequireAuth><PatientDetail /></RequireAuth>} />
+          </Routes>
+        </main>
+      </div>
+    </div>
+  )
+}
 
 export default function App() {
   return (
-    <div className="app-shell">
-      <aside className="sidebar">
-        <div className="brand">
-          <span className="brand-mark" />
-          BrainTriage
-        </div>
-        <div className="brand-sidebar-viz">
-          <NeuralBrainCanvas height={140} nodeColor={0x9085e9} edgeColor={0x4a3aa7} />
-        </div>
-        <nav className="nav-links">
-          <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>
-            <span className="nav-icon">◆</span> Dashboard
-          </NavLink>
-          <NavLink to="/new" className={({ isActive }) => isActive ? 'active' : ''}>
-            <span className="nav-icon">＋</span> New Patient
-          </NavLink>
-          <NavLink to="/optimize" className={({ isActive }) => isActive ? 'active' : ''}>
-            <span className="nav-icon">⚙</span> Resource Optimizer
-          </NavLink>
-        </nav>
-        <div className="sidebar-footer">
-          <strong>Precision Care Challenge 2026</strong><br />
-          Adaptive AI triage for early Alzheimer's diagnostic pathways.<br /><br />
-          3 of 4 stages train on real published data — see Model Card.
-        </div>
-      </aside>
-      <main className="main">
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/new" element={<NewPatient />} />
-          <Route path="/optimize" element={<ResourceOptimizer />} />
-          <Route path="/patients/:id" element={<PatientDetail />} />
-        </Routes>
-      </main>
-    </div>
+    <AuthProvider>
+      <BackgroundBlobs />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/*" element={<Shell />} />
+      </Routes>
+    </AuthProvider>
   )
 }
