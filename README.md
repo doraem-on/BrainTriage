@@ -1,4 +1,4 @@
-# BrainTriage
+# BrainTriage project
 
 AI-driven prioritization for early Alzheimer's diagnostic pathways — built for
 the **Precision Care Challenge 2026**.
