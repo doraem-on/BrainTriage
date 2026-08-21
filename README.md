@@ -59,7 +59,7 @@ frontend/  React (Vite) + Recharts
 cd backend
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python fetch_real_data.py   # pulls the CSF cohort (needs ~/.kaggle/kaggle.json); OASIS is already committed
+python fetch_real_data.py   # pulls the CSF cohort anonymously, no Kaggle account needed; OASIS is already committed
 python seed_demo.py            # optional: populate demo patients
 uvicorn app.main:app --reload --port 8000
 ```
@@ -81,12 +81,14 @@ Open http://localhost:5173.
 
 ```bash
 docker build -t braintriage .
-docker run -p 8000:8000 -e KAGGLE_USERNAME=... -e KAGGLE_KEY=... braintriage
+docker run -p 8000:8000 braintriage
 ```
 
-Open http://localhost:8000 — the backend serves the built frontend directly.
+No environment variables required — the CSF dataset downloads anonymously
+from its public Kaggle listing at container start. Open
+http://localhost:8000 — the backend serves the built frontend directly.
 See [docs/DEPLOY.md](docs/DEPLOY.md) for deploying this publicly (Render
-Blueprint included — `render.yaml`).
+and Railway both covered — `render.yaml` included).
 
 ## Repo layout
 

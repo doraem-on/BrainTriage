@@ -5,7 +5,8 @@
 # from the FastAPI backend, so there's exactly one URL and no CORS setup.
 #
 # To deploy: render.com -> New + -> Blueprint -> connect this repo. Render
-# will prompt for the `sync: false` secrets below before the first deploy.
+# may prompt for the two `sync: false` vars below — both are optional and
+# safe to leave blank; see the comments on each.
 services:
   - type: web
     name: braintriage
@@ -14,13 +15,14 @@ services:
     dockerfilePath: ./Dockerfile
     dockerContext: .
     envVars:
-      # Required — the CSF biomarker cohort is fetched at container start
-      # from Kaggle (its CC BY-NC-ND license is why it isn't committed to
-      # the repo; see docs/DATA_NOTE.md). Get these from
-      # https://www.kaggle.com/settings -> API -> Create New Token.
-      - key: KAGGLE_USERNAME
-        sync: false
-      - key: KAGGLE_KEY
+      # Optional — the CSF biomarker cohort downloads anonymously from its
+      # public Kaggle listing at container start (verified working with no
+      # credentials at all), so this is only a fallback in case Kaggle ever
+      # rate-limits/blocks anonymous access from this platform's IP range.
+      # Get a value from https://www.kaggle.com/settings -> API Tokens ->
+      # Generate New Token if you need to set it — paste it straight into
+      # this field, never into a screenshot or chat.
+      - key: KAGGLE_API_TOKEN
         sync: false
       # Optional — leave unset to ship with the AI Assistant tab showing
       # its "not configured" setup card instead of live chat. Only set
