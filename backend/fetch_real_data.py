@@ -13,8 +13,8 @@ and Disease, 14(5), 1728. DOI: 10.34810/data614
 Kaggle mirror: fereshtehjozaghkar/plasma-lipidomics-in-alzheimers-disease
 """
 import os
+import shutil
 import subprocess
-import sys
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "app", "data_external")
 CSV_NAME = "csf_biomarkers.csv"
@@ -27,8 +27,14 @@ def main():
         print(f"{target} already present, skipping download.")
         return
 
+    kaggle_bin = shutil.which("kaggle")
+    if not kaggle_bin:
+        raise RuntimeError(
+            "kaggle CLI not found on PATH — `pip install kaggle` installs it as a "
+            "console script, not a `python -m kaggle` module (it has no __main__.py)."
+        )
     subprocess.run([
-        sys.executable, "-m", "kaggle", "datasets", "download",
+        kaggle_bin, "datasets", "download",
         "-d", "fereshtehjozaghkar/plasma-lipidomics-in-alzheimers-disease",
         "-p", DATA_DIR, "--unzip",
     ], check=True)

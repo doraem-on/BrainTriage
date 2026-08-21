@@ -1,7 +1,11 @@
 import axios from 'axios'
 
+// Local dev (vite dev server on :5173, backend on :8000) needs an absolute
+// URL. A production build served by the backend itself (see Dockerfile) sets
+// VITE_API_BASE_URL="" at build time so requests go same-origin instead —
+// note the ?? (not ||): an explicitly-empty string must NOT fall back.
 const api = axios.create({
-  baseURL: 'http://localhost:8000',
+  baseURL: import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000',
 })
 
 api.interceptors.request.use((config) => {

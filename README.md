@@ -77,6 +77,17 @@ npm run dev
 
 Open http://localhost:5173.
 
+### 3. Or run the whole thing as one Docker container
+
+```bash
+docker build -t braintriage .
+docker run -p 8000:8000 -e KAGGLE_USERNAME=... -e KAGGLE_KEY=... braintriage
+```
+
+Open http://localhost:8000 — the backend serves the built frontend directly.
+See [docs/DEPLOY.md](docs/DEPLOY.md) for deploying this publicly (Render
+Blueprint included — `render.yaml`).
+
 ## Repo layout
 
 ```

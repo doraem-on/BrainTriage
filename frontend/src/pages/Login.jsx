@@ -28,6 +28,19 @@ export default function Login() {
     }
   }
 
+  const handleDemoAccess = async () => {
+    setError(null)
+    setSubmitting(true)
+    try {
+      await login('admin', 'braintriage2026')
+      navigate(from, { replace: true })
+    } catch {
+      setError('Demo access is unavailable — the deployed instance may have changed the default credentials.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
     <div className="login-screen">
       <div className="login-visual">
@@ -58,9 +71,22 @@ export default function Login() {
             </button>
           </form>
 
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '18px 0' }}>
+            <div style={{ flex: 1, height: 1, background: 'var(--gridline)' }} />
+            <span className="field-hint">or</span>
+            <div style={{ flex: 1, height: 1, background: 'var(--gridline)' }} />
+          </div>
+
+          <button className="btn" type="button" style={{ width: '100%', justifyContent: 'center' }} onClick={handleDemoAccess} disabled={submitting}>
+            👋 Continue as Demo Admin
+          </button>
+
           <div className="disclaimer" style={{ marginTop: 20 }}>
-            Demo credentials: <code>admin</code> / <code>braintriage2026</code> (change in backend/.env before any real use).
-            Looking for hospital locations or emergency numbers? <a href="/care">Care &amp; Resources</a> is open without sign-in.
+            This is a public demo instance with synthetic/seeded data — the button above signs in with
+            the shared demo credentials (<code>admin</code> / <code>braintriage2026</code>) so anyone with
+            the link can explore without asking for a password. Change these in <code>backend/.env</code>
+            before any real deployment. Looking for hospital locations or emergency numbers?{' '}
+            <a href="/care">Care &amp; Resources</a> is open without sign-in.
           </div>
         </div>
       </div>

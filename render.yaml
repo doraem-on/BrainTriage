@@ -1,0 +1,39 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+#
+# Deploys BrainTriage as a single Docker service (see Dockerfile at repo
+# root): the container builds the React frontend and serves it directly
+# from the FastAPI backend, so there's exactly one URL and no CORS setup.
+#
+# To deploy: render.com -> New + -> Blueprint -> connect this repo. Render
+# will prompt for the `sync: false` secrets below before the first deploy.
+services:
+  - type: web
+    name: braintriage
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      # Required — the CSF biomarker cohort is fetched at container start
+      # from Kaggle (its CC BY-NC-ND license is why it isn't committed to
+      # the repo; see docs/DATA_NOTE.md). Get these from
+      # https://www.kaggle.com/settings -> API -> Create New Token.
+      - key: KAGGLE_USERNAME
+        sync: false
+      - key: KAGGLE_KEY
+        sync: false
+      # Optional — leave unset to ship with the AI Assistant tab showing
+      # its "not configured" setup card instead of live chat. Only set
+      # this if you're comfortable with a public link being able to spend
+      # against this key; there's no per-visitor rate limiting.
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      # Public demo credentials — intentionally shared (see the "Continue
+      # as Demo Admin" button on the login page). Change these if you want
+      # this deployment to be less than fully public.
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        value: braintriage2026
+      - key: JWT_SECRET
+        generateValue: true

@@ -1,0 +1,13 @@
+backend/.venv
+backend/__pycache__
+backend/app/__pycache__
+backend/app/**/__pycache__
+backend/app/ml/artifacts
+backend/app/data_external
+backend/braintriage.db
+backend/.env
+frontend/node_modules
+frontend/dist
+.git
+docs
+*.md
