@@ -108,19 +108,42 @@ def _stream_gemini(api_key: str, system: str, messages: list[dict]):
     client = genai.Client(api_key=api_key)
     transcript = "\n\n".join(f"{m['role'].upper()}: {m['content']}" for m in messages)
 
+    # What looked like ~50% of calls silently returning empty turned out to
+    # be quota_exceeded events on the free tier (20 req/min for this model)
+    # — the stream emits an explicit event_type="error" in that case, which
+    # earlier code never checked for, so it read as an unexplained blank
+    # response instead of the real, actionable error. Quota errors aren't
+    # worth retrying (that only burns through the limit faster and the API
+    # already tells us how long to wait); a genuinely empty stream with no
+    # error event at all gets one bounded retry.
+    MAX_ATTEMPTS = 2
     try:
-        stream = client.interactions.create(
-            model=GEMINI_MODEL,
-            system_instruction=system,
-            input=transcript,
-            stream=True,
-        )
-        for event in stream:
-            if getattr(event, "event_type", None) == "step.delta":
-                delta = getattr(event, "delta", None)
-                if delta is not None and getattr(delta, "type", None) == "text":
-                    yield f"data: {json.dumps({'text': delta.text})}\n\n"
-        yield "data: [DONE]\n\n"
+        for attempt in range(1, MAX_ATTEMPTS + 1):
+            stream = client.interactions.create(
+                model=GEMINI_MODEL,
+                system_instruction=system,
+                input=transcript,
+                stream=True,
+            )
+            got_text = False
+            stream_error = None
+            for event in stream:
+                event_type = getattr(event, "event_type", None)
+                if event_type == "step.delta":
+                    delta = getattr(event, "delta", None)
+                    if delta is not None and getattr(delta, "type", None) == "text":
+                        got_text = True
+                        yield f"data: {json.dumps({'text': delta.text})}\n\n"
+                elif event_type == "error":
+                    err = getattr(event, "error", None)
+                    stream_error = getattr(err, "message", None) or str(err)
+            if got_text:
+                yield "data: [DONE]\n\n"
+                return
+            if stream_error:
+                yield f"data: {json.dumps({'error': f'Gemini API error: {stream_error}'})}\n\n"
+                return
+        yield f"data: {json.dumps({'error': f'Gemini returned an empty response after {MAX_ATTEMPTS} attempts — please try again.'})}\n\n"
     except Exception as e:
         # The interactions API's error classes live in a private module
         # (google.genai._gaos.lib.compat_errors), not the public `errors`
