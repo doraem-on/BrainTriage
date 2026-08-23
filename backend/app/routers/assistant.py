@@ -1,9 +1,11 @@
-"""AI caregiver assistant, backed by the Claude API.
+"""AI caregiver assistant, backed by Claude and/or Gemini — the frontend
+picks whichever provider(s) are configured.
 
-Streams via Server-Sent Events so the frontend chat widget can render tokens
-as they arrive. The API key never reaches the browser — it's read
-server-side from ANTHROPIC_API_KEY (see backend/.env.example). If it's not
-set, /chat returns a 503 with setup instructions instead of failing opaquely.
+Streams via Server-Sent Events so the frontend chat widget can render
+tokens as they arrive. API keys never reach the browser — they're read
+server-side from ANTHROPIC_API_KEY / GEMINI_API_KEY (see
+backend/.env.example). If a requested provider isn't configured, /chat
+returns a 503 with setup instructions instead of failing opaquely.
 """
 import json
 import os
@@ -17,7 +19,8 @@ from app.auth import get_current_user
 
 router = APIRouter(prefix="/api/assistant", tags=["assistant"], dependencies=[Depends(get_current_user)])
 
-MODEL = "claude-opus-5"
+CLAUDE_MODEL = "claude-opus-5"
+GEMINI_MODEL = "gemini-3.7-flash"
 
 SYSTEM_PROMPT = """You are the caregiver-facing AI assistant embedded in BrainTriage, an \
 adaptive Alzheimer's diagnostic triage prototype (Precision Care Challenge 2026, built \
@@ -51,6 +54,7 @@ class ChatMessage(BaseModel):
 class ChatRequest(BaseModel):
     messages: list[ChatMessage]
     patient_context: dict | None = None
+    provider: str = "claude"  # "claude" | "gemini"
 
 
 def _build_system(patient_context: dict | None) -> str:
@@ -66,39 +70,84 @@ def _build_system(patient_context: dict | None) -> str:
 
 @router.get("/status")
 def status():
-    return {"configured": bool(os.environ.get("ANTHROPIC_API_KEY"))}
+    return {
+        "configured": bool(os.environ.get("ANTHROPIC_API_KEY")),  # kept for back-compat
+        "providers": {
+            "claude": bool(os.environ.get("ANTHROPIC_API_KEY")),
+            "gemini": bool(os.environ.get("GEMINI_API_KEY")),
+        },
+    }
+
+
+def _stream_claude(api_key: str, system: str, messages: list[dict]):
+    client = anthropic.Anthropic(api_key=api_key)
+    try:
+        with client.messages.stream(
+            model=CLAUDE_MODEL,
+            max_tokens=1536,
+            system=system,
+            messages=messages,
+        ) as stream:
+            for text in stream.text_stream:
+                yield f"data: {json.dumps({'text': text})}\n\n"
+        yield "data: [DONE]\n\n"
+    except anthropic.APIStatusError as e:
+        yield f"data: {json.dumps({'error': f'Claude API error ({e.status_code}): {e.message}'})}\n\n"
+    except anthropic.APIConnectionError:
+        yield f"data: {json.dumps({'error': 'Could not reach the Claude API. Check network connectivity.'})}\n\n"
+
+
+def _stream_gemini(api_key: str, system: str, messages: list[dict]):
+    # Gemini's Interactions API is stateful (multi-turn via previous_interaction_id
+    # chaining) rather than stateless-with-full-history like Claude's Messages API.
+    # We already resend the whole conversation from the frontend each request (to
+    # stay symmetric with the Claude path and avoid persisting Gemini-specific
+    # interaction IDs server-side), so history is flattened into one prompt instead.
+    from google import genai
+
+    client = genai.Client(api_key=api_key)
+    transcript = "\n\n".join(f"{m['role'].upper()}: {m['content']}" for m in messages)
+
+    try:
+        stream = client.interactions.create(
+            model=GEMINI_MODEL,
+            system_instruction=system,
+            input=transcript,
+            stream=True,
+        )
+        for event in stream:
+            if getattr(event, "event_type", None) == "step.delta":
+                delta = getattr(event, "delta", None)
+                if delta is not None and getattr(delta, "type", None) == "text":
+                    yield f"data: {json.dumps({'text': delta.text})}\n\n"
+        yield "data: [DONE]\n\n"
+    except Exception as e:
+        # The interactions API's error classes live in a private module
+        # (google.genai._gaos.lib.compat_errors), not the public `errors`
+        # module — pull the useful bits off duck-typed attributes instead
+        # of importing a private path that could shift under us.
+        status_code = getattr(e, "status_code", None)
+        message = getattr(e, "message", None) or str(e)
+        prefix = f"Gemini API error ({status_code})" if status_code else "Could not reach the Gemini API"
+        yield f"data: {json.dumps({'error': f'{prefix}: {message}'})}\n\n"
 
 
 @router.post("/chat")
 def chat(payload: ChatRequest):
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    provider = payload.provider if payload.provider in ("claude", "gemini") else "claude"
+    env_key = "ANTHROPIC_API_KEY" if provider == "claude" else "GEMINI_API_KEY"
+    api_key = os.environ.get(env_key)
     if not api_key:
         raise HTTPException(
             status_code=503,
             detail=(
-                "AI Assistant isn't configured. Add ANTHROPIC_API_KEY to backend/.env "
-                "(see backend/.env.example) and restart the backend."
+                f"The {provider.capitalize()} provider isn't configured. Add {env_key} to "
+                "backend/.env (see backend/.env.example) and restart the backend."
             ),
         )
 
-    client = anthropic.Anthropic(api_key=api_key)
     system = _build_system(payload.patient_context)
     messages = [{"role": m.role, "content": m.content} for m in payload.messages]
 
-    def event_stream():
-        try:
-            with client.messages.stream(
-                model=MODEL,
-                max_tokens=1536,
-                system=system,
-                messages=messages,
-            ) as stream:
-                for text in stream.text_stream:
-                    yield f"data: {json.dumps({'text': text})}\n\n"
-            yield "data: [DONE]\n\n"
-        except anthropic.APIStatusError as e:
-            yield f"data: {json.dumps({'error': f'API error ({e.status_code}): {e.message}'})}\n\n"
-        except anthropic.APIConnectionError:
-            yield f"data: {json.dumps({'error': 'Could not reach the Claude API. Check network connectivity.'})}\n\n"
-
-    return StreamingResponse(event_stream(), media_type="text/event-stream")
+    stream_fn = _stream_claude if provider == "claude" else _stream_gemini
+    return StreamingResponse(stream_fn(api_key, system, messages), media_type="text/event-stream")

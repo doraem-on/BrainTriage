@@ -17,7 +17,7 @@ client falls back to anonymous access for public datasets).
 | Variable | Needed? | What it's for |
 |---|---|---|
 | `KAGGLE_API_TOKEN` | Only if anonymous downloads ever get rate-limited/blocked from your host's IP | Get it from [kaggle.com/settings](https://www.kaggle.com/settings) → **API Tokens** → **Generate New Token** — paste the value directly into the platform's own env var field. **Never into a chat, screenshot, or commit** — if one leaks, revoke it on that same settings page immediately. |
-| `ANTHROPIC_API_KEY` | Only if you want the AI Assistant tab to actually respond | Leave unset and it shows a "not configured" card instead. No per-visitor rate limiting yet, so a public link with this set can spend against your key — set deliberately. |
+| `ANTHROPIC_API_KEY` / `GEMINI_API_KEY` | Only if you want the AI Assistant tab to actually respond | Leave both unset and it shows a "not configured" card instead. Set either or both — the frontend lets the user pick between whichever provider(s) are configured. No per-visitor rate limiting yet, so a public link with either of these set can spend against that key — set deliberately. |
 | `ADMIN_USERNAME` / `ADMIN_PASSWORD` | No — defaults to `admin` / `braintriage2026` | Change these if you want this deployment to require a real password instead of the "Continue as Demo Admin" one-click login. |
 | `JWT_SECRET` | Recommended | Any random string, signs login sessions. Render auto-generates one; set it by hand elsewhere. |
 
@@ -26,8 +26,8 @@ client falls back to anonymous access for public datasets).
 1. Go to [render.com](https://render.com), sign in (GitHub login is easiest).
 2. **New +** → **Blueprint** → connect GitHub → select the `BrainTriage` repo.
    Render detects `render.yaml` automatically.
-3. It may prompt for `KAGGLE_API_TOKEN` / `ANTHROPIC_API_KEY` — both are
-   fine to leave blank per the table above.
+3. It may prompt for `KAGGLE_API_TOKEN` / `ANTHROPIC_API_KEY` / `GEMINI_API_KEY`
+   — all are fine to leave blank per the table above.
 4. Click **Apply** / **Deploy Blueprint**. First build takes a few minutes.
 5. **Note**: Render requires a card on file (a $1 verification hold, not a
    charge) before it'll provision a service via Blueprint, even on the free

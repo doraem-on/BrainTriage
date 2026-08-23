@@ -9,7 +9,9 @@ const SUGGESTIONS = [
   'What lifestyle changes actually help slow cognitive decline?',
 ]
 
-async function streamChat(messages, patientContext, onToken, onDone, onError) {
+const PROVIDER_LABEL = { claude: 'Claude', gemini: 'Gemini' }
+
+async function streamChat(messages, patientContext, provider, onToken, onDone, onError) {
   const token = localStorage.getItem('bt_token')
   const resp = await fetch(`${API_BASE_URL}/api/assistant/chat`, {
     method: 'POST',
@@ -17,7 +19,7 @@ async function streamChat(messages, patientContext, onToken, onDone, onError) {
       'Content-Type': 'application/json',
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
-    body: JSON.stringify({ messages, patient_context: patientContext }),
+    body: JSON.stringify({ messages, patient_context: patientContext, provider }),
   })
   if (!resp.ok) {
     const body = await resp.json().catch(() => ({}))
@@ -51,6 +53,7 @@ export default function AIAssistant() {
   const [searchParams] = useSearchParams()
   const patientId = searchParams.get('patientId')
   const [status, setStatus] = useState(null)
+  const [provider, setProvider] = useState('claude')
   const [patient, setPatient] = useState(null)
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
@@ -58,9 +61,19 @@ export default function AIAssistant() {
   const [error, setError] = useState(null)
   const bottomRef = useRef(null)
 
-  useEffect(() => { getAssistantStatus().then(setStatus) }, [])
+  useEffect(() => {
+    getAssistantStatus().then(s => {
+      setStatus(s)
+      const configured = Object.entries(s.providers || {}).find(([, ok]) => ok)
+      if (configured) setProvider(configured[0])
+    })
+  }, [])
   useEffect(() => { if (patientId) getPatient(patientId).then(setPatient) }, [patientId])
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [messages])
+
+  const providers = status?.providers || {}
+  const availableProviders = Object.entries(providers).filter(([, ok]) => ok).map(([k]) => k)
+  const anyConfigured = availableProviders.length > 0
 
   const patientContext = patient?.last_result ? {
     name: patient.name,
@@ -82,7 +95,7 @@ export default function AIAssistant() {
     setStreaming(true)
 
     await streamChat(
-      nextMessages, patientContext,
+      nextMessages, patientContext, provider,
       (token) => setMessages(prev => {
         const copy = [...prev]
         copy[copy.length - 1] = { role: 'assistant', content: copy[copy.length - 1].content + token }
@@ -95,11 +108,23 @@ export default function AIAssistant() {
 
   return (
     <div>
-      <h1>AI Assistant</h1>
-      <p className="subtitle">
-        Ask about Alzheimer's, dementia care, or (when opened from a patient) this
-        patient's specific result. Not a diagnostic tool — always confirm with a clinician.
-      </p>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
+        <div>
+          <h1>AI Assistant</h1>
+          <p className="subtitle">
+            Ask about Alzheimer's, dementia care, or (when opened from a patient) this
+            patient's specific result. Not a diagnostic tool — always confirm with a clinician.
+          </p>
+        </div>
+        {availableProviders.length > 1 && (
+          <div className="field" style={{ minWidth: 160 }}>
+            <label>Model</label>
+            <select value={provider} onChange={e => setProvider(e.target.value)}>
+              {availableProviders.map(p => <option key={p} value={p}>{PROVIDER_LABEL[p] || p}</option>)}
+            </select>
+          </div>
+        )}
+      </div>
 
       {patient && (
         <div className="disclaimer" style={{ marginBottom: 16 }}>
@@ -107,21 +132,20 @@ export default function AIAssistant() {
         </div>
       )}
 
-      {status?.configured === false && (
+      {status && !anyConfigured && (
         <div className="card">
           <h3>AI Assistant not configured</h3>
           <p style={{ fontSize: 14, lineHeight: 1.6 }}>
-            This feature calls the Claude API server-side. To enable it:
+            This feature calls Claude and/or Gemini server-side. To enable it, set one or both in <code>backend/.env</code> (copy from <code>backend/.env.example</code>) and restart the backend:
           </p>
-          <ol style={{ fontSize: 14, lineHeight: 1.8, paddingLeft: 20 }}>
-            <li>Copy <code>backend/.env.example</code> to <code>backend/.env</code></li>
-            <li>Set <code>ANTHROPIC_API_KEY=your-key</code></li>
-            <li>Restart the backend (<code>uvicorn app.main:app --reload --port 8000</code>)</li>
-          </ol>
+          <ul style={{ fontSize: 14, lineHeight: 1.8, paddingLeft: 20 }}>
+            <li><code>ANTHROPIC_API_KEY=your-key</code> for Claude</li>
+            <li><code>GEMINI_API_KEY=your-key</code> for Gemini</li>
+          </ul>
         </div>
       )}
 
-      {status?.configured && (
+      {anyConfigured && (
         <div className="card" style={{ display: 'flex', flexDirection: 'column', height: 520 }}>
           <div style={{ flex: 1, overflowY: 'auto', paddingRight: 4 }}>
             {messages.length === 0 && (

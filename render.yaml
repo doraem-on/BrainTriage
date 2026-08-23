@@ -24,11 +24,15 @@ services:
       # this field, never into a screenshot or chat.
       - key: KAGGLE_API_TOKEN
         sync: false
-      # Optional — leave unset to ship with the AI Assistant tab showing
-      # its "not configured" setup card instead of live chat. Only set
-      # this if you're comfortable with a public link being able to spend
-      # against this key; there's no per-visitor rate limiting.
+      # Optional — leave both unset to ship with the AI Assistant tab
+      # showing its "not configured" setup card instead of live chat. Set
+      # either or both (the frontend lets the user pick between whichever
+      # is configured) — only if you're comfortable with a public link
+      # being able to spend against the key; there's no per-visitor rate
+      # limiting.
       - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
         sync: false
       # Public demo credentials — intentionally shared (see the "Continue
       # as Demo Admin" button on the login page). Change these if you want
