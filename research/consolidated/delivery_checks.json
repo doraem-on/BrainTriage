@@ -1,0 +1,22 @@
+{
+  "figures": 20,
+  "equations": 16,
+  "tables": 10,
+  "references": 28,
+  "new_model_fits": 0,
+  "new_external_evaluations": 0,
+  "source_studies": [
+    "extension_v2",
+    "extension_v3",
+    "extension_v4"
+  ],
+  "manuscript_pages": 29,
+  "all_pages_visually_reviewed": true,
+  "text_color": "black",
+  "figure_color": "monochrome",
+  "figure_and_equation_numbering_verified": true,
+  "frozen_external_code_protocol_and_models_unchanged": true,
+  "revision_scope": "Consolidation, explanatory diagrams and monochrome rendering from saved results; no new fitting or evaluation",
+  "manuscript_sha256": "8af3cf1e7d3495e579fbe2b17ce6ef713486070cdc084e57cbfdf503c0e5a8f4",
+  "original_ad_ftd_external_validation": "Still unavailable; independent AD/HC companion results are a different endpoint"
+}

@@ -1,0 +1,165 @@
+[
+  {
+    "id": 1,
+    "reference": "Miltiadous A, et al. A Dataset of Scalp EEG Recordings of Alzheimer\u2019s Disease, Frontotemporal Dementia and Healthy Subjects from Routine EEG. Data. 2023;8(6):95.",
+    "url": "https://doi.org/10.3390/data8060095"
+  },
+  {
+    "id": 2,
+    "reference": "Smith K, Ab\u00e1solo D, Escudero J. Accounting for the complex hierarchical topology of EEG phase-based functional connectivity in network binarisation. PLoS ONE. 2017;12(10):e0186164.",
+    "url": "https://doi.org/10.1371/journal.pone.0186164"
+  },
+  {
+    "id": 3,
+    "reference": "Smith K. Public analysis data accompanying the network binarisation study. OSF project JBYSN; AD_Data.tar.gz. Accessed 20 November 2026.",
+    "url": "https://osf.io/jbysn/"
+  },
+  {
+    "id": 4,
+    "reference": "DL4mHealth. LEAD APAVA preprocessing notebook. Diagnosis mapping in data_preprocessing/APAVA/APAVA_preprocessing.ipynb, Git blob b6b9c130b9e519366c2844a8c203b80c9d5d8536. Accessed 20 November 2026.",
+    "url": "https://github.com/DL4mHealth/LEAD/blob/main/data_preprocessing/APAVA/APAVA_preprocessing.ipynb"
+  },
+  {
+    "id": 5,
+    "reference": "Chen Y, Wiesel A, Eldar YC, Hero AO. Shrinkage Algorithms for MMSE Covariance Estimation. IEEE Transactions on Signal Processing. 2010.",
+    "url": "https://arxiv.org/abs/0907.4698"
+  },
+  {
+    "id": 6,
+    "reference": "Hou R, Tang S, Jin W. An Adaptive Machine Learning Triage Framework for Predicting Alzheimer\u2019s Disease Progression. ML4H Findings. 2025.",
+    "url": "https://arxiv.org/abs/2511.06681"
+  },
+  {
+    "id": 7,
+    "reference": "Varma S, Simon R. Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics. 2006;7:91.",
+    "url": "https://doi.org/10.1186/1471-2105-7-91"
+  },
+  {
+    "id": 8,
+    "reference": "OpenNeuro ds006036 providers. README documenting participant overlap with ds004504. Accessed 20 November 2026.",
+    "url": "https://github.com/OpenNeuroDatasets/ds006036/blob/main/README"
+  },
+  {
+    "id": 9,
+    "reference": "Prado P, et al. The BrainLat project, a multimodal neuroimaging dataset of neurodegeneration from underrepresented backgrounds. Scientific Data. 2023;10:889.",
+    "url": "https://doi.org/10.1038/s41597-023-02806-8"
+  },
+  {
+    "id": 10,
+    "reference": "Ma C, Tschiatschek S, Palla K, Hernandez-Lobato JM, Nowozin S, Zhang C. EDDI Efficient Dynamic Discovery of High-Value Information with Partial VAE. ICML. PMLR 97:4234\u20134243. 2019.",
+    "url": "https://proceedings.mlr.press/v97/ma19c.html",
+    "role": "Prior information-gain acquisition. Our Gaussian comparator is explicitly simplified and does not reproduce EDDI."
+  },
+  {
+    "id": 11,
+    "reference": "Li Y, Oliva J. Active Feature Acquisition with Generative Surrogate Models. ICML. PMLR 139:6450\u20136459. 2021.",
+    "url": "https://proceedings.mlr.press/v139/li21p.html",
+    "role": "Motivates modeling unobserved features conditional on observed inputs; our comparator has no reinforcement-learning agent."
+  },
+  {
+    "id": 12,
+    "reference": "Valancius M, Lennon M, Oliva J. Acquisition Conditioned Oracle for Nongreedy Active Feature Acquisition. ICML. PMLR 235:48957\u201348975. 2024.",
+    "url": "https://proceedings.mlr.press/v235/valancius24a.html",
+    "role": "Established nongreedy acquisition literature; our one-panel batch allocation does not address sequential feature complementarities. Our outcome-informed diagnostic oracle is not the ACO algorithm."
+  },
+  {
+    "id": 13,
+    "reference": "Guney OB, Saichandran KS, Elzokm K, Zhang Z, Kolachalama VB. Active feature acquisition via explainability-driven ranking. ICML. PMLR 267:20748\u201320765. 2025.",
+    "url": "https://proceedings.mlr.press/v267/guney25a.html",
+    "role": "Prior individual acquisition rankings learned from explanations. Our gate is learned from observed loss changes, not a transformer or SHAP ranking."
+  },
+  {
+    "id": 14,
+    "reference": "Kobayashi Y, Jing Z, Yao J, Namkoong H, Joshi S. Learning-To-Measure In-Context Active Feature Acquisition. ICML. PMLR 306:59720\u201359752. 2026.",
+    "url": "https://proceedings.mlr.press/v306/kobayashi26a.html",
+    "role": "Recent uncertainty-guided conditional-information acquisition; limits novelty claims. Our small task-specific models do not reproduce its pretrained in-context method."
+  },
+  {
+    "id": 15,
+    "reference": "Wyss P, Ginsbourger D, Shou H, Davatzikos C, Kloppel S, Abdulkadir A. Adaptive data-driven selection of sequences of biological and cognitive markers in pre-clinical diagnosis of dementia. Scientific Reports. 2023;13:6406.",
+    "url": "https://doi.org/10.1038/s41598-023-32867-z",
+    "role": "POSEIDON establishes prior adaptive dementia marker sequencing and costs; our question concerns equal-capacity referral uncertainty."
+  },
+  {
+    "id": 16,
+    "reference": "Marcus DS, Wang TH, Parker J, Csernansky JG, Morris JC, Buckner RL. Open Access Series of Imaging Studies Cross-sectional MRI Data in Young, Middle Aged, Nondemented, and Demented Older Adults. Journal of Cognitive Neuroscience. 2007;19:1498\u20131507.",
+    "url": "https://sites.wustl.edu/oasisbrains/home/oasis-1/",
+    "role": "Original OASIS 1 data source; CDR endpoint must not be relabeled as confirmed Alzheimer pathology."
+  },
+  {
+    "id": 17,
+    "reference": "Marcus DS, Fotenos AF, Csernansky JG, Morris JC, Buckner RL. Open Access Series of Imaging Studies Longitudinal MRI Data in Nondemented and Demented Older Adults. Journal of Cognitive Neuroscience. 2010;22:2677\u20132684.",
+    "url": "https://sites.wustl.edu/oasisbrains/home/oasis-2/",
+    "role": "Original OASIS 2 data source; earliest visit is used, not a progression endpoint."
+  },
+  {
+    "id": 18,
+    "reference": "Dakterzada F, et al. Changes in Plasma Neutral and Ether-Linked Lipids Are Associated with The Pathology and Progression of Alzheimer's Disease. Aging and Disease. 2023;14:1728\u20131738.",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10529749/",
+    "role": "Source clinical cohort for measured CSF values; our clinical table contains 212 observations whereas the publication describes 213."
+  },
+  {
+    "id": 19,
+    "reference": "Sol J, et al. Plasma lipidomics in Alzheimer's disease and its progression. CORA Research Data Repository. 2023. doi:10.34810/DATA614.",
+    "url": "https://doi.org/10.34810/DATA614",
+    "role": "Original repository and reuse terms. Local bytes are verified against the public clinical-table mirror, not directly against original repository bytes."
+  },
+  {
+    "id": 20,
+    "reference": "Miltiadous A, Gionanidis E, Tzimourta KD, Giannakeas N, Tzallas AT. DICE-net A Novel Convolution-Transformer Architecture for Alzheimer Detection in EEG Signals. IEEE Access. 2023. doi:10.1109/ACCESS.2023.3294618.",
+    "url": "https://doi.org/10.1109/ACCESS.2023.3294618",
+    "role": "First dataset study requested in the provider acknowledgment. Architecture and reported performance are not reproduced or used as directly comparable baselines here; bibliographic metadata verified from provider, publisher full text unavailable in this run."
+  },
+  {
+    "id": 21,
+    "reference": "Miltiadous A, et al. The AHEPA EEG benchmark setting the standard for machine learning in dementia diagnosis, a scoping review. Cognitive Neurodynamics. 2026;20:95.",
+    "url": "https://link.springer.com/article/10.1007/s11571-026-10464-w",
+    "role": "Dataset-specific methodological review requested by provider. Supports explicit patient-level validation; no epoch-level partition or comparison of incompatible validation designs."
+  },
+  {
+    "id": 22,
+    "reference": "Angelopoulos AN, Bates S, Fisch A, Lei L, Schuster T. Conformal Risk Control. ICLR. 2024.",
+    "url": "https://arxiv.org/abs/2208.02814",
+    "role": "Distinguishes formal risk control from our conditional posterior penalty. We do not implement conformal risk control or claim its guarantees."
+  },
+  {
+    "id": 23,
+    "reference": "Collins GS, et al. TRIPOD+AI statement updated guidance for reporting clinical prediction models that use regression or machine learning methods. BMJ. 2024;385:e078378.",
+    "url": "https://www.bmj.com/content/385/bmj-2023-078378",
+    "role": "Reporting framework, not a clinical validity certification."
+  },
+  {
+    "id": 24,
+    "reference": "Washington University. OASIS Resources and FAQ. Accessed 20 November 2026.",
+    "url": "https://sites.wustl.edu/oasisbrains/home/oasis-resources-and-faq/",
+    "role": "Provider guidance against combining OASIS releases; no pooled or independent-external-validation claim across OASIS releases."
+  },
+  {
+    "id": 25,
+    "reference": "Mlinari\u010d T, Van Den Kerchove A, Barinaga ZI, Van Hulle MM. EEG-based classification of Alzheimer's disease and frontotemporal dementia using functional connectivity. Scientific Reports. 2026;16:4903. Corrected May 2026.",
+    "url": "https://www.nature.com/articles/s41598-026-35316-9",
+    "method_used": "Motivates band-specific second-order coupling and covariance geometry as a complementary EEG representation.",
+    "difference": "We implement trace-normalized log-covariance features with training-only PCA, not FgMDM or the published stacked classifier. Their difficult AD/FTD results caution against assuming richer representations must win."
+  },
+  {
+    "id": 26,
+    "reference": "Shen L, Tong W, Zhao Y, Wu B, Zhang P, Kan J. Explainable machine learning for Alzheimer's disease characterization using small-sample EEG data. Frontiers in Aging Neuroscience. 2026;18:1900857.",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13590570/",
+    "method_used": "Motivates spectral ratios and complexity summaries in compact patient-level models.",
+    "difference": "Their task is AD versus healthy controls and their reported design is non-nested. Our AD/FTD feature family is fixed and classifier selection stays inside outer training folds; no direct numerical comparison."
+  },
+  {
+    "id": 27,
+    "reference": "Wang H, Madarasingha C, Mahmud R, Krishna A, Takechi R. Leakage-Safe Empirical Benchmarking of EEG-Based Machine Learning Pipelines for Dementia Classification. 2026. arXiv:2609.22092.",
+    "url": "https://arxiv.org/abs/2609.22092",
+    "method_used": "Supports multimodal EEG descriptors and participant-level validation as a serious baseline design.",
+    "difference": "Preprint; bibliographic date fields are inconsistent across identifiers and source metadata, so no exact submission date is asserted. We do not reproduce its segmentation, augmentation, feature selection or claimed accuracy."
+  },
+  {
+    "id": 28,
+    "reference": "van der Laan MJ, Polley EC, Hubbard AE. Super Learner. Statistical Applications in Genetics and Molecular Biology. 2007;6:Article 25.",
+    "url": "https://biostats.bepress.com/ucbbiostat/paper222/",
+    "method_used": "Places cross-validated convex model combination within established ensemble methodology.",
+    "difference": "Our two-predictor scalar blend is deliberately restricted; we do not claim the general Super Learner procedure, a new ensemble principle, or automatic transfer of its theoretical guarantees."
+  }
+]

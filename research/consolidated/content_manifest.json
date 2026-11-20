@@ -1,0 +1,13 @@
+{
+  "figures": 20,
+  "equations": 16,
+  "tables": 10,
+  "references": 28,
+  "new_model_fits": 0,
+  "new_external_evaluations": 0,
+  "source_studies": [
+    "extension_v2",
+    "extension_v3",
+    "extension_v4"
+  ]
+}
