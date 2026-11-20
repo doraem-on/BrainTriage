@@ -1,0 +1,7 @@
+data_raw/
+models/
+qa*/
+__pycache__/
+*.log
+results/*patient*.*
+results/*predictions*.*

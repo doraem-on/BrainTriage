@@ -1,0 +1,32 @@
+{
+  "title":"Source-trained sensitivity thresholds and independent EEG-only transport assessment",
+  "date":"2026-11-20",
+  "seed":20261124,
+  "status":"Fixed before v4 performance evaluation; exploratory development informed by prior research, not a registered study",
+  "original_model":"Frozen v3 AD-versus-FTD triage model remains unchanged. Independent validation of that model is blocked by BrainLat authentication. APAVA is not a substitute for that endpoint.",
+  "external_companion":{
+    "training":"OpenNeuro ds004504: original 25 development AD participants and all 29 healthy controls, 54 total; exclude all earlier AD/FTD holdouts and all FTD participants",
+    "external":"OSF JBYSN AD_Data.tar.gz, SHA256 125b85ae83c5258a25cb46935069fe6c7aa3aea9482c54c3710a9c3ed17d0812; Valladolid/APAVA 23 participants, 12 AD and 11 healthy controls, one prediction per participant",
+    "label_source":"DL4mHealth/LEAD data_preprocessing/APAVA/APAVA_preprocessing.ipynb blob b6b9c130b9e519366c2844a8c203b80c9d5d8536; AD indices 1,3,6,8,9,11,12,13,15,17,19,21. This published preprocessing mapping is explicit; original clinical records unavailable for independent confirmation.",
+    "channels":["C3","C4","F3","F4","F7","F8","Fp1","Fp2","O1","O2","P3","P4","T3","T4","T5","T6"],
+    "signals":"Use up to first 24 available five-second segments per person. Source first120 seconds split into24 contiguous segments; target first24 physician-selected five-second trials, or all if fewer. Equal-weight mean of segment features per person. Select actual shared channels, re-reference to their common average, polyphase resample to128Hz, fourth-order zero-phase .5-30Hz bandpass. No interpolation or synthesized clinical metadata.",
+    "representations":"20 regional log relative powers (Welch2s,Hann,1s overlap) versus 544 band-specific OAS trace-normalized matrix-log covariance entries (16*17/2 per band, sqrt2 off-diagonal scaling), averaged across segments. Four bands .5-4,4-8,8-13,13-30Hz.",
+    "models":"Exactly two fixed sigmoid-calibrated logistic classifiers. Spectral: median imputation, standard scaling, C=1. Covariance: median imputation, standard scaling, PCA5 fitted on source training only, standard scaling, C=.3. Calibration3fold stratified shuffled, ensemble=False, max_iter3000. No hyperparameter search, stacking or target adaptation.",
+    "development":"Three repeats of four source outer folds. Each outer training set generates3fold OOF predictions to set sensitivity threshold; outer validation labels never set threshold. Final thresholds use5fold source OOF predictions, then final models refit all54source participants.",
+    "threshold":"Largest observed source OOF positive-class probability no greater than0.5 that attains at least90% empirical source AD sensitivity; include0.5 and0 as candidates. Negative class is healthy control. The90% target is an exploratory operating point, not a clinical requirement or guarantee.",
+    "primary":"External covariance model at source-chosen sensitivity threshold versus same probabilities at0.5: missed AD cases and false positives. Compare spectral classifier identically; retain all4results. AUROC and Brier do not change with threshold.",
+    "inference":"One external evaluation of frozen artifacts. Report participant confusion counts, sensitivity/specificity with Wilson95%intervals, AUROC and Brier; paired stratified participant bootstrap2000 draws for covariance-minus-spectral Brier and AUROC. Conditional intervals do not include source-training variability. No external tuning, threshold optimization or selection of a winner after results.",
+    "freeze":"Write source model/threshold/code/feature hashes before producing any external predictions. A sentinel prevents accidental repeated evaluation; no performance-based retries. Retain every outcome."
+  },
+  "original_task_sensitivity":{
+    "population":"Original41development AD/FTD participants only; no external cohort and no earlier holdouts",
+    "models":"Fixed calibrated basic logisticC1 and advanced log-covariancePCA5 logisticC.3 with age/sex/MMSE. Three-fold cross-fitted basic/advanced probabilities train ridge benefit gate with penalty10; original basic inputs,pb,pb*(1-pb). No blend or tuning.",
+    "policies":["basic","full","uncertainty","ridge_gain"],
+    "budget":0.3,
+    "threshold":"Same90%sensitivity rule from3fold cross-fitted complete-pipeline predictions inside each outer training fold. Compare to0.5 on identical outer validation predictions; report both FN and FP.",
+    "validation":"Three repeats of four stratified outer folds. Each validation fold is a separate referral batch with floor(.3*n) acquisitions. This differs from v3 pooled-repeat ranking; compare policies within v4 only. Final bundle/thresholds frozen on full development data for future evaluation.",
+    "interpretation":"Exploratory source-only sensitivity intervention; not a new external validation or guaranteed90%sensitivity. Threshold changes cannot improve AUROC or Brier on unchanged probabilities."
+  },
+  "stopping_rule":"Run these finite studies once. Correct genuine implementation errors with an audit entry. Do not add models or datasets in response to external performance.",
+  "publication":"Push protocol before outcomes, then code, public-source provenance, aggregate results, plots and manuscript. Exclude raw signals, patient-level predictions and identifiers, fitted model bundles and local paths. Preserve v1-v3 results."
+}
