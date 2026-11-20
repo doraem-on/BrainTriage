@@ -59,6 +59,18 @@ summary=[];contrasts=[]
 # Shared title, abstract and scope replace the three separate update titles.
 doc.core_properties.title='Measurement benefit and independent EEG validation in dementia assessment'
 p(doc.core_properties.title,'Title');p('Lalit Kishore R');p('Department of Computer Science and Engineering, Thapar University\nCorrespondence: lr_be24@thapar.edu')
+repository=p('GitHub: ')
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
+for label,url in [
+ ('https://github.com/doraem-on/BrainTriage','https://github.com/doraem-on/BrainTriage'),
+ ('  (research branch)','https://github.com/doraem-on/BrainTriage/tree/codex/research-model-improvements/research')]:
+ link=OxmlElement('w:hyperlink');link.set(qn('r:id'),doc.part.relate_to(url,RT.HYPERLINK,is_external=True))
+ link_run=OxmlElement('w:r');properties=OxmlElement('w:rPr')
+ color=OxmlElement('w:color');color.set(qn('w:val'),'000000');properties.append(color)
+ size=OxmlElement('w:sz');size.set(qn('w:val'),'20');properties.append(size)
+ link_run.append(properties);text_node=OxmlElement('w:t');text_node.set(qn('xml:space'),'preserve');text_node.text=label
+ link_run.append(text_node);link.append(link_run);repository._p.append(link)
+for run_ in repository.runs:run_.font.size=Pt(10)
 h('Abstract')
 p('Background: Acquiring an additional measurement can improve a probability estimate without reducing missed diagnoses. A referral policy must therefore be evaluated separately from its underlying classifiers and decision threshold. We examine measurement benefit, uncertainty in referral rankings, model selection and independent EEG transport in a sequence of retrospective studies.')
 p('Methods: The initial benchmark analyzed OASIS 2, OASIS 1, a measured cerebrospinal-fluid cohort and Greek EEG recordings as separate tasks. Equal-cost allocation, estimation-error bounds and a Brier value-of-information identity motivated comparisons of confidence, benefit and uncertainty-adjusted referral scores. Subsequent analyses nested classifier selection, covariance features and probability blending within development data. Finally, two EEG-only AD-versus-healthy-control classifiers were trained on 54 Greek participants, frozen and evaluated on 23 independent Spanish participants. A separate nested threshold analysis retained the original 41-person AD/FTD development sample.')
