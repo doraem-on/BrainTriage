@@ -1,0 +1,216 @@
+{
+  "participants": 41,
+  "original_spectral_features": 20,
+  "additional_spectral_hjorth_features": 25,
+  "log_covariance_features": 760,
+  "holdout_recordings_processed": 0,
+  "feature_sha256": "db46c66fe0143e8bfa1e2da3c5a248cd5cf3dbd1eeceb05c285ca25e1210ea47",
+  "extractor_sha256": "f1f73484a174914de329e710faa167e96cc954619b84983ca2a95577f557ebcd",
+  "source_recordings": [
+    {
+      "id": "sub-002",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-002/eeg/sub-002_task-eyesclosed_eeg.set",
+      "data_window_sha256": "8ac1063260c237b9108f39df9abfaf47f371cabca35054e717dcfe9239c13501"
+    },
+    {
+      "id": "sub-004",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-004/eeg/sub-004_task-eyesclosed_eeg.set",
+      "data_window_sha256": "5b491bc32c2c85e310cd4651b9ae909b169c72d487419d1b087d95cacf7c4cf6"
+    },
+    {
+      "id": "sub-006",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-006/eeg/sub-006_task-eyesclosed_eeg.set",
+      "data_window_sha256": "96b2529bfa7e3379322a1d8a3e7de10af4c56c9053d5f40cd8aad8e010155b93"
+    },
+    {
+      "id": "sub-007",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-007/eeg/sub-007_task-eyesclosed_eeg.set",
+      "data_window_sha256": "a7bb4fcbaf34d881bafdae596526838c3ead054455d1d9fada9b035879fa7222"
+    },
+    {
+      "id": "sub-008",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-008/eeg/sub-008_task-eyesclosed_eeg.set",
+      "data_window_sha256": "490275c33b140060096ed9dec963b11ee9c5f3c330c6c5aa5512c98be5b445fd"
+    },
+    {
+      "id": "sub-013",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-013/eeg/sub-013_task-eyesclosed_eeg.set",
+      "data_window_sha256": "4bf70582275e405ed168b4c1fd68ef98c1f788c397c765d97edbe703fc6da74e"
+    },
+    {
+      "id": "sub-015",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-015/eeg/sub-015_task-eyesclosed_eeg.set",
+      "data_window_sha256": "604f9a3a19e4b1c6c84191ac533dd5f5de78eaa98cbe904c0431e950f34016fc"
+    },
+    {
+      "id": "sub-018",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-018/eeg/sub-018_task-eyesclosed_eeg.set",
+      "data_window_sha256": "97283012896fc8e779a85396257aab03c3b61805314eb4a6877a793283c02eec"
+    },
+    {
+      "id": "sub-020",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-020/eeg/sub-020_task-eyesclosed_eeg.set",
+      "data_window_sha256": "e62532d3c66f257dc9b1f5ab469edf3820305aafc1c42426a4e2ea8df3dae477"
+    },
+    {
+      "id": "sub-021",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-021/eeg/sub-021_task-eyesclosed_eeg.set",
+      "data_window_sha256": "8d5b0b54e218bde6d3919baa383f8cb8d42516289c945b981126d43358c4abd3"
+    },
+    {
+      "id": "sub-022",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-022/eeg/sub-022_task-eyesclosed_eeg.set",
+      "data_window_sha256": "c466282d30f73ad946ecaeb31ece23d84cb562df8a0bfef972649c9b65c92e59"
+    },
+    {
+      "id": "sub-023",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-023/eeg/sub-023_task-eyesclosed_eeg.set",
+      "data_window_sha256": "b572095c644c5f60159e9d734bb2ba3ec3317c903e81b067027683ad0cff26c1"
+    },
+    {
+      "id": "sub-024",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-024/eeg/sub-024_task-eyesclosed_eeg.set",
+      "data_window_sha256": "00d1d6a230014cabc57b05b28d8d405465dfed2b5c7620f2d6c8a7d56b39c723"
+    },
+    {
+      "id": "sub-025",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-025/eeg/sub-025_task-eyesclosed_eeg.set",
+      "data_window_sha256": "44933b65d9527478e21201e93f4e314636e84ed7b0f0ec4ba14c279a2ab6ac4b"
+    },
+    {
+      "id": "sub-026",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-026/eeg/sub-026_task-eyesclosed_eeg.set",
+      "data_window_sha256": "9e651852936c87492cc8f4a2a500a8ba1b6af6e97cbf02a3621547dd5535626a"
+    },
+    {
+      "id": "sub-027",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-027/eeg/sub-027_task-eyesclosed_eeg.set",
+      "data_window_sha256": "dadae0e65c0f4d785681c5486a41106090a0e6519c80bc0b2f50c30e9f3fcb59"
+    },
+    {
+      "id": "sub-028",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-028/eeg/sub-028_task-eyesclosed_eeg.set",
+      "data_window_sha256": "a28ac58a356a896bbd0fe42ba57f9dd2bccaeb9b75bf9c9cfcba68b92b44d754"
+    },
+    {
+      "id": "sub-029",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-029/eeg/sub-029_task-eyesclosed_eeg.set",
+      "data_window_sha256": "c602307987894b621d06018c6702bb26a2ca09dc61798dac6f322e0577f7b9a8"
+    },
+    {
+      "id": "sub-030",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-030/eeg/sub-030_task-eyesclosed_eeg.set",
+      "data_window_sha256": "f49e5d9ca7f531ad02cabfefca8af3e2e5aa9ce1f32bea18765a20cfc077442f"
+    },
+    {
+      "id": "sub-031",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-031/eeg/sub-031_task-eyesclosed_eeg.set",
+      "data_window_sha256": "e1a4a43c351ea8d6da837bff23888e1ea930b0a48a00b640f82100282a4b6fcf"
+    },
+    {
+      "id": "sub-032",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-032/eeg/sub-032_task-eyesclosed_eeg.set",
+      "data_window_sha256": "88ef28064303c5a037b201aae3025d3b6571a7377f2637f9fd45abc11495c3fa"
+    },
+    {
+      "id": "sub-033",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-033/eeg/sub-033_task-eyesclosed_eeg.set",
+      "data_window_sha256": "2003fb04c151b4e9189a155a3a288bd5b48cb63288cf92360a2da2f5e228a208"
+    },
+    {
+      "id": "sub-034",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-034/eeg/sub-034_task-eyesclosed_eeg.set",
+      "data_window_sha256": "b11c7fde49e500a1028cdcc048d568e5df50c8a763d6f67ee972e2330fd878df"
+    },
+    {
+      "id": "sub-035",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-035/eeg/sub-035_task-eyesclosed_eeg.set",
+      "data_window_sha256": "89a5513f82d2b65b9b1fa7992849fdeeb239079394973a870638b20beda8a0cc"
+    },
+    {
+      "id": "sub-036",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-036/eeg/sub-036_task-eyesclosed_eeg.set",
+      "data_window_sha256": "206259a4d0d0bec09e8c911ba952abdc5641175a295ba6e8d08deb5d5d65632d"
+    },
+    {
+      "id": "sub-066",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-066/eeg/sub-066_task-eyesclosed_eeg.set",
+      "data_window_sha256": "b8bd20b9bd22723c38fa8bf7f25530be125e7ddcff0a9a7aa2be88805c40ed2c"
+    },
+    {
+      "id": "sub-067",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-067/eeg/sub-067_task-eyesclosed_eeg.set",
+      "data_window_sha256": "a6f3dd29bf5f7fb59cfd43aebd2ccd73d392e5ce73a1457517dec4ff89637aff"
+    },
+    {
+      "id": "sub-068",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-068/eeg/sub-068_task-eyesclosed_eeg.set",
+      "data_window_sha256": "14b3bdc734f4c6b794cb970eb44e246303960de8ac6b831ced5c0ce02ef511ce"
+    },
+    {
+      "id": "sub-069",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-069/eeg/sub-069_task-eyesclosed_eeg.set",
+      "data_window_sha256": "18393cd400f166b25053089714a130bb1bb62acff8db845422c835518caaca05"
+    },
+    {
+      "id": "sub-070",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-070/eeg/sub-070_task-eyesclosed_eeg.set",
+      "data_window_sha256": "21beb1f18b5b05a080e611f6d8af24f43515aeb8ba3a260fae7610d5a0bbf3c9"
+    },
+    {
+      "id": "sub-071",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-071/eeg/sub-071_task-eyesclosed_eeg.set",
+      "data_window_sha256": "4bf4dcd393c2c2e4f0ce115a321e69eed7a1b8523295cdd0e43876e55150fca6"
+    },
+    {
+      "id": "sub-073",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-073/eeg/sub-073_task-eyesclosed_eeg.set",
+      "data_window_sha256": "d40c9e38827b7d25c236a4dd9d27503d18fe0e8091c83a055ac474cb489d1e2f"
+    },
+    {
+      "id": "sub-075",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-075/eeg/sub-075_task-eyesclosed_eeg.set",
+      "data_window_sha256": "fbb86db7dc26dfff55a18b613fe2660e3f2f0aafc8d4c5518eb4afdd49bb29b5"
+    },
+    {
+      "id": "sub-076",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-076/eeg/sub-076_task-eyesclosed_eeg.set",
+      "data_window_sha256": "70df0bf7f22cbafdd597af6eadec443151003aa7a9b2c2a8421c9a1eaf875106"
+    },
+    {
+      "id": "sub-079",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-079/eeg/sub-079_task-eyesclosed_eeg.set",
+      "data_window_sha256": "fd07a8dfdc5c2e6acd9d0bb1f1614678bdc96a55bf60fb06a148528082500b5f"
+    },
+    {
+      "id": "sub-083",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-083/eeg/sub-083_task-eyesclosed_eeg.set",
+      "data_window_sha256": "2f12359b5e9efe60f483a04d957b1387fb7c3e88048186b53778390ed93fe349"
+    },
+    {
+      "id": "sub-084",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-084/eeg/sub-084_task-eyesclosed_eeg.set",
+      "data_window_sha256": "c34cf9f9b6c08c4f648db4faaf1201397effafff1f82278f6a36ca80961d8a9c"
+    },
+    {
+      "id": "sub-085",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-085/eeg/sub-085_task-eyesclosed_eeg.set",
+      "data_window_sha256": "f0f945470c0e5f63f53f4a65912c8e70487746b70ee547e404d6ee179d648014"
+    },
+    {
+      "id": "sub-086",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-086/eeg/sub-086_task-eyesclosed_eeg.set",
+      "data_window_sha256": "c1ea3295c9e8ee449ceaa628591fccc0d93b6aae4dc0675ae56422ebf412b98a"
+    },
+    {
+      "id": "sub-087",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-087/eeg/sub-087_task-eyesclosed_eeg.set",
+      "data_window_sha256": "ec6da5230060ae7f5e90927c7f9f43a484eeb6f6a0acf7f238cb81cf52b28d88"
+    },
+    {
+      "id": "sub-088",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-088/eeg/sub-088_task-eyesclosed_eeg.set",
+      "data_window_sha256": "b6aee25c38af85928613e2b44acd3480e61fc51e7ed862db6f2603c9fc65a97e"
+    }
+  ]
+}
