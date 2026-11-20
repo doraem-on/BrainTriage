@@ -13,12 +13,14 @@ def read(name):
     with open(ROOT/'results'/name) as f:return list(csv.DictReader(f))
 def save(fig,name):
     fig.savefig(OUT/f'{name}.png',dpi=220,bbox_inches='tight');fig.savefig(OUT/f'{name}.pdf',bbox_inches='tight');plt.close(fig)
-d=read('external_metrics.csv');colors={'spectral':'#2166ac','covariance':'#b35806'}
+d=read('external_metrics.csv');colors={'spectral':'black','covariance':'black'}
 fig,axes=plt.subplots(2,2,figsize=(8,6),layout='constrained')
 for ax,r in zip(axes.flat,d):
     matrix=np.array([[int(r['true_negatives']),int(r['false_positives'])],[int(r['false_negatives']),int(r['true_positives'])]])
-    ax.imshow(matrix,cmap='Blues',vmin=0,vmax=12)
-    for (i,j),v in np.ndenumerate(matrix):ax.text(j,i,str(v),ha='center',va='center',color='white' if v>7 else 'black',fontsize=16)
+    ax.imshow(np.ones_like(matrix),cmap='gray',vmin=0,vmax=1)
+    ax.set_xticks([-.5,.5,1.5],minor=True);ax.set_yticks([-.5,.5,1.5],minor=True)
+    ax.grid(which='minor',color='black',linewidth=.8);ax.tick_params(which='minor',bottom=False,left=False)
+    for (i,j),v in np.ndenumerate(matrix):ax.text(j,i,str(v),ha='center',va='center',color='black',fontsize=16)
     ax.set_xticks([0,1],['Predicted HC','Predicted AD']);ax.set_yticks([0,1],['Actual HC','Actual AD'])
     ax.set_title(f"{r['model'].capitalize()} | t = {float(r['threshold']):.3f}")
 save(fig,'external_confusion')
@@ -26,16 +28,16 @@ fig,axes=plt.subplots(1,2,figsize=(8,3.5),layout='constrained')
 for ax,metric in zip(axes,['sensitivity','specificity']):
     for i,r in enumerate(d):
         v=float(r[metric]);lo=float(r[metric+'_low']);hi=float(r[metric+'_high'])
-        ax.errorbar(v,3-i,xerr=[[v-lo],[hi-v]],fmt='o' if r['operating']=='default' else 's',color=colors[r['model']],capsize=3)
+        ax.errorbar(v,3-i,xerr=[[v-lo],[hi-v]],fmt='o' if r['operating']=='default' else 's',color='black',markerfacecolor='black' if r['operating']=='default' else 'white',capsize=3)
     ax.set_yticks(range(4),['Covariance source t','Covariance t = 0.5','Spectral source t','Spectral t = 0.5']);ax.set_xlim(0,1.04);ax.set_xticks([0,.25,.5,.75,1]);ax.set_xlabel(metric.capitalize());ax.grid(axis='x',alpha=.2)
 axes[1].set_yticklabels([])
 save(fig,'external_intervals')
 fig,ax=plt.subplots(figsize=(5.4,4.4),layout='constrained')
 roc=read('external_roc.csv')
 for model in ['spectral','covariance']:
-    rows=[r for r in roc if r['model']==model];ax.step([float(r['false_positive_rate']) for r in rows],[float(r['true_positive_rate']) for r in rows],where='post',color=colors[model],label=f'{model.capitalize()} AUROC 0.864')
-    r=next(r for r in d if r['model']==model and r['operating']=='sensitivity90');ax.scatter(1-float(r['specificity']),float(r['sensitivity']),color=colors[model],marker='s',s=65)
-ax.plot([0,1],[0,1],ls='--',color='gray',lw=1);ax.set(xlim=(-.02,1.02),ylim=(-.02,1.04),xlabel='False positive rate',ylabel='Sensitivity');ax.legend(loc='lower right',fontsize=9)
+    rows=[r for r in roc if r['model']==model];ax.step([float(r['false_positive_rate']) for r in rows],[float(r['true_positive_rate']) for r in rows],where='post',color='black',linestyle='-' if model=='spectral' else '--',label=f'{model.capitalize()} AUROC 0.864')
+    r=next(r for r in d if r['model']==model and r['operating']=='sensitivity90');ax.scatter(1-float(r['specificity']),float(r['sensitivity']),edgecolors='black',facecolors='black' if model=='spectral' else 'white',marker='s',s=65)
+ax.plot([0,1],[0,1],ls=':',color='black',lw=.8);ax.set(xlim=(-.02,1.02),ylim=(-.02,1.04),xlabel='False positive rate',ylabel='Sensitivity');ax.legend(loc='lower right',fontsize=9)
 save(fig,'external_roc')
 rows=read('sensitivity_metrics.csv');policies=['basic','full','uncertainty','ridge_gain']
 fig,axes=plt.subplots(1,2,figsize=(8,3.8),layout='constrained')
@@ -43,8 +45,8 @@ for ax,metric,title in zip(axes,['false_negatives','false_positives'],['Missed A
     for i,policy in enumerate(policies):
         for j,op in enumerate(['default','sensitivity90']):
             vals=[float(r[metric]) for r in rows if r['policy']==policy and r['operating']==op]
-            x=i+(j-.5)*.25;ax.scatter(x+np.array([-.025,0,.025]),vals,color=['#2166ac','#b35806'][j],s=22,alpha=.75,label=['Threshold 0.5','Source threshold'][j] if i==0 else None)
-            ax.scatter(x,np.mean(vals),marker='_',s=260,color=['#2166ac','#b35806'][j])
+            x=i+(j-.5)*.25;ax.scatter(x+np.array([-.035,0,.035]),vals,edgecolors='black',facecolors='black' if j==0 else 'white',marker='o' if j==0 else 's',s=24,label=['Threshold 0.5','Source threshold'][j] if i==0 else None)
+            ax.scatter(x,np.mean(vals),marker='_',s=260,color='black')
     ax.set_xticks(range(4),['Basic','Full EEG','Uncertainty','Ridge gain'],rotation=15);ax.set_title(title);ax.set_ylim(0,10);ax.set_yticks(range(0,11,2));ax.grid(axis='y',alpha=.2)
 axes[0].legend(fontsize=8,loc='upper left')
 save(fig,'source_missed_cases')

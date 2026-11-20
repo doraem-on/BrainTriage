@@ -1,10 +1,10 @@
 from pathlib import Path
-import csv,json
+import csv,json,re
 from docx import Document
 from docx.shared import Inches,Pt,RGBColor
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.text import WD_ALIGN_PARAGRAPH,WD_TAB_ALIGNMENT
 ROOT=Path(__file__).resolve().parents[1]
 doc=Document();section=doc.sections[0]
 section.page_width=Inches(8.27);section.page_height=Inches(11.69)
@@ -16,6 +16,7 @@ for name,size in [('Normal',11),('Title',20),('Heading 1',14),('Heading 2',11.5)
     if name.startswith('Heading'):style.paragraph_format.space_before=Pt(8)
     if name=='Caption':style.font.bold=False;style.font.italic=False
 for style in doc.styles:
+    if hasattr(style,'font'):style.font.color.rgb=RGBColor(0,0,0)
     for border in list(style.element.iter(qn('w:pBdr'))):border.getparent().remove(border)
     rf=style.element.get_or_add_rPr().find(qn('w:rFonts'))
     if rf is not None:
@@ -35,7 +36,10 @@ def h(text):return doc.add_heading(text,1)
 def sub(text):return doc.add_heading(text,2)
 def page():doc.add_page_break()
 def eq(text):
+    numbered=re.search(r'\s+\((\d+)\)$',text)
+    if numbered:text=text[:numbered.start()].rstrip()+'\t('+numbered.group(1)+')'
     pp=p(text);pp.paragraph_format.left_indent=Inches(.2);pp.paragraph_format.space_after=Pt(7)
+    pp.paragraph_format.tab_stops.add_tab_stop(Inches(6.3),WD_TAB_ALIGNMENT.RIGHT)
     for run in pp.runs:run.font.name='Cambria Math';run.font.size=Pt(11)
 def table(headers,rows,widths):
     t=doc.add_table(rows=1,cols=len(headers));t.autofit=False
@@ -52,10 +56,10 @@ def table(headers,rows,widths):
                 pp.paragraph_format.space_after=Pt(4);pp.paragraph_format.space_before=Pt(4)
                 for run in pp.runs:run.font.size=Pt(9);run.bold=(i==0)
             if i==0:
-                shade=OxmlElement('w:shd');shade.set(qn('w:fill'),'EEEEEE');cell._tc.get_or_add_tcPr().append(shade)
+                shade=OxmlElement('w:shd');shade.set(qn('w:fill'),'FFFFFF');cell._tc.get_or_add_tcPr().append(shade)
     borders=OxmlElement('w:tblBorders')
     for edge in ['top','bottom','left','right','insideH','insideV']:
-        b=OxmlElement('w:'+edge);b.set(qn('w:val'),'single');b.set(qn('w:sz'),'4');b.set(qn('w:color'),'BBBBBB');borders.append(b)
+        b=OxmlElement('w:'+edge);b.set(qn('w:val'),'single');b.set(qn('w:sz'),'4');b.set(qn('w:color'),'000000');borders.append(b)
     t._tbl.tblPr.append(borders)
     return t
 def figure(name,caption,width=6.6):
@@ -79,7 +83,7 @@ p('Results: External AUROC was 0.864 for both representations. At threshold 0.5,
 p('Conclusions: Independent evaluation supports a measurable sensitivity–specificity tradeoff, without establishing covariance superiority or a transferable 90% sensitivity guarantee. This companion AD-versus-control study does not externally validate the original AD/FTD triage model. A larger compatible cohort is needed before making clinical or comparative-superiority claims.')
 p('Keywords: Alzheimer disease; EEG; external validation; decision threshold; covariance; missed diagnosis')
 h('1 Introduction')
-p('BrainTriage studies whether additional measurements should be acquired for selected patients. Earlier development experiments favored covariance features over a fixed EEG comparator on mean probabilistic loss, but missed AD cases did not consistently decrease. That observation motivates two separate experiments: transporting a compact EEG representation to a genuinely independent population, and assessing a training-selected sensitivity threshold in the original differential-diagnosis task. All findings remain exploratory because prior development results informed the design.')
+p('A diagnostic classifier can rank patients well and still miss too many cases at the threshold used in practice. Lowering that threshold may recover cases, but the additional false positives matter as well. BrainTriage examines this decision alongside the choice of which patients should receive an additional measurement. Earlier development experiments favored covariance features on mean probabilistic loss, while missed AD cases did not consistently decrease. We therefore tested the EEG representation in an independent population and assessed a training-selected sensitivity threshold in the original differential-diagnosis task. Prior development findings informed both experiments, so their interpretation remains exploratory.')
 page();h('2 Related work and cohort selection')
 p('The AHEPA dataset [1] supplies measured EEG from AD, FTD and healthy participants. Smith and colleagues [2] studied functional connectivity in a separate Valladolid cohort and released the recordings through OSF [3]. LEAD [4] provides an explicit APAVA diagnosis mapping in its preprocessing code; we use that mapping, not its foundation model or reported performance. OAS covariance shrinkage [5] supplies a regularized second-order representation. These established methods motivate the feature comparison, rather than a claim of a new covariance estimator.')
 p('Adaptive measurement acquisition [6] motivates the original basic/advanced triage structure. Nested validation [7] motivates choosing thresholds exclusively within training data. The experimental question is whether source-derived operating points preserve missed-case performance across cohorts, while keeping the representation comparison and acquisition policy distinct. Neither within-cohort accuracy nor an additional recording from the same person answers that question.')
@@ -96,12 +100,38 @@ p('Both companion cohorts use the same 16 observed electrodes: C3, C4, F3, F4, F
 page();sub('Model and threshold specification')
 p('Each segment is re-referenced to the shared-channel common average, resampled to 128 Hz with a polyphase filter and filtered at 0.5–30 Hz using a fourth-order zero-phase Butterworth filter. Welch spectra use two-second Hann windows with 50% overlap. Twenty spectral features are log relative powers across five regions and four bands: delta 0.5–4, theta 4–8, alpha 8–13 and beta 13–30 Hz. Features are averaged across available segments so that every participant contributes one row.')
 p('For each band, OAS estimates a 16-by-16 covariance matrix. Trace normalization removes global scale; a matrix logarithm maps the positive definite matrix to symmetric coordinates. Eigenvalues are floored at 10⁻¹⁰. Off-diagonal coordinates receive a square-root-of-two weight, yielding 136 coordinates per band and 544 in total. Common-average referencing can create a singular raw covariance; shrinkage and the eigenvalue floor make the logarithm defined. This representation is a regularized feature map, not an inferred causal brain network.')
-eq('C̃ = C_OAS / tr(C_OAS),     z = vec_sym(log(C̃))')
+eq('C̃ = Cᴼᴬˢ / tr(Cᴼᴬˢ),       z = vecₛᵧₘ(log(C̃))                         (1)')
 p('The spectral classifier uses median imputation, standard scaling and logistic regression with C = 1. The covariance classifier uses median imputation, scaling, five training-fitted principal components, a second scaling step and logistic regression with C = 0.3. Both use three-fold sigmoid calibration, ensemble=False, and a 3,000-iteration limit. No target adaptation, hyperparameter search, synthetic examples or clinical metadata are used in the companion models.')
 p('For positive-class out-of-fold probabilities pᵢ from a training set, we select the largest feasible threshold at or below 0.5. Candidate thresholds are 0, 0.5 and observed positive-class probabilities no greater than 0.5. The exploratory 90% target is a design choice, not a clinically validated requirement.')
-eq('t* = max {t ∈ T : t ≤ 0.5 and Σᵢ yᵢ 1[pᵢ ≥ t] / Σᵢ yᵢ ≥ 0.90}')
+eq('t* = max {t ∈ T : t ≤ 0.5 and Σᵢ yᵢ 1[pᵢ ≥ t] / Σᵢ yᵢ ≥ 0.90}       (2)')
 p('The constraint t* ≤ 0.5 guarantees that lowering the threshold cannot increase false negatives on the same probabilities; it can increase false positives. It leaves AUROC and Brier loss unchanged. Source evaluation uses three repeats of four outer folds, with three-fold threshold cross-fitting inside each outer training set. Final thresholds use five-fold source cross-fitting, followed by refitting on all 54 source participants. Frozen thresholds are 0.3372 for spectral and 0.2200 for covariance models; both attain 92% sensitivity on the source predictions used to choose them. That fitting sensitivity is not an independent performance estimate.')
 p('The original AD/FTD analysis uses fixed basic logistic regression on age, sex and MMSE and an advanced classifier with those variables plus 760 covariance coordinates reduced to five principal components. Four policies are compared: basic, full acquisition, uncertainty routing and ridge benefit routing. The ridge gate predicts the cross-fitted reduction in Brier loss from basic inputs, the basic probability and its Bernoulli variance, with penalty 10. Threshold cross-fitting repeats the complete classifier-and-gate fitting process within outer training. Referral batches are individual validation folds with floor(0.3n) acquisitions, totaling 12 of 41 participants per repeat for either routing policy. This batching differs from the earlier pooled-repeat experiment, so comparisons are made within this study.')
+
+page();sub('Fitting classifiers and allocating measurements')
+p('Let yᵢ = 1 denote AD and yᵢ = 0 denote the comparator diagnosis. The comparator is healthy control in the external experiment and FTD in the original task. Let xᵢ contain the inputs available to a classifier for participant i. A logistic model maps its linear score ηᵢ = β₀ + βᵀxᵢ to σ(ηᵢ), where σ(u) = 1/(1 + exp(−u)). The implementation uses L2 regularization through scikit-learn’s inverse-strength parameter C. Larger C permits less shrinkage; the fixed values were 1 for spectral or basic models and 0.3 for covariance models. These are implementation choices informed by earlier development work, not hyperparameters selected on APAVA.')
+p('Sigmoid calibration estimates a second mapping from cross-validated decision scores to probabilities. With ensemble=False, the calibration mapping is estimated from out-of-fold scores and the base estimator is then refitted on the complete training subset. Every imputer, scaler and principal-component transform belongs to the fitted pipeline. Calibration folds therefore fit their own transformations, rather than sharing transformations estimated from all participants. Calibration estimates need not remain accurate after transfer to another population.')
+sub('Patient level validation sequence')
+p('For each of three repeats, the source participants are divided into four stratified outer folds. An outer validation participant contributes to no fitting operation for that outer model. Within the remaining participants, three-fold cross-fitting supplies probabilities for threshold selection. A fresh classifier is fitted on the entire outer training set and evaluated at both 0.5 and the training-derived threshold. Predictions are pooled across the four outer validation folds to form one participant-level result per repeat. The same people occur in different repeats; consequently, the three repeats are not three independent clinical studies.')
+p('After source evaluation, a separate five-fold cross-fit over all 54 companion participants selects the final threshold for each representation. Each final model is then fitted on all 54 participants. The feature definitions, code, model hashes and thresholds were preserved before computing external predictions. This order separates source fitting from target evaluation. External outcomes were used only to calculate the prespecified metrics and figures.')
+sub('Benefit estimation in the original task')
+p('For the original AD/FTD task, write pᵢᴮ and pᵢᴬ for cross-fitted basic and advanced probabilities. The regression target is the reduction in squared probability error obtained by using the advanced model. Positive values favor acquisition; negative values indicate that the advanced probability was less accurate for that training participant.')
+eq('gᵢ = (yᵢ − pᵢᴮ)² − (yᵢ − pᵢᴬ)²                                      (3)')
+p('A ridge regression with penalty 10 predicts gᵢ from standardized basic clinical inputs, pᵢᴮ and pᵢᴮ(1 − pᵢᴮ). Its intercept is unpenalized. Advanced EEG features and validation outcomes are excluded from the referral score. The uncertainty comparator ranks participants by −|pᵢᴮ − 0.5|. For either score, the highest-ranked floor(0.3m) participants in a validation batch of size m receive the advanced prediction. All others retain the basic prediction.')
+eq('pᵢᴿ = rᵢpᵢᴬ + (1 − rᵢ)pᵢᴮ,       Σᵢ rᵢ = floor(0.3m)             (4)')
+p('Here rᵢ is the binary referral decision and pᵢᴿ is the routed probability. The basic and full-acquisition policies set rᵢ to zero and one, respectively. To select a threshold for a routed policy, the complete classifier-and-gate procedure is cross-fitted again inside outer training. Fitting a gate once on all source labels and then cross-validating only the final threshold would fail to preserve this separation. Referral is evaluated as a batch allocation; the study does not establish performance for a continuous stream of arrivals.')
+page();sub('Statistical estimands and uncertainty')
+p('The primary external comparison is the covariance classifier at its source-derived threshold versus the same frozen classifier at 0.5. Missed AD cases and false positives are reported together. The spectral classifier undergoes the same comparison as a prespecified baseline. The four rows exhaust the fixed external model-by-threshold matrix. This design tests an operating-point intervention without changing the probabilities or choosing a winning configuration after seeing the target outcomes.')
+p('For threshold t, the decision is positive when pᵢ ≥ t. A false negative is an AD participant with pᵢ < t; a false positive is a comparator participant with pᵢ ≥ t. Sensitivity uses only AD cases in its denominator, whereas specificity uses only comparator participants. The sample denominators are therefore 12 and 11 in the external study.')
+eq('Sensitivity = TP/(TP + FN),       Specificity = TN/(TN + FP)         (5)')
+p('Probabilistic accuracy is measured by the Brier score, the average squared distance between a probability and the observed binary outcome. Lower values indicate better probability predictions for the evaluated sample. AUROC measures how often an AD participant receives a higher score than a comparator participant, giving half credit to tied scores. These statistics address different properties, and neither depends on the decision threshold.')
+eq('Brier = (1/n) Σᵢ (yᵢ − pᵢ)²                                           (6)')
+eq('AUROC = [Σᵢ:yᵢ=1 Σⱼ:yⱼ=0 {1[pᵢ > pⱼ] + ½1[pᵢ = pⱼ]}]/(n₁n₀)     (7)')
+p('For each external sensitivity and specificity estimate, a Wilson 95% interval is calculated using the corresponding binomial denominator. Let q = k/n be the observed proportion and z = 1.96. The interval has centre c and half-width h given below. Unlike a simple normal approximation, this construction remains bounded when all observed AD cases are detected. It quantifies sampling uncertainty within this small cohort; it does not account for diagnostic-label error or future population shift.')
+eq('c = [q + z²/(2n)]/[1 + z²/n]                                          (8)')
+eq('h = z √[q(1 − q)/n + z²/(4n²)]/[1 + z²/n],       interval = c ± h      (9)')
+p('Paired bootstrap comparisons resample 12 AD indices and 11 control indices with replacement, separately within diagnosis. The same resampled indices are applied to both classifiers, preserving the pairing. Each of 2,000 draws produces covariance-minus-spectral differences in Brier loss and AUROC. The 2.5th and 97.5th percentiles form the reported conditional intervals. Models are not refitted in these draws, so uncertainty from the small Greek training sample is absent. Positive Brier differences favor the spectral baseline; positive AUROC differences favor covariance.')
+p('For source validation, means and observed ranges summarize the three repeats. We do not treat those repeats as independent samples for a confidence interval or significance test. The exploratory 90% threshold target is assessed using training predictions and can fail in outer validation or at another site. In the final source fit, detecting at least 90% of 25 AD participants requires detecting at least 23, which explains the recorded 92% fitting sensitivity. No minimum acceptable specificity, clinical error cost or prospective safety constraint was established.')
+
 page();h('4 Independent external results')
 p('Table 2. One external prediction per participant. FN denotes missed AD cases; FP denotes healthy controls classified as AD. Source t denotes the frozen sensitivity threshold.','Caption')
 table(['Model and threshold','FN / 12','FP / 11','Sensitivity','Specificity','Brier'],[[r['model'].capitalize()+(' 0.5' if r['operating']=='default' else ' source t'),r['false_negatives'],r['false_positives'],f"{float(r['sensitivity']):.3f}",f"{float(r['specificity']):.3f}",f"{float(r['brier']):.4f}"] for r in external],[2.1,.7,.7,.95,.95,1.07])
@@ -109,17 +139,17 @@ p('The covariance model detected all 12 AD cases at both thresholds, but seven c
 figure('external_intervals','Figure 1. External sensitivity and specificity with Wilson 95% intervals. Circles denote threshold 0.5; squares denote source-derived thresholds. Intervals reflect 12 AD cases and 11 controls, not large-sample certainty.',6.5)
 p('Both models had AUROC 0.8636. Covariance minus spectral Brier loss was +0.0472, with a paired stratified participant-bootstrap 95% interval of −0.0479 to +0.1403. The AUROC difference was numerically zero, with interval −0.2045 to +0.1818. These 2,000-draw intervals are conditional on the two fitted models and omit source-training variability. They do not establish equivalence or superiority.')
 page();h('External discrimination and error counts')
-figure('external_roc','Figure 2. External ROC curves from 23 participants. Squares mark the source-derived operating points. These curves describe the completed test; no point on them was used to retune a threshold.',3.8)
+figure('external_roc','Figure 2. External ROC curves from 23 participants. Filled and open squares mark source-derived spectral and covariance operating points, respectively. These curves describe the completed test; no point on them was used to retune a threshold.',3.8)
 figure('external_confusion','Figure 3. External confusion counts for both fixed classifiers and thresholds. Each panel contains the same 12 AD participants and 11 controls. Raw counts make the sensitivity–specificity tradeoff explicit.',5.2)
 page();h('5 Source development and missed cases')
 p('Companion source validation showed the expected threshold tradeoff. Mean covariance misses decreased from 6.33 to 3.33 among 25 AD participants, while false positives increased from 4 to 16 among 29 controls. Spectral misses decreased from 7.33 to 2.67, while false positives increased from 2 to 14. Mean sensitivity at source-derived thresholds was 86.7% for covariance and 89.3% for spectral features, below the fitting target. These three correlated repeat means are descriptive and have no independent-repeat confidence interval.')
-p('Table 3. Original AD/FTD task, mean counts over three nested outer repeats. Each repeat has 25 AD and 16 FTD participants. Parentheses show default threshold → source-derived threshold.','Caption')
+p('Table 3. Original AD/FTD task, mean counts over three nested outer repeats. Each repeat has 25 AD and 16 FTD participants. Arrows show default threshold → source-derived threshold.','Caption')
 rows=[]
 for policy,label in [('basic','Basic'),('full','Full EEG'),('uncertainty','Uncertainty'),('ridge_gain','Ridge gain')]:
  a=next(r for r in source if r['policy']==policy and r['operating']=='default');b=next(r for r in source if r['policy']==policy and r['operating']=='sensitivity90')
  rows.append([label,f"{float(a['false_negatives_mean']):.2f} → {float(b['false_negatives_mean']):.2f}",f"{float(a['false_positives_mean']):.2f} → {float(b['false_positives_mean']):.2f}",f"{float(a['brier_mean']):.4f}"])
 table(['Policy','Missed AD','False positive FTD','Brier'],rows,[1.55,1.65,2.0,1.27])
-figure('source_missed_cases','Figure 4. Individual repeat counts and horizontal mean markers for the original AD/FTD development sample. Repeats reuse participants. This is source-only evidence and does not validate the original triage model in Spain.',6.5)
+figure('source_missed_cases','Figure 4. Filled circles show default-threshold repeat counts; open squares show source-threshold counts. Horizontal marks indicate means for the original AD/FTD development sample. Repeats reuse participants. This is source-only evidence and does not validate the original triage model in Spain.',6.5)
 p('Ridge routing retained three missed AD cases in every repeat, while mean false positives rose from 6.67 to 7.00 after threshold adjustment. Uncertainty routing recovered one case in one repeat, producing the mean reduction of 0.33, but mean false positives rose by one. Full acquisition similarly recovered one case in one repeat. The basic policy did not change its classifications. These limited changes do not support a robust improvement in missed-case performance.')
 p('At threshold 0.5, ridge routing had mean Brier loss 0.1675 versus 0.1713 for uncertainty routing using the same classifiers and acquisition count. That descriptive difference is distinct from threshold benefit. Source labels, earlier development reuse, the small sample and clinical inputs limit any superiority claim. In particular, MMSE may overlap with information used in clinical diagnosis.')
 page();h('6 Discussion and limitations')
@@ -132,7 +162,7 @@ p('The protocol was committed before performance evaluation; source-trained mode
 p('The numerical runtime emitted matrix-multiplication warnings during extraction, training and evaluation. It also reported an unrecognized iprint solver option during companion training. Warning counts are preserved. Recorded features and probabilities were finite; convergence warnings were treated as errors. Independent einsum calculations for PCA and logistic prediction reproduced the four final classifiers, including saved external predictions, within 3.33 × 10⁻¹⁶. Intermediate fits were not independently reconstructed, so the warning record remains a reproducibility limitation rather than being dismissed.')
 p('Public code, aggregate metrics, plots and provenance hashes accompany this manuscript. Raw signals, participant-level predictions, identifiers and fitted bundles remain local. The APAVA OSF metadata did not specify a license; the release is analyzed with attribution and its raw files are not redistributed. This is secondary research on public recordings, without new recruitment or an asserted new ethics approval. AI assistance supported implementation, analysis and drafting; the named author remains responsible for verification and venue-specific disclosure.')
 page();h('8 Conclusion')
-p('The independent Spanish cohort supports a clear tradeoff: covariance classification missed fewer observed AD cases but generated more false positives than spectral classification, with equal AUROC and worse Brier loss. Source-selected lower thresholds did not improve external detection. The original AD/FTD analysis showed only small, inconsistent reductions in missed cases. The evidence strengthens reproducibility and clarifies limitations; it does not establish a superior or clinically deployable system. The next confirmatory study requires a larger independent cohort matching the original differential-diagnosis endpoint and a prospectively justified operating objective.')
+p('The independent Spanish cohort supports a clear tradeoff: covariance classification missed fewer observed AD cases but generated more false positives than spectral classification, with equal AUROC and worse Brier loss. Source-selected lower thresholds did not improve external detection. The original AD/FTD analysis showed only small, inconsistent reductions in missed cases. These results support reporting missed cases and false positives together when assessing transfer between sites. They do not establish clinical readiness or overall model superiority. The next confirmatory study requires a larger independent cohort matching the original differential-diagnosis endpoint and a prospectively justified operating objective.')
 h('References')
 refs=[
 ('Miltiadous A, et al. A Dataset of Scalp EEG Recordings of Alzheimer’s Disease, Frontotemporal Dementia and Healthy Subjects from Routine EEG. Data. 2023;8(6):95.','https://doi.org/10.3390/data8060095'),
@@ -148,5 +178,45 @@ for i,(ref,url) in enumerate(refs,1):
  pp=p(f'[{i}] {ref} {url}');pp.paragraph_format.space_after=Pt(6)
  for run in pp.runs:run.font.size=Pt(9)
 (ROOT/'literature.json').write_text(json.dumps([{'id':i,'reference':ref,'url':url} for i,(ref,url) in enumerate(refs,1)],indent=2))
+
+page();h('Appendix A Complete external estimates')
+p('Table A1 gives the operating-point estimates and their Wilson intervals. The same covariance decisions occur at both thresholds, so their intervals coincide. The spectral sensitivity interval is unchanged because neither missed AD case crosses its lower threshold. These are marginal intervals for each proportion, not a paired interval for the difference between models.')
+table(['Model and threshold','Sensitivity with 95% CI','Specificity with 95% CI'],[[r['model'].capitalize()+(' 0.5' if r['operating']=='default' else ' source t'),f"{100*float(r['sensitivity']):.1f}% ({100*float(r['sensitivity_low']):.1f}–{100*float(r['sensitivity_high']):.1f})",f"{100*float(r['specificity']):.1f}% ({100*float(r['specificity_low']):.1f}–{100*float(r['specificity_high']):.1f})"] for r in external],[2.2,2.25,2.32])
+sub('Interpreting probability error and discrimination')
+p('The spectral Brier score of 0.1300 is lower than the covariance score of 0.1772 in the external cohort. This difference is compatible with substantial uncertainty: its paired interval includes both negative and positive values. Equal AUROC does not imply identical rankings for every pair of participants, identical calibration or equivalent clinical usefulness. The ROC curves differ despite having the same area. A model can therefore yield fewer missed cases at one threshold while having worse overall probability error.')
+p('Average precision, an additional saved descriptive metric, was 0.8924 for spectral features and 0.8955 for covariance features. It is calculated from the ordering of positive-class scores and is unchanged by threshold selection. The external AD fraction is 12/23; this selected case mix does not establish disease prevalence in a screening population. Average precision and predictive values should not be transported to a clinical setting without accounting for its case mix.')
+sub('Source repeat variability')
+p('Table A2 reports mean sensitivity and the observed repeat range for the companion classifiers. Range endpoints summarize three correlated repeats and are not confidence limits. The gap between threshold-fitting sensitivity and outer-validation sensitivity illustrates why a training target cannot be interpreted as a guarantee.')
+companion=read('companion_development_summary.csv')
+table(['Model and threshold','Mean sensitivity','Repeat range','Mean false positives'],[[r['model'].capitalize()+(' 0.5' if r['operating']=='default' else ' source t'),f"{100*float(r['sensitivity_mean']):.1f}%",f"{100*float(r['sensitivity_minimum']):.0f}–{100*float(r['sensitivity_maximum']):.0f}%",f"{float(r['false_positives_mean']):.2f} / 29"] for r in companion],[2.05,1.4,1.35,1.97])
+p('For the original AD/FTD task, ridge routing missed exactly three AD participants in each repeat. Uncertainty routing missed four, four and three at threshold 0.5, compared with four, three and three after threshold adjustment. False-positive counts changed from eight, six and seven to eight, eight and eight. These counts explain the reported average changes without implying that a fraction of an individual patient was classified differently.')
+page();h('Appendix B Reproducibility specification')
+p('The source scripts separate acquisition, feature extraction, model fitting, external evaluation and reporting. The main experiment scripts contain sentinels that prevent an accidental second evaluation in the delivered workspace. A separate fresh copy is required for an independent reproduction. Reproducing a frozen analysis and adapting a model after observing external results are different activities; only the former can reproduce the claims in this manuscript.')
+table(['Component','Recorded specification'],[
+['Training runtime','Python 3.12.13; NumPy 2.1.1; pandas 2.2.3; SciPy 1.18.0; scikit-learn 1.5.2; joblib 1.4.2'],
+['Randomization','Base seed 20261124; stratified shuffled folds; fixed repeat and fold offsets in source code'],
+['Thread settings','OPENBLAS_NUM_THREADS=1; OMP_NUM_THREADS=1'],
+['Companion feature dimensions','20 spectral or 544 covariance inputs; covariance reduced to five training-fitted components'],
+['Companion calibration','Three stratified folds; sigmoid method; ensemble=False'],
+['Outer source validation','Three repeats of four participant folds for both studies'],
+['External uncertainty','Wilson 95% proportion intervals; 2,000 paired stratified bootstrap draws'],
+['Public experiment checkpoints','Protocol 65719eb; source artifact freeze 02d3e24; initial results c456bb1']], [2.0,4.77])
+sub('Signal duration and aggregation')
+p('The source contributes 24 five-second segments per participant. The external segment-count distribution is: 24 segments for 15 participants, and 1, 2, 3, 10, 17, 18, 19 and 22 segments for one participant each. Every segment receives equal weight within its participant; every participant contributes one feature vector and one outcome. The analysis does not weight a participant with 120 seconds more heavily than one with five seconds. It also does not estimate how much that duration difference changes prediction uncertainty.')
+sub('Verification and retained evidence')
+p('Acquisition verifies the APAVA archive against a fixed SHA256 digest. Public provenance records the archive, feature-adapter and feature-file hashes, while local manifests retain the participant-level provenance. Channel-order and global-amplitude invariance were checked using a synthetic unit-test fixture; all model fitting and reported clinical results used measured recordings. Synthetic test fixtures are not additional study participants.')
+p('The independent arithmetic audit reconstructs PCA and logistic calculations for the final fitted models and checks agreement with saved predictions. The audit does not replace replication in another numerical environment. Matrix-multiplication warnings were retained during feature extraction and fitting, and model convergence warnings were configured as errors. Both positive and unfavorable outcomes are preserved. No further model selection was performed on the external cohort.')
+sub('Data and code availability')
+p('The public research branch contains the analysis code, fixed protocol, dataset eligibility review, aggregate result tables, figures and manuscript builders. Training requires independently acquired source recordings and regeneration of local features and partitions. Raw recordings, participant predictions and fitted artifacts containing training identifiers are excluded from the public package. Source-specific terms continue to apply. Repository: https://github.com/doraem-on/BrainTriage/tree/codex/research-model-improvements/research/extension_v4')
+
 (ROOT/'manuscript').mkdir(exist_ok=True)
+for tree in [doc.element,doc.styles.element,section.footer._element]:
+    for element in tree.iter():
+        if element.tag==qn('w:color'):
+            element.attrib.clear();element.set(qn('w:val'),'000000')
+        if element.tag==qn('w:shd'):
+            element.attrib.clear();element.set(qn('w:val'),'clear');element.set(qn('w:fill'),'FFFFFF')
+        for key in list(element.attrib):
+            if key.rsplit('}',1)[-1].startswith('themeColor') or key.rsplit('}',1)[-1] in ['themeTint','themeShade','themeFill','themeFillTint','themeFillShade']:del element.attrib[key]
+        if qn('w:color') in element.attrib:element.set(qn('w:color'),'000000')
 path=ROOT/'manuscript/external_eeg_validation.docx';doc.save(path);print(path)

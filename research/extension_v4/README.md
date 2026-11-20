@@ -53,7 +53,7 @@ Five scientific tests passed. The audit checked 310 partition records and 1,632 
 
 ## Artifacts
 
-- `manuscript/external_eeg_validation.docx`: current eight-page research update, retaining the separate endpoints and all negative findings.
+- `manuscript/external_eeg_validation.docx`: current twelve-page research manuscript, with black text, monochrome figures, nine numbered equations, six tables and detailed methods/statistics appendices; retaining the separate endpoints and all negative findings.
 - `figures/`: four scientific figures, each as PNG and vector PDF.
 - `results/external_metrics.csv`, `external_contrasts.json`: all external results and paired conditional intervals.
 - `results/sensitivity_summary.csv`, `companion_development_summary.csv`: source mean/range summaries; individual repeats are also supplied.
