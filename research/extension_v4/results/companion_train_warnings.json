@@ -1,0 +1,6 @@
+{
+  "Unknown solver options: iprint": 432,
+  "divide by zero encountered in matmul": 260,
+  "overflow encountered in matmul": 260,
+  "invalid value encountered in matmul": 260
+}

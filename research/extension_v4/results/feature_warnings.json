@@ -1,0 +1,5 @@
+{
+  "divide by zero encountered in matmul": 13984,
+  "overflow encountered in matmul": 13984,
+  "invalid value encountered in matmul": 13984
+}

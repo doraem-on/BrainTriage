@@ -1,0 +1,28 @@
+{
+  "scope": "EEG-only AD versus HC companion, not original v3 AD/FTD triage",
+  "models": {
+    "spectral": {
+      "file": "companion_spectral.joblib",
+      "sha256": "88d80234b7841167cf8628e556706389b5c1fdf88599d03adea950959d3ce154",
+      "threshold": 0.3371856898603565,
+      "source_threshold_fit_sensitivity": 0.92,
+      "maximum_final_probability_arithmetic_error": 2.220446049250313e-16,
+      "source_n": 54
+    },
+    "covariance": {
+      "file": "companion_covariance.joblib",
+      "sha256": "660e645d7d71d0780df24589ebec8bd6f135e59aca96d34e7733f823bb02cf08",
+      "threshold": 0.21997215291706604,
+      "source_threshold_fit_sensitivity": 0.92,
+      "maximum_final_probability_arithmetic_error": 8.326672684688674e-17,
+      "source_n": 54
+    }
+  },
+  "protocol_sha256": "60c29e0f699389bf73d1bd46554459b1eeaca0c082b3aca54e6d8d27b3c2e146",
+  "source_feature_sha256": "a0036ac38e13376662a53e959ed31c2ee9683a9a4858e4e93e04b334c4d95491",
+  "code_sha256": "cab5414f3d901d19fbab888a0006d477453a29e28efd9d98598aa0cf0c5b22ca",
+  "common_code_sha256": "ed099667b7be24dffeb0b206663fc0c619f522615a4a2a5fe59fb5cda7266dc7",
+  "feature_code_sha256": "509bc1131881ac6d4cf0b6aca4e1f3340ea308e2c75885c7e8a3d67b56d74187",
+  "label_mapping_source_blob": "b6b9c130b9e519366c2844a8c203b80c9d5d8536",
+  "frozen_utc": "2026-11-20T17:35:00Z"
+}

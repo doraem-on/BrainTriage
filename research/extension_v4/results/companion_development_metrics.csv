@@ -1,0 +1,13 @@
+repeat,model,operating,threshold_description,n,ad_n,threshold,true_positives,false_negatives,true_negatives,false_positives,sensitivity,specificity,auroc,brier,average_precision
+0,covariance,default,Mean of training-only fold thresholds; predictions use their own fold threshold,54,25,0.5,19,6,26,3,0.76,0.896551724137931,0.8524137931034483,0.1492132653933613,0.8890037999692386
+0,covariance,sensitivity90,Mean of training-only fold thresholds; predictions use their own fold threshold,54,25,0.1829154530099151,23,2,12,17,0.92,0.41379310344827586,0.8524137931034483,0.1492132653933613,0.8890037999692386
+0,spectral,default,Mean of training-only fold thresholds; predictions use their own fold threshold,54,25,0.5,17,8,26,3,0.68,0.896551724137931,0.8510344827586206,0.14908083923400497,0.8863823475229051
+0,spectral,sensitivity90,Mean of training-only fold thresholds; predictions use their own fold threshold,54,25,0.24006704168319995,23,2,15,14,0.92,0.5172413793103449,0.8510344827586206,0.14908083923400497,0.8863823475229051
+1,covariance,default,Mean of training-only fold thresholds; predictions use their own fold threshold,54,25,0.5,19,6,23,6,0.76,0.7931034482758621,0.8372413793103449,0.1567060476901394,0.879224206709488
+1,covariance,sensitivity90,Mean of training-only fold thresholds; predictions use their own fold threshold,54,25,0.2185892768133064,22,3,13,16,0.88,0.4482758620689655,0.8372413793103449,0.1567060476901394,0.879224206709488
+1,spectral,default,Mean of training-only fold thresholds; predictions use their own fold threshold,54,25,0.5,19,6,26,3,0.76,0.896551724137931,0.8620689655172414,0.14461281980400065,0.893540453045623
+1,spectral,sensitivity90,Mean of training-only fold thresholds; predictions use their own fold threshold,54,25,0.3387674235510058,21,4,19,10,0.84,0.6551724137931034,0.8620689655172414,0.14461281980400065,0.893540453045623
+2,covariance,default,Mean of training-only fold thresholds; predictions use their own fold threshold,54,25,0.5,18,7,26,3,0.72,0.896551724137931,0.8289655172413795,0.15483352176406362,0.869075616800588
+2,covariance,sensitivity90,Mean of training-only fold thresholds; predictions use their own fold threshold,54,25,0.23676779737792322,20,5,14,15,0.8,0.4827586206896552,0.8289655172413795,0.15483352176406362,0.869075616800588
+2,spectral,default,Mean of training-only fold thresholds; predictions use their own fold threshold,54,25,0.5,17,8,29,0,0.68,1.0,0.8827586206896553,0.13580832735977313,0.9183201471349474
+2,spectral,sensitivity90,Mean of training-only fold thresholds; predictions use their own fold threshold,54,25,0.24944333233817503,23,2,11,18,0.92,0.3793103448275862,0.8827586206896553,0.13580832735977313,0.9183201471349474

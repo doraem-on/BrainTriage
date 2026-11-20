@@ -1,0 +1,8 @@
+[
+  {
+    "stage": "feature extraction before external predictions or model fitting",
+    "issue": "Python TarInfo objects do not support direct sorting",
+    "correction": "Sort archive members by filename; feature definitions and inclusion unchanged",
+    "performance_seen": false
+  }
+]
