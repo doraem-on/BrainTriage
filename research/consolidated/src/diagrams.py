@@ -1,4 +1,4 @@
-"""Black-and-white study and acquisition diagrams; no invented results."""
+"""Colour study and acquisition diagrams with black labels; no invented results."""
 from pathlib import Path
 import sys,textwrap
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT.parent/'.plot_packages'))
@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch
 plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'pdf.fonttype':42})
 def box(ax,x,y,w,h,text):
- ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle='round,pad=0.008',facecolor='white',edgecolor='black',linewidth=1,clip_on=False))
+ ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle='round,pad=0.008',facecolor=('#E5F0F8' if x<.27 else '#E5F3EC' if x<.7 else '#FFF0DB'),edgecolor='black',linewidth=1,clip_on=False))
  wrapped='\n'.join(textwrap.fill(line,width=int(w*105),break_long_words=False) for line in text.split('\n'))
  ax.text(x+w/2,y+h/2,wrapped,ha='center',va='center',fontsize=9)
 def arrow(ax,start,end):ax.annotate('',xy=end,xytext=start,arrowprops={'arrowstyle':'->','color':'black','lw':1.2})

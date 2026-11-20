@@ -54,8 +54,7 @@ def figure(name,caption,width=6.6):
 def read(name):
  with open(folders[stage]/'results'/name) as f:return list(csv.DictReader(f))
 def run(code):exec(compile(code,'assembled_study_'+stage,'exec'),globals())
-for path in (folders['c']/'figures').glob('*'):
- if path.suffix in ['.png','.pdf']:shutil.copy2(path,ROOT/'figures'/('c_'+path.name))
+# Study C figures are rebuilt from aggregates by figures_stage_c.py.
 summary=[];contrasts=[]
 # Shared title, abstract and scope replace the three separate update titles.
 doc.core_properties.title='Measurement benefit and independent EEG validation in dementia assessment'
@@ -124,6 +123,12 @@ stage='c'
 start=sources['c'].index("page();h('Appendix A")
 end=sources['c'].index("(ROOT/'manuscript').mkdir",start)
 run(sources['c'][start:end])
+# A study-aware glossary disambiguates reused symbols without changing equations.
+notation=json.loads((ROOT/'notation.json').read_text())
+for group in notation:
+ page();h(group['heading']);base_p(group['introduction'])
+ if group.get('subheading'):sub(group['subheading'])
+ table(['Symbol or abbreviation','Meaning and scope'],group['rows'],[1.55,5.15])
 # Ensure every explicit Word color is black and shading is white.
 for tree in [doc.element,doc.styles.element,section.footer._element]:
  for element in tree.iter():
@@ -134,5 +139,5 @@ for tree in [doc.element,doc.styles.element,section.footer._element]:
   if qn('w:color') in element.attrib:element.set(qn('w:color'),'000000')
 path=ROOT/'manuscript/braintriage_complete_research_paper.docx';doc.save(path)
 (ROOT/'literature.json').write_text(json.dumps([dict(r,id=i) for i,r in enumerate(references,1)],indent=2))
-(ROOT/'content_manifest.json').write_text(json.dumps({'figures':figure_number,'equations':equation_number,'tables':len(doc.tables),'references':len(references),'new_model_fits':0,'new_external_evaluations':0,'source_studies':['extension_v2','extension_v3','extension_v4']},indent=2))
+(ROOT/'content_manifest.json').write_text(json.dumps({'figures':figure_number,'equations':equation_number,'tables':len(doc.tables),'references':len(references),'notation_entries':sum(len(group['rows']) for group in notation),'new_model_fits':0,'new_external_evaluations':0,'source_studies':['extension_v2','extension_v3','extension_v4']},indent=2))
 print(path);print('Figures',figure_number,'equations',equation_number,'tables',len(doc.tables),'references',len(references))

@@ -1,8 +1,9 @@
 {
   "figures": 20,
   "equations": 16,
-  "tables": 10,
+  "tables": 13,
   "references": 28,
+  "notation_entries": 53,
   "new_model_fits": 0,
   "new_external_evaluations": 0,
   "source_studies": [

@@ -27,16 +27,16 @@ fig,axes=plt.subplots(2,2,figsize=(8,5.7),layout='constrained')
 labels=['Fixed uncertainty','Tuned basic','Tuned full','Tuned uncertainty','Tuned nonlinear gain']
 for ax,c in zip(axes.flat,C):
     for j,(v,p) in enumerate([('legacy_fixed','uncertainty'),(chosen(c),'basic'),(chosen(c),'full'),(chosen(c),'uncertainty'),(chosen(c),'nonlinear_gain')]):
-        a=vals(c,v,p);color='black' if j==4 else 'black'
+        a=vals(c,v,p);color='#D55E00' if j==4 else '#0072B2'
         ax.plot([a.min(),a.max()],[j,j],color=color,lw=1.3);ax.scatter(a,[j]*3,color=color,s=14,alpha=.5);ax.scatter(a.mean(),j,color=color,marker='D',s=30)
     ax.set(yticks=range(5),yticklabels=labels,title=C[c],xlabel='Brier score (lower is better)');ax.invert_yaxis();ax.grid(axis='x',alpha=.2);ax.xaxis.set_major_locator(MaxNLocator(4))
 save(fig,'primary_comparison')
 fig,axes=plt.subplots(2,2,figsize=(8,5.6),layout='constrained')
-styles=[('uncertainty','Tuned uncertainty','black'),('nonlinear_gain','Tuned nonlinear gain','black'),('ridge_gain','Tuned ridge gain','black'),('random','Random mean','black'),('oracle','Retrospective oracle','black')]
+styles=[('uncertainty','Tuned uncertainty','#0072B2'),('nonlinear_gain','Tuned nonlinear gain','#D55E00'),('ridge_gain','Tuned ridge gain','#009E73'),('random','Random mean','#CC79A7'),('oracle','Retrospective oracle','#777777')]
 qs=[0,.1,.2,.3,.5,.75,1]
 for ax,c in zip(axes.flat,C):
-    for i,(p,label,color) in enumerate(styles):ax.plot(qs,[vals(c,chosen(c),p,q).mean() for q in qs],label=label,color='black',linestyle=['-',':','-.',(0,(5,1)),(0,(1,2))][i],marker=['o','s','^','D','x'][i],ms=3)
-    ax.plot(qs,[vals(c,'legacy_fixed','uncertainty',q).mean() for q in qs],label='Fixed uncertainty',color='black',ls='--')
+    for i,(p,label,color) in enumerate(styles):ax.plot(qs,[vals(c,chosen(c),p,q).mean() for q in qs],label=label,color=color,linestyle=['-',':','-.',(0,(5,1)),(0,(1,2))][i],marker=['o','s','^','D','x'][i],ms=3)
+    ax.plot(qs,[vals(c,'legacy_fixed','uncertainty',q).mean() for q in qs],label='Fixed uncertainty',color='#E69F00',ls='--')
     ax.set(title=C[c],xlabel='Nominal acquisition fraction',ylabel='Mean Brier score');ax.axvline(.3,color='gray',alpha=.3);ax.grid(alpha=.15)
 handles,labels=axes[0,0].get_legend_handles_labels();fig.legend(handles,labels,loc='outside lower center',ncol=3,fontsize=8)
 save(fig,'capacity_curves')
@@ -44,13 +44,13 @@ fig,axes=plt.subplots(1,2,figsize=(8,3.7),layout='constrained')
 variants=['legacy_fixed','nested_original_raw','nested_original_blend','nested_rich_raw','nested_rich_blend'];labels=['Fixed original','Tuned original','Tuned original + blend','Tuned rich','Tuned rich + blend']
 for ax,policy,title in zip(axes,['full','nonlinear_gain'],['Full acquisition','Nonlinear gain, 30% capacity']):
     for j,v in enumerate(variants):
-        a=vals('eeg_ad_ftd',v,policy);ax.plot([a.min(),a.max()],[j,j],color='black');ax.scatter(a,[j]*3,s=20,color='black',alpha=.6);ax.scatter(a.mean(),j,marker='D',s=30,color='black')
+        a=vals('eeg_ad_ftd',v,policy);ax.plot([a.min(),a.max()],[j,j],color='#0072B2');ax.scatter(a,[j]*3,s=20,color='#0072B2',alpha=.6);ax.scatter(a.mean(),j,marker='D',s=30,color='#D55E00')
     ax.set(yticks=range(5),yticklabels=labels,title=title,xlabel='Brier score');ax.invert_yaxis();ax.grid(axis='x',alpha=.2)
 save(fig,'eeg_ablation')
 fig,ax=plt.subplots(figsize=(7.5,3.4),layout='constrained')
 for j,(c,mode,label) in enumerate([(c,'nested_original',C[c]) for c in C]+[('eeg_ad_ftd','nested_rich','EEG rich')]):
     a=[float(r['alpha']) for r in selected if r['cohort']==c and r['mode']==mode]
-    ax.scatter(a,np.full(len(a),j)+np.linspace(-.12,.12,len(a)),alpha=.7,s=24,color='black')
+    ax.scatter(a,np.full(len(a),j)+np.linspace(-.12,.12,len(a)),alpha=.7,s=24,color=['#0072B2','#009E73','#E69F00','#7B61A8','#D55E00'][j])
 ax.set(yticks=range(5),yticklabels=list(C.values())+['EEG rich'],xlabel='Training-fitted blend weight α (0 = basic; 1 = advanced)',xlim=(-.04,1.04));ax.invert_yaxis();ax.grid(axis='x',alpha=.2)
 save(fig,'blend_weights')
 print('Wrote four figures in PNG and vector PDF formats.')

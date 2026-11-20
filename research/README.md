@@ -1,6 +1,6 @@
 # BrainTriage measured-data research
 
-**Complete paper:** [Consolidated manuscript and figures](consolidated/README.md) brings together all three studies in 29 pages, with 20 figures, 16 numbered equations, 10 tables and 28 references. Use this as the main reading copy. The consolidation adds no model fits or external evaluations.
+**Complete paper:** [Consolidated manuscript and figures](consolidated/README.md) brings together all three studies in 32 pages, with 20 colour figures, 16 numbered equations, 10 study tables, three notation tables and 28 references. All text is black; Appendix C defines 53 groups of symbols and abbreviations. Use this as the main reading copy. The consolidation adds no model fits or external evaluations.
 
 **Latest experiment:** [Independent EEG validation and sensitivity study](extension_v4/README.md) trains on 54 Greek participants and tests two frozen companion classifiers on 23 Spanish participants. Both external AUROCs were 0.864; covariance missed 0/12 AD cases but falsely flagged 7/11 controls, versus 2/12 and 1/11 for spectral features. Lower source thresholds did not recover additional external AD cases. The original AD/FTD model still lacks compatible external validation. The focused experiment report and four figures remain in `extension_v4/`.
 

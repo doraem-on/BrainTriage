@@ -1,0 +1,74 @@
+[
+  {
+    "heading": "Appendix C Symbols and notation",
+    "introduction": "This glossary covers the mathematical notation used in the text and numbered equations. Definitions are local to each study; identical letters can denote different quantities. Equation numbers refer to the combined manuscript. Numerical model settings and units remain specified in the methods.",
+    "subheading": "Measurements and acquisition",
+    "rows": [
+      ["i, j; n", "Participant indices; n is the number of participants in the relevant training or evaluation set, not the number of EEG segments."],
+      ["X, x, Xᵢ, xᵢ", "X denotes basic information before acquisition; x is a particular value and Xᵢ the information for participant i. In the logistic-model paragraph, xᵢ denotes the inputs to that classifier."],
+      ["Z", "Advanced measurements available after acquisition, such as a biomarker panel or EEG features. Study A, equations (1) and (4)."],
+      ["Y, yᵢ", "Binary recorded outcome and the observed outcome of participant i. Positive means CDR > 0 in OASIS and AD in the other tasks; it is not uniformly biomarker-confirmed AD."],
+      ["p₀, p_b,i, pᵢᴮ", "Basic-model probability of the positive class. The three forms are the notation used respectively in Studies A, B and C."],
+      ["p₁, p_a,i, pᵢᴬ", "Advanced-model probability using the additional measurements. The forms correspond to Studies A, B and C."],
+      ["G(x), Gᵢ", "Expected reduction in Brier loss from acquiring advanced information, conditional on basic information; Gᵢ is the benefit for candidate i. Equation (1)."],
+      ["Ĝᵢ, ε", "Estimated benefit and a hypothetical uniform bound on its absolute estimation error. The paper does not estimate or certify ε empirically. Equation (3)."],
+      ["S, |S|; k", "Selected set, its number of members, and the fixed number of acquisitions. In equations (2)–(3), |S| = k."],
+      ["S*, Ŝ", "Selection maximizing true benefit and selection maximizing estimated benefit, respectively. The hat marks estimation. Equation (3)."],
+      ["R(S)", "Total conditional expected Brier loss for selection S. Dividing by n gives average loss; equation (3) bounds excess total loss."],
+      ["η₀, η₁; G Bayes(x)", "Coherent Bayes probabilities E[Y|X] and E[Y|X,Z], and their conditional Brier improvement. Under these assumptions, the improvement is Var(η₁|X=x). Equation (4)."],
+      ["gᵢ", "Realized cross-fitted Brier improvement used as a gate-training target. Study B uses the blended advanced probability; Study C equation (10) uses pᵢᴬ."],
+      ["q; floor(qn)", "In Study A and the capacity analysis, q is the nominal acquisition fraction. floor(qn) is the integer number of acquired panels in a batch of n participants."],
+      ["rᵢ, pᵢᴿ; m", "Binary referral indicator, routed probability, and evaluation-batch size in Study C. Equation (11) acquires floor(0.3m) panels. This scalar m differs from the posterior vector m in equation (5)."],
+      ["w, c; 1/(1+w)", "In the hypothetical cost analysis, w is false-negative cost relative to false-positive cost, c is acquisition cost in those same units, and 1/(1+w) is the corresponding decision threshold."],
+      ["H(p)", "Bernoulli entropy −p log(p) − (1−p) log(1−p). The Gaussian information comparator uses H(mean p₁) − mean H(p₁) across its conditional draws."]
+    ]
+  },
+  {
+    "heading": "Symbols for fitting and representation",
+    "introduction": "These symbols describe the fitted acquisition gates, probability blend, EEG representation and classifiers. Posterior uncertainty, signal covariance and sample variability are different quantities.",
+    "rows": [
+      ["φ(x)", "Design vector for the Bayesian linear benefit gate: standardized basic inputs together with an explicit constant. Equation (5)."],
+      ["β, eᵢ", "In the Bayesian gate, β is the coefficient vector and eᵢ is Gaussian residual noise in gᵢ = φ(Xᵢ)ᵀβ + eᵢ."],
+      ["m, Σ", "Posterior mean vector and posterior covariance matrix of the Bayesian gate coefficients, conditional on fitted upstream models. Equation (5). Σ here is a matrix, not a summation sign."],
+      ["μ(x), s(x)", "Posterior mean benefit and posterior standard deviation of the conditional mean benefit. s(x) excludes observation noise and upstream fitting uncertainty. Equation (5)."],
+      ["κ, aκ(x)", "Nonnegative uncertainty-penalty multiplier and adjusted referral score μ(x) − κs(x). Primary comparison: κ = 1 versus 0. Equation (5)."],
+      ["dᵢ", "Difference between advanced and basic cross-fitted probabilities, p_a,i − p_b,i. Equations (6)–(7)."],
+      ["α, α*", "Blend coefficient in [0,1] and its training-fitted minimizer. α = 0 gives basic prediction; α = 1 gives advanced prediction. α is not a significance level here."],
+      ["qᵢ(α)", "Blended probability p_b,i + αdᵢ. This function differs from the acquisition fraction q and the Wilson observed proportion q."],
+      ["L(α)", "Mean squared probability error on the cross-fitted training pairs as a function of α. Equation (6); its constrained minimizer is equation (7)."],
+      ["Cᴼᴬˢ", "EEG covariance matrix estimated by Oracle Approximating Shrinkage. This is a signal covariance matrix, distinct from the gate posterior covariance Σ. Equation (8)."],
+      ["C̃, tr(Cᴼᴬˢ)", "Trace-normalized EEG covariance and the trace (sum of diagonal entries) of its unnormalized estimate. Equation (8)."],
+      ["log(C̃)", "Matrix logarithm of the normalized covariance, formed through its eigenvalues and eigenvectors after the stated eigenvalue floor. It is not an element-by-element logarithm."],
+      ["vecₛᵧₘ, z", "Upper-triangle vectorization of the symmetric matrix logarithm, with off-diagonal entries weighted by √2, and the resulting feature vector. Equation (8)."],
+      ["C", "Inverse regularization strength for logistic regression or SVC in the model descriptions. Larger C permits less shrinkage. It is distinct from the covariance matrix Cᴼᴬˢ."],
+      ["β₀, β; ηᵢ", "Logistic intercept, coefficient vector and linear score ηᵢ = β₀ + βᵀxᵢ. This ηᵢ is a logit, whereas η₀ and η₁ in equation (4) are Bayes probabilities."],
+      ["σ(u), exp(u)", "Logistic sigmoid σ(u) = 1/(1 + exp(−u)) and the exponential function. u is a generic real-valued argument."],
+      ["t, T, t*", "Decision threshold, finite candidate-threshold set, and largest feasible source-selected threshold at or below 0.5 attaining the fitting sensitivity target. Equation (9)."],
+      ["pᵢ, pⱼ", "Positive-class probabilities for participants i and j under the model being evaluated; in threshold fitting they are cross-fitted training probabilities. Equations (9), (13) and (14)."]
+    ]
+  },
+  {
+    "heading": "Symbols for evaluation and mathematical operators",
+    "introduction": "The definitions below separate observed counts from fitted probabilities and make the interval calculations explicit. Repeated-validation means are descriptive averages, not fractions of individual participants.",
+    "rows": [
+      ["TP, FN", "True positives: positive-class participants correctly detected. False negatives: positive-class participants missed at the stated threshold. In the external study the positive class is AD."],
+      ["TN, FP", "True negatives: comparator participants correctly classified. False positives: comparator participants incorrectly classified as positive. The external comparator is healthy control; the original EEG comparator is FTD."],
+      ["Sensitivity, specificity", "TP/(TP+FN) and TN/(TN+FP), respectively. Their denominators are 12 AD cases and 11 controls in the external study. Equation (12)."],
+      ["Brier", "Average squared difference between predicted probability and observed binary outcome. Lower values indicate better probability accuracy on the evaluated sample. Equation (13)."],
+      ["AUROC; n₁, n₀", "Area under the receiver operating characteristic curve; positive- and negative-class sample sizes. Equation (14) counts positive-negative score orderings and gives ties half credit."],
+      ["k, n, q in Wilson intervals", "Number of successes, relevant binomial denominator and observed proportion q = k/n. For sensitivity, k = TP and n = TP+FN; for specificity, k = TN and n = TN+FP."],
+      ["z in Wilson intervals", "Standard-normal critical value 1.96 for the stated two-sided 95% interval. This scalar z differs from the EEG feature vector z in equation (8)."],
+      ["c, h in Wilson intervals", "Interval centre and half-width, giving c ± h. Equations (15)–(16). This c is not the acquisition cost used in Study A."],
+      ["E[·], Var(·); |", "Expectation, variance, and conditioning on the information after the vertical bar; for example E[Y|X]."],
+      ["Σᵢ, Σⱼ", "Summation over the indicated indices. A restriction such as i:yᵢ=1 selects positive-class participants; i∈S selects members of S."],
+      ["1[condition]", "Indicator equal to 1 when the bracketed condition is true and 0 otherwise. Used for threshold decisions and pairwise score comparisons."],
+      ["clip(v,0,1), floor(v)", "Projection of v onto [0,1], and the greatest integer no larger than v, respectively. They constrain blend weights and round acquisition counts down."],
+      ["Superscript T; hat; *", "T on a vector denotes transpose. A hat denotes an estimate. A star denotes the specified optimizer or selected optimum, not statistical significance."],
+      ["|v|, |S|; √; ±", "Absolute value for a scalar v, cardinality for a set S, square root, and plus-or-minus. Their meaning depends on the enclosed object."],
+      ["∈, ≤, ≥; ⁻¹, ²", "Set membership, less-than-or-equal and greater-than-or-equal. Exponents −1 and 2 denote a reciprocal/inverse and a square, respectively, according to the object."],
+      ["AD, FTD, HC, MCI, CDR", "Alzheimer disease; frontotemporal dementia; healthy control; mild cognitive impairment; Clinical Dementia Rating. Endpoints and comparator diagnoses remain study-specific."],
+      ["EEG, MMSE, CSF, PCA, OAS", "Electroencephalography; Mini-Mental State Examination; cerebrospinal fluid; principal component analysis; Oracle Approximating Shrinkage. Here OAS is an estimator, not an OASIS cohort."],
+      ["eTIV, nWBV; Hz, SD, CI", "Estimated total intracranial volume; normalized whole-brain volume; hertz (cycles per second); standard deviation; confidence interval. Hypothetical cost units are separately defined in Study A."]
+    ]
+  }
+]

@@ -1,8 +1,9 @@
 {
   "figures": 20,
   "equations": 16,
-  "tables": 10,
+  "tables": 13,
   "references": 28,
+  "notation_entries": 53,
   "new_model_fits": 0,
   "new_external_evaluations": 0,
   "source_studies": [
@@ -10,13 +11,20 @@
     "extension_v3",
     "extension_v4"
   ],
-  "manuscript_pages": 29,
+  "manuscript_pages": 32,
   "all_pages_visually_reviewed": true,
   "text_color": "black",
-  "figure_color": "monochrome",
+  "figure_color": "colour with black labels",
   "figure_and_equation_numbering_verified": true,
   "frozen_external_code_protocol_and_models_unchanged": true,
-  "revision_scope": "Consolidation, explanatory diagrams and monochrome rendering from saved results; no new fitting or evaluation",
-  "manuscript_sha256": "8af3cf1e7d3495e579fbe2b17ce6ef713486070cdc084e57cbfdf503c0e5a8f4",
-  "original_ad_ftd_external_validation": "Still unavailable; independent AD/HC companion results are a different endpoint"
+  "revision_scope": "Colour restored to figures and 53-entry notation glossary added; existing study text, tables and model results unchanged",
+  "manuscript_sha256": "4c5563f0f99b42be2b60079bf00d2b38b78b28a53cb7f4084f6a597e527ccd51",
+  "original_ad_ftd_external_validation": "Still unavailable; independent AD/HC companion results are a different endpoint",
+  "black_figure_text_operations_verified": 996,
+  "existing_study_text_and_tables_unchanged": true,
+  "notation_pages": [
+    30,
+    31,
+    32
+  ]
 }
