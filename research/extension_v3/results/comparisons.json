@@ -1,0 +1,122 @@
+[
+  {
+    "cohort": "oasis2",
+    "comparison": "primary_matched_uncertainty",
+    "candidate": "nested_original_blend",
+    "delta_brier_mean": -0.0010311013342447033,
+    "delta_brier_min": -0.00465331494150012,
+    "delta_brier_max": 0.0012955994028852058,
+    "repeat_deltas": [
+      -0.00465331494150012,
+      0.0012955994028852058,
+      0.00026441153588080413
+    ],
+    "improved_repeats": 1,
+    "interpretation": "Negative favors nonlinear gain; three correlated repeats, no confidence interval or significance claim."
+  },
+  {
+    "cohort": "oasis2",
+    "comparison": "secondary_fixed_uncertainty",
+    "candidate": "nested_original_blend",
+    "delta_brier_mean": 0.004455804422217509,
+    "delta_brier_min": 0.0038022002218065093,
+    "delta_brier_max": 0.005121561722512699,
+    "repeat_deltas": [
+      0.005121561722512699,
+      0.0038022002218065093,
+      0.00444365132233332
+    ],
+    "improved_repeats": 0,
+    "interpretation": "Negative favors nonlinear gain; three correlated repeats, no confidence interval or significance claim."
+  },
+  {
+    "cohort": "oasis1",
+    "comparison": "primary_matched_uncertainty",
+    "candidate": "nested_original_blend",
+    "delta_brier_mean": 0.0016427986087253395,
+    "delta_brier_min": -0.002259314086543396,
+    "delta_brier_max": 0.004533667891727405,
+    "repeat_deltas": [
+      -0.002259314086543396,
+      0.002654042020992009,
+      0.004533667891727405
+    ],
+    "improved_repeats": 1,
+    "interpretation": "Negative favors nonlinear gain; three correlated repeats, no confidence interval or significance claim."
+  },
+  {
+    "cohort": "oasis1",
+    "comparison": "secondary_fixed_uncertainty",
+    "candidate": "nested_original_blend",
+    "delta_brier_mean": 0.003274284023613063,
+    "delta_brier_min": -0.002395763627006109,
+    "delta_brier_max": 0.007809342675690889,
+    "repeat_deltas": [
+      0.0044092730221544085,
+      -0.002395763627006109,
+      0.007809342675690889
+    ],
+    "improved_repeats": 1,
+    "interpretation": "Negative favors nonlinear gain; three correlated repeats, no confidence interval or significance claim."
+  },
+  {
+    "cohort": "csf",
+    "comparison": "primary_matched_uncertainty",
+    "candidate": "nested_original_blend",
+    "delta_brier_mean": 0.00235559800728651,
+    "delta_brier_min": -0.0020890385441101056,
+    "delta_brier_max": 0.010881160836497122,
+    "repeat_deltas": [
+      -0.0020890385441101056,
+      0.010881160836497122,
+      -0.0017253282705274875
+    ],
+    "improved_repeats": 2,
+    "interpretation": "Negative favors nonlinear gain; three correlated repeats, no confidence interval or significance claim."
+  },
+  {
+    "cohort": "csf",
+    "comparison": "secondary_fixed_uncertainty",
+    "candidate": "nested_original_blend",
+    "delta_brier_mean": 0.007115575157263502,
+    "delta_brier_min": -0.0006189678056768011,
+    "delta_brier_max": 0.017844417383962113,
+    "repeat_deltas": [
+      -0.0006189678056768011,
+      0.017844417383962113,
+      0.004121275893505194
+    ],
+    "improved_repeats": 1,
+    "interpretation": "Negative favors nonlinear gain; three correlated repeats, no confidence interval or significance claim."
+  },
+  {
+    "cohort": "eeg_ad_ftd",
+    "comparison": "primary_matched_uncertainty",
+    "candidate": "nested_rich_blend",
+    "delta_brier_mean": -0.008009561110722865,
+    "delta_brier_min": -0.02475667336286988,
+    "delta_brier_max": 0.0006984033718233085,
+    "repeat_deltas": [
+      0.0006984033718233085,
+      2.9586658877978067e-05,
+      -0.02475667336286988
+    ],
+    "improved_repeats": 1,
+    "interpretation": "Negative favors nonlinear gain; three correlated repeats, no confidence interval or significance claim."
+  },
+  {
+    "cohort": "eeg_ad_ftd",
+    "comparison": "secondary_fixed_uncertainty",
+    "candidate": "nested_rich_blend",
+    "delta_brier_mean": -0.012758479366698392,
+    "delta_brier_min": -0.017904268434725007,
+    "delta_brier_max": -0.006626928099274287,
+    "repeat_deltas": [
+      -0.006626928099274287,
+      -0.017904268434725007,
+      -0.013744241566095883
+    ],
+    "improved_repeats": 3,
+    "interpretation": "Negative favors nonlinear gain; three correlated repeats, no confidence interval or significance claim."
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "aggregate_rows": 2352,
+  "outer_pipeline_fits": 108,
+  "final_bundles": 9,
+  "heldout_evaluations": 0,
+  "protocol_sha256": "7bfaf24e3d4dd49d8c4424b60f1b4369f49a342fe8280e0d58e4e23c30854802",
+  "completed_utc": "2026-11-20T17:13:50Z"
+}

@@ -1,0 +1,4111 @@
+{
+  "dataset": "OpenNeuro ds004504",
+  "dataset_doi": "doi:10.18112/openneuro.ds004504.v1.0.9",
+  "license": "CC0",
+  "source_metadata": [
+    {
+      "path": "participants.tsv",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/participants.tsv",
+      "bytes": 1706,
+      "sha256": "bd17cf02ec9733c9029d4a6d977b2918309b3c667ff9ceb1b5dce6e3cebccbc1"
+    },
+    {
+      "path": "participants.json",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/participants.json",
+      "bytes": 613,
+      "sha256": "e479ba99b89ca756d8894ec14665780eada7c0e831ca2422699439d9ae98740c"
+    },
+    {
+      "path": "dataset_description.json",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/dataset_description.json",
+      "bytes": 2852,
+      "sha256": "5e9b3a8be6b0d682825815b0eeda1ef8ffcf6653a8ca9919285fb349d8231632"
+    },
+    {
+      "path": "README",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/README",
+      "bytes": 4168,
+      "sha256": "a551f7e4844f09515499da342605cbdc8aff86a627057048da95748ea6d3b48a"
+    }
+  ],
+  "recordings": [
+    {
+      "id": "sub-001",
+      "path": "derivatives/sub-001/eeg/sub-001_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-001/eeg/sub-001_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "0bb5e45784ef4bee297b83d6741450b2e58dda2ee545e5da235189a533b69602",
+          "source": "previously downloaded complete file",
+          "object_bytes": 24357408
+        },
+        {
+          "start": 1201016,
+          "bytes": 4096,
+          "sha256": "837dd21af973aead39e37eb7872e1544eed9658acb5b516b70acce050bd17e88",
+          "source": "previously downloaded complete file",
+          "object_bytes": 24357408
+        },
+        {
+          "start": 1201072,
+          "bytes": 4560000,
+          "sha256": "925c76cf29ca481386549da9b68245e9550b5a20817ec12b28114f71279adc6c",
+          "source": "previously downloaded complete file",
+          "object_bytes": 24357408
+        },
+        {
+          "start": 23993472,
+          "bytes": 65536,
+          "sha256": "9e45b7e4435c8c8c989b1eee28eebb7a4a4632d3d0a8c651b37e5bb05aac7d1a",
+          "source": "previously downloaded complete file",
+          "object_bytes": 24357408
+        }
+      ],
+      "recording_seconds": 599.8,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "925c76cf29ca481386549da9b68245e9550b5a20817ec12b28114f71279adc6c",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-002",
+      "path": "derivatives/sub-002/eeg/sub-002_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-002/eeg/sub-002_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "de005201477d97b4bb6cdf9360412d6a9b4174fe63cf84e9a7c06724edb1e184",
+          "source": "previously downloaded complete file",
+          "object_bytes": 32186728
+        },
+        {
+          "start": 1587616,
+          "bytes": 4096,
+          "sha256": "93b9288a57064e249bd2c32b9caa4a3c6f573cc8b531d153a2bbd6815bd0efa6",
+          "source": "previously downloaded complete file",
+          "object_bytes": 32186728
+        },
+        {
+          "start": 1587672,
+          "bytes": 4560000,
+          "sha256": "8ac1063260c237b9108f39df9abfaf47f371cabca35054e717dcfe9239c13501",
+          "source": "previously downloaded complete file",
+          "object_bytes": 32186728
+        },
+        {
+          "start": 31725472,
+          "bytes": 65536,
+          "sha256": "b981b0475c94fd3f9cfe0b4449c30dbaae51b0ffc42e5af18b2d8570f83751c1",
+          "source": "previously downloaded complete file",
+          "object_bytes": 32186728
+        }
+      ],
+      "recording_seconds": 793.1,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "8ac1063260c237b9108f39df9abfaf47f371cabca35054e717dcfe9239c13501",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-003",
+      "path": "derivatives/sub-003/eeg/sub-003_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-003/eeg/sub-003_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "668a139c919f01815eea89b3e3dbda361656d1adb24a121c13f1976a0ea68307",
+          "source": "previously downloaded complete file",
+          "object_bytes": 13076664
+        },
+        {
+          "start": 1225816,
+          "bytes": 4096,
+          "sha256": "fac00f36f17041a8f0cf7fe7d6ac7e9276294a56833add26a825421676f85b63",
+          "source": "previously downloaded complete file",
+          "object_bytes": 13076664
+        },
+        {
+          "start": 1225872,
+          "bytes": 4560000,
+          "sha256": "a2231977ecbe8c72d6b6d18f2e6f683275d18273f6a423e0b164c2754ec5149d",
+          "source": "previously downloaded complete file",
+          "object_bytes": 13076664
+        },
+        {
+          "start": 12857672,
+          "bytes": 65536,
+          "sha256": "5e78dd637b9a0d5ad76ea2797c24c910153a3cc0fbd710cf071aae460e9f7ae2",
+          "source": "previously downloaded complete file",
+          "object_bytes": 13076664
+        }
+      ],
+      "recording_seconds": 306.1,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "a2231977ecbe8c72d6b6d18f2e6f683275d18273f6a423e0b164c2754ec5149d",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-004",
+      "path": "derivatives/sub-004/eeg/sub-004_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-004/eeg/sub-004_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "bb49fbdf4b3e85396c6199d54e6bbd650baa84df1e403284ba8705235bc92843",
+          "source": "previously downloaded complete file",
+          "object_bytes": 30076328
+        },
+        {
+          "start": 2825816,
+          "bytes": 4096,
+          "sha256": "0c2e343c432413047640672b74ff7bb24745926ff0da692c81fcdfcc9264d382",
+          "source": "previously downloaded complete file",
+          "object_bytes": 30076328
+        },
+        {
+          "start": 2825872,
+          "bytes": 4560000,
+          "sha256": "5b491bc32c2c85e310cd4651b9ae909b169c72d487419d1b087d95cacf7c4cf6",
+          "source": "previously downloaded complete file",
+          "object_bytes": 30076328
+        },
+        {
+          "start": 29657672,
+          "bytes": 65536,
+          "sha256": "b7584f16a47573e11c9f682fc0175bee1797b3432e7350b3997aa3a049380ec4",
+          "source": "previously downloaded complete file",
+          "object_bytes": 30076328
+        }
+      ],
+      "recording_seconds": 706.1,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "5b491bc32c2c85e310cd4651b9ae909b169c72d487419d1b087d95cacf7c4cf6",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-005",
+      "path": "derivatives/sub-005/eeg/sub-005_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-005/eeg/sub-005_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "e9f39c939f6a95b46877a1b9d426adb67f6706a65782587a3390c93788025de2",
+          "source": "previously downloaded complete file",
+          "object_bytes": 32631904
+        },
+        {
+          "start": 1609616,
+          "bytes": 4096,
+          "sha256": "5f1b62d0fd1341fd8209cedb37ef217c422553238de50463d4b42b6b2eae5995",
+          "source": "previously downloaded complete file",
+          "object_bytes": 32631904
+        },
+        {
+          "start": 1609672,
+          "bytes": 4560000,
+          "sha256": "81d621bb049905d0510bc5a1b8a228877d81fc4a952749faf29bbb5acf1ade51",
+          "source": "previously downloaded complete file",
+          "object_bytes": 32631904
+        },
+        {
+          "start": 32165472,
+          "bytes": 65536,
+          "sha256": "60f9b514af016ee1ade9a81d99dd97cfdb2f3e1682eb0888fb3000df1157dcce",
+          "source": "previously downloaded complete file",
+          "object_bytes": 32631904
+        }
+      ],
+      "recording_seconds": 804.1,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "81d621bb049905d0510bc5a1b8a228877d81fc4a952749faf29bbb5acf1ade51",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-006",
+      "path": "derivatives/sub-006/eeg/sub-006_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-006/eeg/sub-006_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "633e5e920b28862efe17b2421791a3956903e1174a39742e1ac4d1d92cfd8594",
+          "source": "previously downloaded complete file",
+          "object_bytes": 26945984
+        },
+        {
+          "start": 2531016,
+          "bytes": 4096,
+          "sha256": "ad3d0a710db737d1e336a2a1cfcd1f16361193740607cbf8781359108744a823",
+          "source": "previously downloaded complete file",
+          "object_bytes": 26945984
+        },
+        {
+          "start": 2531072,
+          "bytes": 4560000,
+          "sha256": "96b2529bfa7e3379322a1d8a3e7de10af4c56c9053d5f40cd8aad8e010155b93",
+          "source": "previously downloaded complete file",
+          "object_bytes": 26945984
+        },
+        {
+          "start": 26562272,
+          "bytes": 65536,
+          "sha256": "71aec3e64905862f2a38d1aa7bc6675b5ccd2ebd50da6943bbdbdf3b3058420f",
+          "source": "previously downloaded complete file",
+          "object_bytes": 26945984
+        }
+      ],
+      "recording_seconds": 632.4,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "96b2529bfa7e3379322a1d8a3e7de10af4c56c9053d5f40cd8aad8e010155b93",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-007",
+      "path": "derivatives/sub-007/eeg/sub-007_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-007/eeg/sub-007_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "5f99b401769ab8a0fa87332e89c9fb83ca0c48415b4ca1a66e175daee4917f82",
+          "source": "previously downloaded complete file",
+          "object_bytes": 32640632
+        },
+        {
+          "start": 3067096,
+          "bytes": 4096,
+          "sha256": "f07fb8399e89067a79df2782f84dee293a9a7427ef7c4e38ce996a9a0db0d350",
+          "source": "previously downloaded complete file",
+          "object_bytes": 32640632
+        },
+        {
+          "start": 3067152,
+          "bytes": 4560000,
+          "sha256": "a7bb4fcbaf34d881bafdae596526838c3ead054455d1d9fada9b035879fa7222",
+          "source": "previously downloaded complete file",
+          "object_bytes": 32640632
+        },
+        {
+          "start": 32191112,
+          "bytes": 65536,
+          "sha256": "b17e44a1f0510308cfda36db30787885550cb94dbb27770a552909c495603154",
+          "source": "previously downloaded complete file",
+          "object_bytes": 32640632
+        }
+      ],
+      "recording_seconds": 766.42,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "a7bb4fcbaf34d881bafdae596526838c3ead054455d1d9fada9b035879fa7222",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-008",
+      "path": "derivatives/sub-008/eeg/sub-008_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-008/eeg/sub-008_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "980ece93454b7b87007f60d1e2afaf40cdc294fbd98683208d8052a54f2d4e5e",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/33789504",
+          "etag": "\"b13b42d68d1b92d3be84cc741438e7f1\"",
+          "object_bytes": 33789504
+        },
+        {
+          "start": 3175016,
+          "bytes": 4096,
+          "sha256": "c650a925777afa7f7b1576775dda628817a799c5f854a0b83c1ee24c109af291",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3175016-3179111/33789504",
+          "etag": "\"b13b42d68d1b92d3be84cc741438e7f1\"",
+          "object_bytes": 33789504
+        },
+        {
+          "start": 3175072,
+          "bytes": 4560000,
+          "sha256": "490275c33b140060096ed9dec963b11ee9c5f3c330c6c5aa5512c98be5b445fd",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3175072-7735071/33789504",
+          "etag": "\"b13b42d68d1b92d3be84cc741438e7f1\"",
+          "object_bytes": 33789504
+        },
+        {
+          "start": 33324272,
+          "bytes": 65536,
+          "sha256": "9f8d454ad576f07ca617f6aa4af64defce915de051acdf9dd6e6914efab2e3bd",
+          "source": "HTTP byte range",
+          "content_range": "bytes 33324272-33389807/33789504",
+          "etag": "\"b13b42d68d1b92d3be84cc741438e7f1\"",
+          "object_bytes": 33789504
+        }
+      ],
+      "recording_seconds": 793.4,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "490275c33b140060096ed9dec963b11ee9c5f3c330c6c5aa5512c98be5b445fd",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-009",
+      "path": "derivatives/sub-009/eeg/sub-009_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-009/eeg/sub-009_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "1945d51c7b0575bba392c89b5a9d973fa02fb4ae0f447a7156b8897612544325",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/26102248",
+          "etag": "\"f60867be9f97ea5be107b65ae100a3a8\"",
+          "object_bytes": 26102248
+        },
+        {
+          "start": 2451816,
+          "bytes": 4096,
+          "sha256": "3533d9898cad57398d2df80e6f0d40ef011b714806a5fd1577d56e93d542b075",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2451816-2455911/26102248",
+          "etag": "\"f60867be9f97ea5be107b65ae100a3a8\"",
+          "object_bytes": 26102248
+        },
+        {
+          "start": 2451872,
+          "bytes": 4560000,
+          "sha256": "65c35205e2b18818622944f7ba9453d51162f839522ccb576b6ad024d0cbe391",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2451872-7011871/26102248",
+          "etag": "\"f60867be9f97ea5be107b65ae100a3a8\"",
+          "object_bytes": 26102248
+        },
+        {
+          "start": 25730672,
+          "bytes": 65536,
+          "sha256": "f1967d4c3c3725bc1c36fa787cd03af8f2c0f78fd65eae7608893602eb8b7b86",
+          "source": "HTTP byte range",
+          "content_range": "bytes 25730672-25796207/26102248",
+          "etag": "\"f60867be9f97ea5be107b65ae100a3a8\"",
+          "object_bytes": 26102248
+        }
+      ],
+      "recording_seconds": 612.6,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "65c35205e2b18818622944f7ba9453d51162f839522ccb576b6ad024d0cbe391",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-010",
+      "path": "derivatives/sub-010/eeg/sub-010_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-010/eeg/sub-010_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "74caafb330708dd51edc9934bbfb416a6a8720183d08a9e6acfa9091d709b56f",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/54545192",
+          "etag": "\"028d1f174086c5180fdd841c3ad0c721\"",
+          "object_bytes": 54545192
+        },
+        {
+          "start": 5128296,
+          "bytes": 4096,
+          "sha256": "567bc1b2724f9107502a9fcb3e3d87580528f943962c308d3a38e3e6e4d825bf",
+          "source": "HTTP byte range",
+          "content_range": "bytes 5128296-5132391/54545192",
+          "etag": "\"028d1f174086c5180fdd841c3ad0c721\"",
+          "object_bytes": 54545192
+        },
+        {
+          "start": 5128352,
+          "bytes": 4560000,
+          "sha256": "f9e77cf1a7aeba37ce211bc5b7a8f1311782607e516e56b90167b2771b9d87b4",
+          "source": "HTTP byte range",
+          "content_range": "bytes 5128352-9688351/54545192",
+          "etag": "\"028d1f174086c5180fdd841c3ad0c721\"",
+          "object_bytes": 54545192
+        },
+        {
+          "start": 53833712,
+          "bytes": 65536,
+          "sha256": "d2154d40720cbbb99520e6ba2f6062f10cbd5137388fe0dcfc123e8d1956c2c7",
+          "source": "HTTP byte range",
+          "content_range": "bytes 53833712-53899247/54545192",
+          "etag": "\"028d1f174086c5180fdd841c3ad0c721\"",
+          "object_bytes": 54545192
+        }
+      ],
+      "recording_seconds": 1281.72,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "f9e77cf1a7aeba37ce211bc5b7a8f1311782607e516e56b90167b2771b9d87b4",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-011",
+      "path": "derivatives/sub-011/eeg/sub-011_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-011/eeg/sub-011_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "54231caec2af0f7946598b672b9b31e37a68e1b1cd5f58693b58c9ed97b77644",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/32788688",
+          "etag": "\"f9110d92a5790f893127b3dcf7fada16\"",
+          "object_bytes": 32788688
+        },
+        {
+          "start": 3081096,
+          "bytes": 4096,
+          "sha256": "241361f9cfce080a132c8184693fb70a0b2a2fcca1f11b8a1bda1cbec146e5fe",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3081096-3085191/32788688",
+          "etag": "\"f9110d92a5790f893127b3dcf7fada16\"",
+          "object_bytes": 32788688
+        },
+        {
+          "start": 3081152,
+          "bytes": 4560000,
+          "sha256": "97c389b7976af9f281905a76b86605b504da2c0c5c088b89a98eb44e3d0514d4",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3081152-7641151/32788688",
+          "etag": "\"f9110d92a5790f893127b3dcf7fada16\"",
+          "object_bytes": 32788688
+        },
+        {
+          "start": 32338112,
+          "bytes": 65536,
+          "sha256": "6678d78f072e5f180d58c3db73d5389527cb9f84d67bd85f58a88dcb4b18eb1d",
+          "source": "HTTP byte range",
+          "content_range": "bytes 32338112-32403647/32788688",
+          "etag": "\"f9110d92a5790f893127b3dcf7fada16\"",
+          "object_bytes": 32788688
+        }
+      ],
+      "recording_seconds": 769.92,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "97c389b7976af9f281905a76b86605b504da2c0c5c088b89a98eb44e3d0514d4",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-012",
+      "path": "derivatives/sub-012/eeg/sub-012_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-012/eeg/sub-012_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "48578ddd04d79e7f929891d27eaf414afc537809a55f917293361602dffe799a",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/37624784",
+          "etag": "\"cc5c864b07354752aa41e621b504cb32\"",
+          "object_bytes": 37624784
+        },
+        {
+          "start": 3535496,
+          "bytes": 4096,
+          "sha256": "ee615c0e661610a7b756f21ad79481084f06399a01f274c9a4cd0f8ed6d5e02e",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3535496-3539591/37624784",
+          "etag": "\"cc5c864b07354752aa41e621b504cb32\"",
+          "object_bytes": 37624784
+        },
+        {
+          "start": 3535552,
+          "bytes": 4560000,
+          "sha256": "4533225e5d2006a4dc51256ea547e44fd97786f0df249419c75bbbe9ee4d99b7",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3535552-8095551/37624784",
+          "etag": "\"cc5c864b07354752aa41e621b504cb32\"",
+          "object_bytes": 37624784
+        },
+        {
+          "start": 37109312,
+          "bytes": 65536,
+          "sha256": "3d115f09e479634390966b1a18f20691f7035cf6f6fc38d7f3fb1114d9419d98",
+          "source": "HTTP byte range",
+          "content_range": "bytes 37109312-37174847/37624784",
+          "etag": "\"cc5c864b07354752aa41e621b504cb32\"",
+          "object_bytes": 37624784
+        }
+      ],
+      "recording_seconds": 883.52,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "4533225e5d2006a4dc51256ea547e44fd97786f0df249419c75bbbe9ee4d99b7",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-013",
+      "path": "derivatives/sub-013/eeg/sub-013_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-013/eeg/sub-013_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "5ad07fa54a0ac58400dfd3eed58082a65a7a24881465b4a7b031e7303b1166e4",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/35687368",
+          "etag": "\"09055fc235ab0ac0dae3406085f4d9c9\"",
+          "object_bytes": 35687368
+        },
+        {
+          "start": 3353816,
+          "bytes": 4096,
+          "sha256": "a3a8798e2bbb5470aee91cf5d25fd0f174cb27064a659dad57d092962c593694",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3353816-3357911/35687368",
+          "etag": "\"09055fc235ab0ac0dae3406085f4d9c9\"",
+          "object_bytes": 35687368
+        },
+        {
+          "start": 3353872,
+          "bytes": 4560000,
+          "sha256": "4bf70582275e405ed168b4c1fd68ef98c1f788c397c765d97edbe703fc6da74e",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3353872-7913871/35687368",
+          "etag": "\"09055fc235ab0ac0dae3406085f4d9c9\"",
+          "object_bytes": 35687368
+        },
+        {
+          "start": 35201672,
+          "bytes": 65536,
+          "sha256": "ac3bc992cb59ae60f7df57f5f2855d1914b8c3a1e4bf8cc9bd3e6fdcca2f70d4",
+          "source": "HTTP byte range",
+          "content_range": "bytes 35201672-35267207/35687368",
+          "etag": "\"09055fc235ab0ac0dae3406085f4d9c9\"",
+          "object_bytes": 35687368
+        }
+      ],
+      "recording_seconds": 838.1,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "4bf70582275e405ed168b4c1fd68ef98c1f788c397c765d97edbe703fc6da74e",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-014",
+      "path": "derivatives/sub-014/eeg/sub-014_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-014/eeg/sub-014_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "24881771f82dde17f5c5bbc2dc40e29d625298747f62251aa0cbe8e7eb9194f5",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/39786624",
+          "etag": "\"43ade46b2323dfbba2cd88142dcda933\"",
+          "object_bytes": 39786624
+        },
+        {
+          "start": 3739176,
+          "bytes": 4096,
+          "sha256": "cc966f6eca1c9631b70ae8a8dc51f22a74fa09f545029aa7372b5647bdeb22da",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3739176-3743271/39786624",
+          "etag": "\"43ade46b2323dfbba2cd88142dcda933\"",
+          "object_bytes": 39786624
+        },
+        {
+          "start": 3739232,
+          "bytes": 4560000,
+          "sha256": "83fceffc9cf31f17a98029bd8ab3d77cab4f4b032ed74623f56cb60473140261",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3739232-8299231/39786624",
+          "etag": "\"43ade46b2323dfbba2cd88142dcda933\"",
+          "object_bytes": 39786624
+        },
+        {
+          "start": 39247952,
+          "bytes": 65536,
+          "sha256": "5e960df40c77f73df8b4ad68c9d28295a0024b360553113cdb2ff7780edc75d8",
+          "source": "HTTP byte range",
+          "content_range": "bytes 39247952-39313487/39786624",
+          "etag": "\"43ade46b2323dfbba2cd88142dcda933\"",
+          "object_bytes": 39786624
+        }
+      ],
+      "recording_seconds": 934.44,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "83fceffc9cf31f17a98029bd8ab3d77cab4f4b032ed74623f56cb60473140261",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-015",
+      "path": "derivatives/sub-015/eeg/sub-015_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-015/eeg/sub-015_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "36bd159b996446e6f58592256fb88e3eeee63779b6328aba32673b46e4fc362f",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/38380232",
+          "etag": "\"4fb4d29c16f6af380430ac46570b45b5\"",
+          "object_bytes": 38380232
+        },
+        {
+          "start": 3606936,
+          "bytes": 4096,
+          "sha256": "64cc1a85b4916af71df90388aa92cc023b6549bbdd676dd232a16917742c51b2",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3606936-3611031/38380232",
+          "etag": "\"4fb4d29c16f6af380430ac46570b45b5\"",
+          "object_bytes": 38380232
+        },
+        {
+          "start": 3606992,
+          "bytes": 4560000,
+          "sha256": "604f9a3a19e4b1c6c84191ac533dd5f5de78eaa98cbe904c0431e950f34016fc",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3606992-8166991/38380232",
+          "etag": "\"4fb4d29c16f6af380430ac46570b45b5\"",
+          "object_bytes": 38380232
+        },
+        {
+          "start": 37859432,
+          "bytes": 65536,
+          "sha256": "d54f0ef30e168b8bc4f8390563939b8c770a748db66f7595e24f6057aa623134",
+          "source": "HTTP byte range",
+          "content_range": "bytes 37859432-37924967/38380232",
+          "etag": "\"4fb4d29c16f6af380430ac46570b45b5\"",
+          "object_bytes": 38380232
+        }
+      ],
+      "recording_seconds": 901.38,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "604f9a3a19e4b1c6c84191ac533dd5f5de78eaa98cbe904c0431e950f34016fc",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-016",
+      "path": "derivatives/sub-016/eeg/sub-016_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-016/eeg/sub-016_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "40cb6606e8bacbcf44ac304cc792cefc5cf2f139fb57983484b7deda3fa6cb71",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/41399792",
+          "etag": "\"215e42fbaf8ecd823cdd7e2a1cf1b087\"",
+          "object_bytes": 41399792
+        },
+        {
+          "start": 3890856,
+          "bytes": 4096,
+          "sha256": "7b7928a1c5cb7b682a4d7881de184c632fc70f676de13276741cd64443ec340b",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3890856-3894951/41399792",
+          "etag": "\"215e42fbaf8ecd823cdd7e2a1cf1b087\"",
+          "object_bytes": 41399792
+        },
+        {
+          "start": 3890912,
+          "bytes": 4560000,
+          "sha256": "cb29f90b3ba2528b14584471b6b4e63a736d1cd03d49776f3c35e4a856897fea",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3890912-8450911/41399792",
+          "etag": "\"215e42fbaf8ecd823cdd7e2a1cf1b087\"",
+          "object_bytes": 41399792
+        },
+        {
+          "start": 40840592,
+          "bytes": 65536,
+          "sha256": "9a6b88057c5e4e3b477574a7fac02c89a5867559dd9e040ef4d96275be9d8fff",
+          "source": "HTTP byte range",
+          "content_range": "bytes 40840592-40906127/41399792",
+          "etag": "\"215e42fbaf8ecd823cdd7e2a1cf1b087\"",
+          "object_bytes": 41399792
+        }
+      ],
+      "recording_seconds": 972.36,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "cb29f90b3ba2528b14584471b6b4e63a736d1cd03d49776f3c35e4a856897fea",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-017",
+      "path": "derivatives/sub-017/eeg/sub-017_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-017/eeg/sub-017_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "1c9a404efb324c9817a34b178b63f98775abe49420f0478e84d2c39b89f5af01",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/35912800",
+          "etag": "\"48b5a46b638d63654b24797cbc34c928\"",
+          "object_bytes": 35912800
+        },
+        {
+          "start": 3375016,
+          "bytes": 4096,
+          "sha256": "e2e351f96b7abe0a1aad907645f49954a7cbe37fbaa4a39a9a956ae7e28f314d",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3375016-3379111/35912800",
+          "etag": "\"48b5a46b638d63654b24797cbc34c928\"",
+          "object_bytes": 35912800
+        },
+        {
+          "start": 3375072,
+          "bytes": 4560000,
+          "sha256": "e2a770cae70594b6f7e9b7d2d39a41f01b028fa3c5026e5f7e60ac8f8258e54c",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3375072-7935071/35912800",
+          "etag": "\"48b5a46b638d63654b24797cbc34c928\"",
+          "object_bytes": 35912800
+        },
+        {
+          "start": 35424272,
+          "bytes": 65536,
+          "sha256": "91066d4ff79f407a8ef09998a3b9e6a7c614fb4e900c454f14e5241b202746cd",
+          "source": "HTTP byte range",
+          "content_range": "bytes 35424272-35489807/35912800",
+          "etag": "\"48b5a46b638d63654b24797cbc34c928\"",
+          "object_bytes": 35912800
+        }
+      ],
+      "recording_seconds": 843.4,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "e2a770cae70594b6f7e9b7d2d39a41f01b028fa3c5026e5f7e60ac8f8258e54c",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-018",
+      "path": "derivatives/sub-018/eeg/sub-018_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-018/eeg/sub-018_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "dca5d68473265924a294c6898c0eb121d4b69f99d1dc85198393e224268e5149",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/35984528",
+          "etag": "\"271f1853d6dfac50370f404f45a5d21d\"",
+          "object_bytes": 35984528
+        },
+        {
+          "start": 3381816,
+          "bytes": 4096,
+          "sha256": "a51e8f0494c29c9d0d10f250e4940467d6e47bece2eb05246d4d7d91ac8a6b29",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3381816-3385911/35984528",
+          "etag": "\"271f1853d6dfac50370f404f45a5d21d\"",
+          "object_bytes": 35984528
+        },
+        {
+          "start": 3381872,
+          "bytes": 4560000,
+          "sha256": "97283012896fc8e779a85396257aab03c3b61805314eb4a6877a793283c02eec",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3381872-7941871/35984528",
+          "etag": "\"271f1853d6dfac50370f404f45a5d21d\"",
+          "object_bytes": 35984528
+        },
+        {
+          "start": 35495672,
+          "bytes": 65536,
+          "sha256": "4098e4d1386cf253c949e1c3796a169133af9a36783e2260dccd22b270231fcf",
+          "source": "HTTP byte range",
+          "content_range": "bytes 35495672-35561207/35984528",
+          "etag": "\"271f1853d6dfac50370f404f45a5d21d\"",
+          "object_bytes": 35984528
+        }
+      ],
+      "recording_seconds": 845.1,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "97283012896fc8e779a85396257aab03c3b61805314eb4a6877a793283c02eec",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-019",
+      "path": "derivatives/sub-019/eeg/sub-019_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-019/eeg/sub-019_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "2e4c6178d40b7e4f921be4f20e7e5da4f89e572b8d242eac3b4d444de6f21fee",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/39108448",
+          "etag": "\"ac2b08f449958a472418bf907e08c96b\"",
+          "object_bytes": 39108448
+        },
+        {
+          "start": 3675896,
+          "bytes": 4096,
+          "sha256": "fc08a2a97531aabe579a7d1fb2da19ea865cf9184fff5e396ca65e04f760b3b0",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3675896-3679991/39108448",
+          "etag": "\"ac2b08f449958a472418bf907e08c96b\"",
+          "object_bytes": 39108448
+        },
+        {
+          "start": 3675952,
+          "bytes": 4560000,
+          "sha256": "29e29a63af06129033bfcc9c484b10cdc4dc8a0984ef8952a3155973a9a82e5a",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3675952-8235951/39108448",
+          "etag": "\"ac2b08f449958a472418bf907e08c96b\"",
+          "object_bytes": 39108448
+        },
+        {
+          "start": 38583512,
+          "bytes": 65536,
+          "sha256": "e2e6b85d3527b335e565ae433a09e8ade7b41fc310bbad8f5d17c546b68dc0d9",
+          "source": "HTTP byte range",
+          "content_range": "bytes 38583512-38649047/39108448",
+          "etag": "\"ac2b08f449958a472418bf907e08c96b\"",
+          "object_bytes": 39108448
+        }
+      ],
+      "recording_seconds": 918.62,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "29e29a63af06129033bfcc9c484b10cdc4dc8a0984ef8952a3155973a9a82e5a",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-020",
+      "path": "derivatives/sub-020/eeg/sub-020_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-020/eeg/sub-020_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "55f16e03caa8b3ecb6bf6ac0010411d8631738857905bac1bfc7f3cfe1c29cf9",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/35272512",
+          "etag": "\"e06bd86aa1c8186be439284fd5747ccf\"",
+          "object_bytes": 35272512
+        },
+        {
+          "start": 1740016,
+          "bytes": 4096,
+          "sha256": "a4f684ba75e143f00651f2615282aab76ddd6f874d35b8eda077646ca6579611",
+          "source": "HTTP byte range",
+          "content_range": "bytes 1740016-1744111/35272512",
+          "etag": "\"e06bd86aa1c8186be439284fd5747ccf\"",
+          "object_bytes": 35272512
+        },
+        {
+          "start": 1740072,
+          "bytes": 4560000,
+          "sha256": "e62532d3c66f257dc9b1f5ab469edf3820305aafc1c42426a4e2ea8df3dae477",
+          "source": "HTTP byte range",
+          "content_range": "bytes 1740072-6300071/35272512",
+          "etag": "\"e06bd86aa1c8186be439284fd5747ccf\"",
+          "object_bytes": 35272512
+        },
+        {
+          "start": 34773472,
+          "bytes": 65536,
+          "sha256": "409c13ec4d9d291360ecc2dc577546a1f0233e2aefd8b27d640eefc2b7f1af18",
+          "source": "HTTP byte range",
+          "content_range": "bytes 34773472-34839007/35272512",
+          "etag": "\"e06bd86aa1c8186be439284fd5747ccf\"",
+          "object_bytes": 35272512
+        }
+      ],
+      "recording_seconds": 869.3,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "e62532d3c66f257dc9b1f5ab469edf3820305aafc1c42426a4e2ea8df3dae477",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-021",
+      "path": "derivatives/sub-021/eeg/sub-021_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-021/eeg/sub-021_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "ac60578abe73f001c0362277781de0c0a60dcc11fe088529516056356584d4bf",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/39179520",
+          "etag": "\"24b44e4fbcf5071e0bf6b81fdb9f07dd\"",
+          "object_bytes": 39179520
+        },
+        {
+          "start": 3682536,
+          "bytes": 4096,
+          "sha256": "dc4e9a6e48af673aca4243f3fecdc105d3240b513db7bdb3a2e599e131165a15",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3682536-3686631/39179520",
+          "etag": "\"24b44e4fbcf5071e0bf6b81fdb9f07dd\"",
+          "object_bytes": 39179520
+        },
+        {
+          "start": 3682592,
+          "bytes": 4560000,
+          "sha256": "8d5b0b54e218bde6d3919baa383f8cb8d42516289c945b981126d43358c4abd3",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3682592-8242591/39179520",
+          "etag": "\"24b44e4fbcf5071e0bf6b81fdb9f07dd\"",
+          "object_bytes": 39179520
+        },
+        {
+          "start": 38653232,
+          "bytes": 65536,
+          "sha256": "3bcc315eeb2523a1b4bb16b537b52aa3c5f9daa28ecf5bf05ec4e9a401a2173b",
+          "source": "HTTP byte range",
+          "content_range": "bytes 38653232-38718767/39179520",
+          "etag": "\"24b44e4fbcf5071e0bf6b81fdb9f07dd\"",
+          "object_bytes": 39179520
+        }
+      ],
+      "recording_seconds": 920.28,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "8d5b0b54e218bde6d3919baa383f8cb8d42516289c945b981126d43358c4abd3",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-022",
+      "path": "derivatives/sub-022/eeg/sub-022_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-022/eeg/sub-022_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "f44c247f102ce2713662f22970e9c20619fcd1e6a65464b9240b9d7c8a0b9ad9",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/34999360",
+          "etag": "\"567a2d2730faa72cd99172941013e7bf\"",
+          "object_bytes": 34999360
+        },
+        {
+          "start": 3289096,
+          "bytes": 4096,
+          "sha256": "c1bd049348f2b90e6b6baa911238f5b44ec2eb1b9018a5fd69be90caf7b63bfc",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3289096-3293191/34999360",
+          "etag": "\"567a2d2730faa72cd99172941013e7bf\"",
+          "object_bytes": 34999360
+        },
+        {
+          "start": 3289152,
+          "bytes": 4560000,
+          "sha256": "c466282d30f73ad946ecaeb31ece23d84cb562df8a0bfef972649c9b65c92e59",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3289152-7849151/34999360",
+          "etag": "\"567a2d2730faa72cd99172941013e7bf\"",
+          "object_bytes": 34999360
+        },
+        {
+          "start": 34522112,
+          "bytes": 65536,
+          "sha256": "a02e608f34d90bf2991eb8776340511a415e06c7adcc9ec246efe679a03e7eef",
+          "source": "HTTP byte range",
+          "content_range": "bytes 34522112-34587647/34999360",
+          "etag": "\"567a2d2730faa72cd99172941013e7bf\"",
+          "object_bytes": 34999360
+        }
+      ],
+      "recording_seconds": 821.92,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "c466282d30f73ad946ecaeb31ece23d84cb562df8a0bfef972649c9b65c92e59",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-023",
+      "path": "derivatives/sub-023/eeg/sub-023_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-023/eeg/sub-023_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "8228ebb5f16bde291ed6b2c2c03c3380b6773944accbec568e08131f26b5933c",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/35559904",
+          "etag": "\"fb3b903a1c5b7fe5aef5057e8527e8a8\"",
+          "object_bytes": 35559904
+        },
+        {
+          "start": 3340376,
+          "bytes": 4096,
+          "sha256": "2f06302ed7b3e825924d660acdcac3ff7346956746d4b4245ca413e01d8acea9",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3340376-3344471/35559904",
+          "etag": "\"fb3b903a1c5b7fe5aef5057e8527e8a8\"",
+          "object_bytes": 35559904
+        },
+        {
+          "start": 3340432,
+          "bytes": 4560000,
+          "sha256": "b572095c644c5f60159e9d734bb2ba3ec3317c903e81b067027683ad0cff26c1",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3340432-7900431/35559904",
+          "etag": "\"fb3b903a1c5b7fe5aef5057e8527e8a8\"",
+          "object_bytes": 35559904
+        },
+        {
+          "start": 35060552,
+          "bytes": 65536,
+          "sha256": "d13f52f3101970733886735fbd982fc80b1c5875d0b3b81d94914222e919aca6",
+          "source": "HTTP byte range",
+          "content_range": "bytes 35060552-35126087/35559904",
+          "etag": "\"fb3b903a1c5b7fe5aef5057e8527e8a8\"",
+          "object_bytes": 35559904
+        }
+      ],
+      "recording_seconds": 834.74,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "b572095c644c5f60159e9d734bb2ba3ec3317c903e81b067027683ad0cff26c1",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-024",
+      "path": "derivatives/sub-024/eeg/sub-024_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-024/eeg/sub-024_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "d67e81b80eb7c5b23f88392677f7cb8e9ac519a882bfba7a77416e55117c3761",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/32362568",
+          "etag": "\"f762cab9ef0a3dc291b45c0b127481e7\"",
+          "object_bytes": 32362568
+        },
+        {
+          "start": 3040616,
+          "bytes": 4096,
+          "sha256": "d753e7a76abbd9ed08513144093c588575e9c8c8876adab79d67b46ca9ae3058",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3040616-3044711/32362568",
+          "etag": "\"f762cab9ef0a3dc291b45c0b127481e7\"",
+          "object_bytes": 32362568
+        },
+        {
+          "start": 3040672,
+          "bytes": 4560000,
+          "sha256": "00d1d6a230014cabc57b05b28d8d405465dfed2b5c7620f2d6c8a7d56b39c723",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3040672-7600671/32362568",
+          "etag": "\"f762cab9ef0a3dc291b45c0b127481e7\"",
+          "object_bytes": 32362568
+        },
+        {
+          "start": 31913072,
+          "bytes": 65536,
+          "sha256": "27345cd5b01be2739898fbe5ef4a4a742d5aab4f3bfde96855a9d0b9abcd132b",
+          "source": "HTTP byte range",
+          "content_range": "bytes 31913072-31978607/32362568",
+          "etag": "\"f762cab9ef0a3dc291b45c0b127481e7\"",
+          "object_bytes": 32362568
+        }
+      ],
+      "recording_seconds": 759.8,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "00d1d6a230014cabc57b05b28d8d405465dfed2b5c7620f2d6c8a7d56b39c723",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-025",
+      "path": "derivatives/sub-025/eeg/sub-025_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-025/eeg/sub-025_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "b35e9a54fb06a94782c19166e78e6bed08e586e56fadeaa8f7f65b3e7394c05f",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/29160688",
+          "etag": "\"70ae125dfbbd6d2bd58d3f124a355450\"",
+          "object_bytes": 29160688
+        },
+        {
+          "start": 2738856,
+          "bytes": 4096,
+          "sha256": "136dc738988c0004331e0487fc7e090569edc8854c1291e75657679dfa026b1b",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2738856-2742951/29160688",
+          "etag": "\"70ae125dfbbd6d2bd58d3f124a355450\"",
+          "object_bytes": 29160688
+        },
+        {
+          "start": 2738912,
+          "bytes": 4560000,
+          "sha256": "44933b65d9527478e21201e93f4e314636e84ed7b0f0ec4ba14c279a2ab6ac4b",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2738912-7298911/29160688",
+          "etag": "\"70ae125dfbbd6d2bd58d3f124a355450\"",
+          "object_bytes": 29160688
+        },
+        {
+          "start": 28744592,
+          "bytes": 65536,
+          "sha256": "bdc796ea6caf2b2876acdba2bd972ad75fc9f0f37fbcadf71d613e4fe125b76d",
+          "source": "HTTP byte range",
+          "content_range": "bytes 28744592-28810127/29160688",
+          "etag": "\"70ae125dfbbd6d2bd58d3f124a355450\"",
+          "object_bytes": 29160688
+        }
+      ],
+      "recording_seconds": 684.36,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "44933b65d9527478e21201e93f4e314636e84ed7b0f0ec4ba14c279a2ab6ac4b",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-026",
+      "path": "derivatives/sub-026/eeg/sub-026_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-026/eeg/sub-026_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "3a29bae7f4dd67859fc6ac0b57f8623735d2d49ad6a7871476e9cc412dddc707",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/38269992",
+          "etag": "\"7edb2d60b7733e0212995abd7d581b5d\"",
+          "object_bytes": 38269992
+        },
+        {
+          "start": 3595976,
+          "bytes": 4096,
+          "sha256": "60b38f32cf3f8a1f02ab878eef0ca544ad4f3ad9cce95cc181a51c457af02955",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3595976-3600071/38269992",
+          "etag": "\"7edb2d60b7733e0212995abd7d581b5d\"",
+          "object_bytes": 38269992
+        },
+        {
+          "start": 3596032,
+          "bytes": 4560000,
+          "sha256": "9e651852936c87492cc8f4a2a500a8ba1b6af6e97cbf02a3621547dd5535626a",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3596032-8156031/38269992",
+          "etag": "\"7edb2d60b7733e0212995abd7d581b5d\"",
+          "object_bytes": 38269992
+        },
+        {
+          "start": 37744352,
+          "bytes": 65536,
+          "sha256": "11333fc2b96f231cb121894fbcbf3c6607ebd933835296a23cfecb3f25de854c",
+          "source": "HTTP byte range",
+          "content_range": "bytes 37744352-37809887/38269992",
+          "etag": "\"7edb2d60b7733e0212995abd7d581b5d\"",
+          "object_bytes": 38269992
+        }
+      ],
+      "recording_seconds": 898.64,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "9e651852936c87492cc8f4a2a500a8ba1b6af6e97cbf02a3621547dd5535626a",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-027",
+      "path": "derivatives/sub-027/eeg/sub-027_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-027/eeg/sub-027_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "056ad1e1a3cbface6b607e651439c98941a1901dbf260006d8068569674aeeb4",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/35182824",
+          "etag": "\"7fe8a6d022ec9d4604bdd5928549a265\"",
+          "object_bytes": 35182824
+        },
+        {
+          "start": 3306216,
+          "bytes": 4096,
+          "sha256": "5a1dfcb488f073ecfa11e9b506310f241cc328002ebf72c03ffdd6692c1f66ba",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3306216-3310311/35182824",
+          "etag": "\"7fe8a6d022ec9d4604bdd5928549a265\"",
+          "object_bytes": 35182824
+        },
+        {
+          "start": 3306272,
+          "bytes": 4560000,
+          "sha256": "dadae0e65c0f4d785681c5486a41106090a0e6519c80bc0b2f50c30e9f3fcb59",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3306272-7866271/35182824",
+          "etag": "\"7fe8a6d022ec9d4604bdd5928549a265\"",
+          "object_bytes": 35182824
+        },
+        {
+          "start": 34701872,
+          "bytes": 65536,
+          "sha256": "d021f4647add35e0c14245774f9df7978ded34a8a33e1fa8dc2dc1568a1a42d2",
+          "source": "HTTP byte range",
+          "content_range": "bytes 34701872-34767407/35182824",
+          "etag": "\"7fe8a6d022ec9d4604bdd5928549a265\"",
+          "object_bytes": 35182824
+        }
+      ],
+      "recording_seconds": 826.2,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "dadae0e65c0f4d785681c5486a41106090a0e6519c80bc0b2f50c30e9f3fcb59",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-028",
+      "path": "derivatives/sub-028/eeg/sub-028_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-028/eeg/sub-028_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "f81535c299ef3bb6e47e550366e56473c33fe8fc5305fa5264f0f60b1268a083",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/34842544",
+          "etag": "\"6008a50aa4251ee5e58a3bec77c19298\"",
+          "object_bytes": 34842544
+        },
+        {
+          "start": 3273976,
+          "bytes": 4096,
+          "sha256": "91dd76aaa55da127faf59394a763967a7cab22514fc232d3e4ff289657b4f1dd",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3273976-3278071/34842544",
+          "etag": "\"6008a50aa4251ee5e58a3bec77c19298\"",
+          "object_bytes": 34842544
+        },
+        {
+          "start": 3274032,
+          "bytes": 4560000,
+          "sha256": "a28ac58a356a896bbd0fe42ba57f9dd2bccaeb9b75bf9c9cfcba68b92b44d754",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3274032-7834031/34842544",
+          "etag": "\"6008a50aa4251ee5e58a3bec77c19298\"",
+          "object_bytes": 34842544
+        },
+        {
+          "start": 34363352,
+          "bytes": 65536,
+          "sha256": "5b22f126d820af93b364b4bb34bcb0da36b33390c8aec4510d944a81b9e77516",
+          "source": "HTTP byte range",
+          "content_range": "bytes 34363352-34428887/34842544",
+          "etag": "\"6008a50aa4251ee5e58a3bec77c19298\"",
+          "object_bytes": 34842544
+        }
+      ],
+      "recording_seconds": 818.14,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "a28ac58a356a896bbd0fe42ba57f9dd2bccaeb9b75bf9c9cfcba68b92b44d754",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-029",
+      "path": "derivatives/sub-029/eeg/sub-029_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-029/eeg/sub-029_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "522c21511d48fc529d69be92a9143d1435d4213334d38bd36c3de319c5115996",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/31377552",
+          "etag": "\"705efb0e4bc885ad38d142604643bcfc\"",
+          "object_bytes": 31377552
+        },
+        {
+          "start": 2948136,
+          "bytes": 4096,
+          "sha256": "ac2451af0a58ce6f8f24a551ad884f2af154a96362a36f5b9e5094b362d77a43",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2948136-2952231/31377552",
+          "etag": "\"705efb0e4bc885ad38d142604643bcfc\"",
+          "object_bytes": 31377552
+        },
+        {
+          "start": 2948192,
+          "bytes": 4560000,
+          "sha256": "c602307987894b621d06018c6702bb26a2ca09dc61798dac6f322e0577f7b9a8",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2948192-7508191/31377552",
+          "etag": "\"705efb0e4bc885ad38d142604643bcfc\"",
+          "object_bytes": 31377552
+        },
+        {
+          "start": 30942032,
+          "bytes": 65536,
+          "sha256": "a0144a882a3efc85d5eb69bdcc9d6365b9f5bb3bc6d1390c0c51689f00d24ef5",
+          "source": "HTTP byte range",
+          "content_range": "bytes 30942032-31007567/31377552",
+          "etag": "\"705efb0e4bc885ad38d142604643bcfc\"",
+          "object_bytes": 31377552
+        }
+      ],
+      "recording_seconds": 736.68,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "c602307987894b621d06018c6702bb26a2ca09dc61798dac6f322e0577f7b9a8",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-030",
+      "path": "derivatives/sub-030/eeg/sub-030_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-030/eeg/sub-030_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "a9ce920f16b7d809e64fc0ac8aba2d3aa9821a17fcd17e820d7346764b9646da",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/23616688",
+          "etag": "\"3b8a53ebaa367f16d6e4ed0bf9b6f349\"",
+          "object_bytes": 23616688
+        },
+        {
+          "start": 2217736,
+          "bytes": 4096,
+          "sha256": "bc1ac0ecc874d5e9f5f48b57b4aabecb436749dc18ef6146fc4c3e90683aa3e5",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2217736-2221831/23616688",
+          "etag": "\"3b8a53ebaa367f16d6e4ed0bf9b6f349\"",
+          "object_bytes": 23616688
+        },
+        {
+          "start": 2217792,
+          "bytes": 4560000,
+          "sha256": "f49e5d9ca7f531ad02cabfefca8af3e2e5aa9ce1f32bea18765a20cfc077442f",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2217792-6777791/23616688",
+          "etag": "\"3b8a53ebaa367f16d6e4ed0bf9b6f349\"",
+          "object_bytes": 23616688
+        },
+        {
+          "start": 23272832,
+          "bytes": 65536,
+          "sha256": "9749fd77ad4186a11bc877395ccc83904aac67a92609b5b9c6ead5a5a687f0be",
+          "source": "HTTP byte range",
+          "content_range": "bytes 23272832-23338367/23616688",
+          "etag": "\"3b8a53ebaa367f16d6e4ed0bf9b6f349\"",
+          "object_bytes": 23616688
+        }
+      ],
+      "recording_seconds": 554.08,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "f49e5d9ca7f531ad02cabfefca8af3e2e5aa9ce1f32bea18765a20cfc077442f",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-031",
+      "path": "derivatives/sub-031/eeg/sub-031_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-031/eeg/sub-031_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "bed37d44b116918c7819991df232a59ba8775c95127d66d69f8a744a9941a7a2",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/48977152",
+          "etag": "\"03fa750426f5833160b1bf23a231990a\"",
+          "object_bytes": 48977152
+        },
+        {
+          "start": 4604456,
+          "bytes": 4096,
+          "sha256": "a6b574404a682c6061f98ebb4ec5de52deec02780a2619807c700889d2616181",
+          "source": "HTTP byte range",
+          "content_range": "bytes 4604456-4608551/48977152",
+          "etag": "\"03fa750426f5833160b1bf23a231990a\"",
+          "object_bytes": 48977152
+        },
+        {
+          "start": 4604512,
+          "bytes": 4560000,
+          "sha256": "e1a4a43c351ea8d6da837bff23888e1ea930b0a48a00b640f82100282a4b6fcf",
+          "source": "HTTP byte range",
+          "content_range": "bytes 4604512-9164511/48977152",
+          "etag": "\"03fa750426f5833160b1bf23a231990a\"",
+          "object_bytes": 48977152
+        },
+        {
+          "start": 48333392,
+          "bytes": 65536,
+          "sha256": "bc514bc280290882e6e673b1f53311bf52a8dc52b4980b27ebf3dd011eaf5e10",
+          "source": "HTTP byte range",
+          "content_range": "bytes 48333392-48398927/48977152",
+          "etag": "\"03fa750426f5833160b1bf23a231990a\"",
+          "object_bytes": 48977152
+        }
+      ],
+      "recording_seconds": 1150.76,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "e1a4a43c351ea8d6da837bff23888e1ea930b0a48a00b640f82100282a4b6fcf",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-032",
+      "path": "derivatives/sub-032/eeg/sub-032_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-032/eeg/sub-032_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "8a495a4b11de86b6ca54424f4aee6a962234ffa264a30ae99e77652d730ddffa",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/34006464",
+          "etag": "\"6e005f28a0467648ae19cbde2e8441da\"",
+          "object_bytes": 34006464
+        },
+        {
+          "start": 3192536,
+          "bytes": 4096,
+          "sha256": "d828ba55dabd473f6a419f8f8bd3792ddae2dd82516340ddebb12735df896c2c",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3192536-3196631/34006464",
+          "etag": "\"6e005f28a0467648ae19cbde2e8441da\"",
+          "object_bytes": 34006464
+        },
+        {
+          "start": 3192592,
+          "bytes": 4560000,
+          "sha256": "88ef28064303c5a037b201aae3025d3b6571a7377f2637f9fd45abc11495c3fa",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3192592-7752591/34006464",
+          "etag": "\"6e005f28a0467648ae19cbde2e8441da\"",
+          "object_bytes": 34006464
+        },
+        {
+          "start": 33508232,
+          "bytes": 65536,
+          "sha256": "c814b14519851dde4240934b720cdd1c61ff3d5eed09e3e8dd9f361d45c71250",
+          "source": "HTTP byte range",
+          "content_range": "bytes 33508232-33573767/34006464",
+          "etag": "\"6e005f28a0467648ae19cbde2e8441da\"",
+          "object_bytes": 34006464
+        }
+      ],
+      "recording_seconds": 797.78,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "88ef28064303c5a037b201aae3025d3b6571a7377f2637f9fd45abc11495c3fa",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-033",
+      "path": "derivatives/sub-033/eeg/sub-033_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-033/eeg/sub-033_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "83e87ebb3bc38fd3744829ab855f6e32a93d67086d76fe10af7bf85cab689e87",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/30047768",
+          "etag": "\"573a622fb2537910ec34e7c9c954a278\"",
+          "object_bytes": 30047768
+        },
+        {
+          "start": 2823096,
+          "bytes": 4096,
+          "sha256": "3e2c3deae24737f7f99fd0e98fef5a7e68efbdf9f6f4d421471d1d30b5c92847",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2823096-2827191/30047768",
+          "etag": "\"573a622fb2537910ec34e7c9c954a278\"",
+          "object_bytes": 30047768
+        },
+        {
+          "start": 2823152,
+          "bytes": 4560000,
+          "sha256": "2003fb04c151b4e9189a155a3a288bd5b48cb63288cf92360a2da2f5e228a208",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2823152-7383151/30047768",
+          "etag": "\"573a622fb2537910ec34e7c9c954a278\"",
+          "object_bytes": 30047768
+        },
+        {
+          "start": 29629112,
+          "bytes": 65536,
+          "sha256": "bf3446fed351d5336d7d0a595db2179449ffa924a45a6df1a2727e03e9a5e89e",
+          "source": "HTTP byte range",
+          "content_range": "bytes 29629112-29694647/30047768",
+          "etag": "\"573a622fb2537910ec34e7c9c954a278\"",
+          "object_bytes": 30047768
+        }
+      ],
+      "recording_seconds": 705.42,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "2003fb04c151b4e9189a155a3a288bd5b48cb63288cf92360a2da2f5e228a208",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-034",
+      "path": "derivatives/sub-034/eeg/sub-034_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-034/eeg/sub-034_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "30c280dd3e5c9e759ee627fa9aa1e5b4a74b1fcb10769717db133b7f0a21025e",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/41287168",
+          "etag": "\"2a9ce73ed840ce4899408b0283e30d27\"",
+          "object_bytes": 41287168
+        },
+        {
+          "start": 3881016,
+          "bytes": 4096,
+          "sha256": "ec95204ba5c630f50eb203f02c42522310d66b62b61b4f2a980636204942a64d",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3881016-3885111/41287168",
+          "etag": "\"2a9ce73ed840ce4899408b0283e30d27\"",
+          "object_bytes": 41287168
+        },
+        {
+          "start": 3881072,
+          "bytes": 4560000,
+          "sha256": "b11c7fde49e500a1028cdcc048d568e5df50c8a763d6f67ee972e2330fd878df",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3881072-8441071/41287168",
+          "etag": "\"2a9ce73ed840ce4899408b0283e30d27\"",
+          "object_bytes": 41287168
+        },
+        {
+          "start": 40737272,
+          "bytes": 65536,
+          "sha256": "e752e15c5bf441ac9e68fb272b22a74f2789dc043a94955254055b0e4f28338c",
+          "source": "HTTP byte range",
+          "content_range": "bytes 40737272-40802807/41287168",
+          "etag": "\"2a9ce73ed840ce4899408b0283e30d27\"",
+          "object_bytes": 41287168
+        }
+      ],
+      "recording_seconds": 969.9,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "b11c7fde49e500a1028cdcc048d568e5df50c8a763d6f67ee972e2330fd878df",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-035",
+      "path": "derivatives/sub-035/eeg/sub-035_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-035/eeg/sub-035_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "07003859ecb2c60a2ae3b64ed4826b17b49097984e2795b68eea048bc8a23561",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/31571112",
+          "etag": "\"0f48f412b22946056567bd9f10dc9ed2\"",
+          "object_bytes": 31571112
+        },
+        {
+          "start": 2965576,
+          "bytes": 4096,
+          "sha256": "163bfbaec926c33315f69746648d440d925aad815413075e05b9bd26277e8c95",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2965576-2969671/31571112",
+          "etag": "\"0f48f412b22946056567bd9f10dc9ed2\"",
+          "object_bytes": 31571112
+        },
+        {
+          "start": 2965632,
+          "bytes": 4560000,
+          "sha256": "89a5513f82d2b65b9b1fa7992849fdeeb239079394973a870638b20beda8a0cc",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2965632-7525631/31571112",
+          "etag": "\"0f48f412b22946056567bd9f10dc9ed2\"",
+          "object_bytes": 31571112
+        },
+        {
+          "start": 31125152,
+          "bytes": 65536,
+          "sha256": "8c762a6826b0f7aaeb985017deb1212ca9dc7a99fb3938c9e4060504e0c7df32",
+          "source": "HTTP byte range",
+          "content_range": "bytes 31125152-31190687/31571112",
+          "etag": "\"0f48f412b22946056567bd9f10dc9ed2\"",
+          "object_bytes": 31571112
+        }
+      ],
+      "recording_seconds": 741.04,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "89a5513f82d2b65b9b1fa7992849fdeeb239079394973a870638b20beda8a0cc",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-036",
+      "path": "derivatives/sub-036/eeg/sub-036_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-036/eeg/sub-036_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "dd246548b45e50c665cfe6195bf97a712ba19c86598ee68ba671981bcf71050e",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/35830920",
+          "etag": "\"a9e14bae4524a9a75670f645ff72d44f\"",
+          "object_bytes": 35830920
+        },
+        {
+          "start": 3366856,
+          "bytes": 4096,
+          "sha256": "88c047f32288cee41e820defa2c5e1e8c71feba9e17b4280aaaf68e658f6e30a",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3366856-3370951/35830920",
+          "etag": "\"a9e14bae4524a9a75670f645ff72d44f\"",
+          "object_bytes": 35830920
+        },
+        {
+          "start": 3366912,
+          "bytes": 4560000,
+          "sha256": "206259a4d0d0bec09e8c911ba952abdc5641175a295ba6e8d08deb5d5d65632d",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3366912-7926911/35830920",
+          "etag": "\"a9e14bae4524a9a75670f645ff72d44f\"",
+          "object_bytes": 35830920
+        },
+        {
+          "start": 35338592,
+          "bytes": 65536,
+          "sha256": "533d8910e45ca47248daca600305d77398079d740c539e724c0b0a3219438dc2",
+          "source": "HTTP byte range",
+          "content_range": "bytes 35338592-35404127/35830920",
+          "etag": "\"a9e14bae4524a9a75670f645ff72d44f\"",
+          "object_bytes": 35830920
+        }
+      ],
+      "recording_seconds": 841.36,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "206259a4d0d0bec09e8c911ba952abdc5641175a295ba6e8d08deb5d5d65632d",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-066",
+      "path": "derivatives/sub-066/eeg/sub-066_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-066/eeg/sub-066_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "72f1e0d5a5dd439661a1937b4f0f9d38a8fd3e08eb706387eb0c713bf6a2a9cb",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/23431728",
+          "etag": "\"de712575460ec33d8c12d2fd43b48f78\"",
+          "object_bytes": 23431728
+        },
+        {
+          "start": 2200456,
+          "bytes": 4096,
+          "sha256": "b45540c9187379c71b9529fe0f4743b2f363c7e76a16195d6363d89f87b1ad31",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2200456-2204551/23431728",
+          "etag": "\"de712575460ec33d8c12d2fd43b48f78\"",
+          "object_bytes": 23431728
+        },
+        {
+          "start": 2200512,
+          "bytes": 4560000,
+          "sha256": "b8bd20b9bd22723c38fa8bf7f25530be125e7ddcff0a9a7aa2be88805c40ed2c",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2200512-6760511/23431728",
+          "etag": "\"de712575460ec33d8c12d2fd43b48f78\"",
+          "object_bytes": 23431728
+        },
+        {
+          "start": 23091392,
+          "bytes": 65536,
+          "sha256": "911414f0990c62835bee415d10643f93309b668f64e284ee7928a2f1ac3ea8b4",
+          "source": "HTTP byte range",
+          "content_range": "bytes 23091392-23156927/23431728",
+          "etag": "\"de712575460ec33d8c12d2fd43b48f78\"",
+          "object_bytes": 23431728
+        }
+      ],
+      "recording_seconds": 549.76,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "b8bd20b9bd22723c38fa8bf7f25530be125e7ddcff0a9a7aa2be88805c40ed2c",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-067",
+      "path": "derivatives/sub-067/eeg/sub-067_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-067/eeg/sub-067_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "9e9dfdffe0ad89faa2e2b7d5a74935a3de19f460a2d16154650635b7d857b0b9",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/26111736",
+          "etag": "\"12e3ff601d5b8cedc022637779ea2db5\"",
+          "object_bytes": 26111736
+        },
+        {
+          "start": 1287616,
+          "bytes": 4096,
+          "sha256": "1e87bc4dd587c719d2a20d2738413059fda68862cdde144ef0f812429f707cb3",
+          "source": "HTTP byte range",
+          "content_range": "bytes 1287616-1291711/26111736",
+          "etag": "\"12e3ff601d5b8cedc022637779ea2db5\"",
+          "object_bytes": 26111736
+        },
+        {
+          "start": 1287672,
+          "bytes": 4560000,
+          "sha256": "a6f3dd29bf5f7fb59cfd43aebd2ccd73d392e5ce73a1457517dec4ff89637aff",
+          "source": "HTTP byte range",
+          "content_range": "bytes 1287672-5847671/26111736",
+          "etag": "\"12e3ff601d5b8cedc022637779ea2db5\"",
+          "object_bytes": 26111736
+        },
+        {
+          "start": 25725472,
+          "bytes": 65536,
+          "sha256": "8cc30f306956bc657eba932d294f2ad91ad2e6a8ac397980a8a4ab7bf9ebe64f",
+          "source": "HTTP byte range",
+          "content_range": "bytes 25725472-25791007/26111736",
+          "etag": "\"12e3ff601d5b8cedc022637779ea2db5\"",
+          "object_bytes": 26111736
+        }
+      ],
+      "recording_seconds": 643.1,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "a6f3dd29bf5f7fb59cfd43aebd2ccd73d392e5ce73a1457517dec4ff89637aff",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-068",
+      "path": "derivatives/sub-068/eeg/sub-068_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-068/eeg/sub-068_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "fd4658bcc4fc7f2aeabf1c5e3ce8019b2fd42c3f2104b24c5236b297201b9fb0",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/24423840",
+          "etag": "\"d2aa554b989ab91b3180010bb2f7bf3b\"",
+          "object_bytes": 24423840
+        },
+        {
+          "start": 2293816,
+          "bytes": 4096,
+          "sha256": "5f11764fcdb9b5862646bf353cf06c30e3f836542443f2ca5186d8cf06d071e5",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2293816-2297911/24423840",
+          "etag": "\"d2aa554b989ab91b3180010bb2f7bf3b\"",
+          "object_bytes": 24423840
+        },
+        {
+          "start": 2293872,
+          "bytes": 4560000,
+          "sha256": "14b3bdc734f4c6b794cb970eb44e246303960de8ac6b831ced5c0ce02ef511ce",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2293872-6853871/24423840",
+          "etag": "\"d2aa554b989ab91b3180010bb2f7bf3b\"",
+          "object_bytes": 24423840
+        },
+        {
+          "start": 24071672,
+          "bytes": 65536,
+          "sha256": "fc289d99a8b0ccfa3994229baaf39ac12a7c1a06bcef5b5effd51a4d83e99065",
+          "source": "HTTP byte range",
+          "content_range": "bytes 24071672-24137207/24423840",
+          "etag": "\"d2aa554b989ab91b3180010bb2f7bf3b\"",
+          "object_bytes": 24423840
+        }
+      ],
+      "recording_seconds": 573.1,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "14b3bdc734f4c6b794cb970eb44e246303960de8ac6b831ced5c0ce02ef511ce",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-069",
+      "path": "derivatives/sub-069/eeg/sub-069_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-069/eeg/sub-069_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "3cf39c612f525704f3c0fb02773b6db0357293c6ef5359b65d79cb1fa88b0bce",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/27101336",
+          "etag": "\"fda3ff64b0d9a52ecf17f453017b997e\"",
+          "object_bytes": 27101336
+        },
+        {
+          "start": 2545816,
+          "bytes": 4096,
+          "sha256": "b8224470b9f07aa2150eecc4e68ea9be8f5ab6cd050af67b46b27ec58690e09d",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2545816-2549911/27101336",
+          "etag": "\"fda3ff64b0d9a52ecf17f453017b997e\"",
+          "object_bytes": 27101336
+        },
+        {
+          "start": 2545872,
+          "bytes": 4560000,
+          "sha256": "18393cd400f166b25053089714a130bb1bb62acff8db845422c835518caaca05",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2545872-7105871/27101336",
+          "etag": "\"fda3ff64b0d9a52ecf17f453017b997e\"",
+          "object_bytes": 27101336
+        },
+        {
+          "start": 26717672,
+          "bytes": 65536,
+          "sha256": "1aff227738d7833cfc6e33a9253dfe13f53247b505a8810e7eeb43a27a00889e",
+          "source": "HTTP byte range",
+          "content_range": "bytes 26717672-26783207/27101336",
+          "etag": "\"fda3ff64b0d9a52ecf17f453017b997e\"",
+          "object_bytes": 27101336
+        }
+      ],
+      "recording_seconds": 636.1,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "18393cd400f166b25053089714a130bb1bb62acff8db845422c835518caaca05",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-070",
+      "path": "derivatives/sub-070/eeg/sub-070_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-070/eeg/sub-070_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "286de525358e3048bbe50649be0868fa3440b802bd3a54efa4627d826013f5cc",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/19469064",
+          "etag": "\"220b8b7427a9c041e3eb04dcb014c1da\"",
+          "object_bytes": 19469064
+        },
+        {
+          "start": 959616,
+          "bytes": 4096,
+          "sha256": "416cfc80b79c41c2fe5dc17e415e84fac04059588f1e11a2e6b8e502a2717554",
+          "source": "HTTP byte range",
+          "content_range": "bytes 959616-963711/19469064",
+          "etag": "\"220b8b7427a9c041e3eb04dcb014c1da\"",
+          "object_bytes": 19469064
+        },
+        {
+          "start": 959672,
+          "bytes": 4560000,
+          "sha256": "21beb1f18b5b05a080e611f6d8af24f43515aeb8ba3a260fae7610d5a0bbf3c9",
+          "source": "HTTP byte range",
+          "content_range": "bytes 959672-5519671/19469064",
+          "etag": "\"220b8b7427a9c041e3eb04dcb014c1da\"",
+          "object_bytes": 19469064
+        },
+        {
+          "start": 19165472,
+          "bytes": 65536,
+          "sha256": "1a8920343f6d0b58f3feadf9f8b953e19dab66fe73d4e4b112c10acf061ca212",
+          "source": "HTTP byte range",
+          "content_range": "bytes 19165472-19231007/19469064",
+          "etag": "\"220b8b7427a9c041e3eb04dcb014c1da\"",
+          "object_bytes": 19469064
+        }
+      ],
+      "recording_seconds": 479.1,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "21beb1f18b5b05a080e611f6d8af24f43515aeb8ba3a260fae7610d5a0bbf3c9",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-071",
+      "path": "derivatives/sub-071/eeg/sub-071_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-071/eeg/sub-071_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "cb42423cc79eb2a22e11a61558c1b9c193c0d581b25cc48a6219d247f2070fa3",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/26371896",
+          "etag": "\"1a3dd6c670bdcf2db1f7f07873cc5def\"",
+          "object_bytes": 26371896
+        },
+        {
+          "start": 2477016,
+          "bytes": 4096,
+          "sha256": "97a83de1362d175bed437304b7b34437d9a041419e8fd8d223713c39c8616729",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2477016-2481111/26371896",
+          "etag": "\"1a3dd6c670bdcf2db1f7f07873cc5def\"",
+          "object_bytes": 26371896
+        },
+        {
+          "start": 2477072,
+          "bytes": 4560000,
+          "sha256": "4bf4dcd393c2c2e4f0ce115a321e69eed7a1b8523295cdd0e43876e55150fca6",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2477072-7037071/26371896",
+          "etag": "\"1a3dd6c670bdcf2db1f7f07873cc5def\"",
+          "object_bytes": 26371896
+        },
+        {
+          "start": 25995272,
+          "bytes": 65536,
+          "sha256": "3a694b069658ab43eb725b2c26adcb4ad5572a96b47c25cecd13e2e35c3d4764",
+          "source": "HTTP byte range",
+          "content_range": "bytes 25995272-26060807/26371896",
+          "etag": "\"1a3dd6c670bdcf2db1f7f07873cc5def\"",
+          "object_bytes": 26371896
+        }
+      ],
+      "recording_seconds": 618.9,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "4bf4dcd393c2c2e4f0ce115a321e69eed7a1b8523295cdd0e43876e55150fca6",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-072",
+      "path": "derivatives/sub-072/eeg/sub-072_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-072/eeg/sub-072_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "22dbc532a7c450c9b487b232e797d1d52aef48a4edbcc39cc6f67a0833268456",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/28024888",
+          "etag": "\"b30c102c25b295122e9d520e9f527e1a\"",
+          "object_bytes": 28024888
+        },
+        {
+          "start": 2631096,
+          "bytes": 4096,
+          "sha256": "fa49fb5317898ddff2e4e1e80e8971568aeffb3c290761c74bda0c75e2915232",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2631096-2635191/28024888",
+          "etag": "\"b30c102c25b295122e9d520e9f527e1a\"",
+          "object_bytes": 28024888
+        },
+        {
+          "start": 2631152,
+          "bytes": 4560000,
+          "sha256": "d84872f3479aeda6e72b79dd12a2e12dec9722daf13b12965fe7f2118b4f4d4c",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2631152-7191151/28024888",
+          "etag": "\"b30c102c25b295122e9d520e9f527e1a\"",
+          "object_bytes": 28024888
+        },
+        {
+          "start": 27613112,
+          "bytes": 65536,
+          "sha256": "0732a28dfdb2c1cbd67047fbf6c75a86a7012a239d2f3608a26504f850fbbab9",
+          "source": "HTTP byte range",
+          "content_range": "bytes 27613112-27678647/28024888",
+          "etag": "\"b30c102c25b295122e9d520e9f527e1a\"",
+          "object_bytes": 28024888
+        }
+      ],
+      "recording_seconds": 657.42,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "d84872f3479aeda6e72b79dd12a2e12dec9722daf13b12965fe7f2118b4f4d4c",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-073",
+      "path": "derivatives/sub-073/eeg/sub-073_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-073/eeg/sub-073_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "0df92fd4c22c89b9cd9db95db0ac07586bd386ba978739138645ee6e074dcdb3",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/36387608",
+          "etag": "\"2f9ef5b93d38d1e7ed16b75b92449e73\"",
+          "object_bytes": 36387608
+        },
+        {
+          "start": 3419736,
+          "bytes": 4096,
+          "sha256": "7a27bb5275f4e6e4abace79c1f366d86d9dbca03361c923750f07e0040b0ec9d",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3419736-3423831/36387608",
+          "etag": "\"2f9ef5b93d38d1e7ed16b75b92449e73\"",
+          "object_bytes": 36387608
+        },
+        {
+          "start": 3419792,
+          "bytes": 4560000,
+          "sha256": "d40c9e38827b7d25c236a4dd9d27503d18fe0e8091c83a055ac474cb489d1e2f",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3419792-7979791/36387608",
+          "etag": "\"2f9ef5b93d38d1e7ed16b75b92449e73\"",
+          "object_bytes": 36387608
+        },
+        {
+          "start": 35893832,
+          "bytes": 65536,
+          "sha256": "25a991ca113b80577953c695fc4bcecd55616749292e83391b5d53b7b05db9f3",
+          "source": "HTTP byte range",
+          "content_range": "bytes 35893832-35959367/36387608",
+          "etag": "\"2f9ef5b93d38d1e7ed16b75b92449e73\"",
+          "object_bytes": 36387608
+        }
+      ],
+      "recording_seconds": 854.58,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "d40c9e38827b7d25c236a4dd9d27503d18fe0e8091c83a055ac474cb489d1e2f",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-074",
+      "path": "derivatives/sub-074/eeg/sub-074_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-074/eeg/sub-074_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "9d56046d774526206b579cea3781f8ebc24eaf0a18b1367219022506a83c5589",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/43190576",
+          "etag": "\"273925dbc37bc348457eb6487750cb62\"",
+          "object_bytes": 43190576
+        },
+        {
+          "start": 4059416,
+          "bytes": 4096,
+          "sha256": "c554ac8e79c506955ca842591fe62cb284ccc46834554dfbe38f03553d87f4f3",
+          "source": "HTTP byte range",
+          "content_range": "bytes 4059416-4063511/43190576",
+          "etag": "\"273925dbc37bc348457eb6487750cb62\"",
+          "object_bytes": 43190576
+        },
+        {
+          "start": 4059472,
+          "bytes": 4560000,
+          "sha256": "36792f51d2881915c36ec1e1bb5876cb66aacfabc642ab041851b00f7b453fac",
+          "source": "HTTP byte range",
+          "content_range": "bytes 4059472-8619471/43190576",
+          "etag": "\"273925dbc37bc348457eb6487750cb62\"",
+          "object_bytes": 43190576
+        },
+        {
+          "start": 42610472,
+          "bytes": 65536,
+          "sha256": "9a3204da3ee1593d7a68e92b68c0265658aabad1c4fdce14f045e97b6ca695f0",
+          "source": "HTTP byte range",
+          "content_range": "bytes 42610472-42676007/43190576",
+          "etag": "\"273925dbc37bc348457eb6487750cb62\"",
+          "object_bytes": 43190576
+        }
+      ],
+      "recording_seconds": 1014.5,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "36792f51d2881915c36ec1e1bb5876cb66aacfabc642ab041851b00f7b453fac",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-075",
+      "path": "derivatives/sub-075/eeg/sub-075_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-075/eeg/sub-075_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "599ebcf8d5f6b856b530902cb40660377394e43092329b88ee87c6c730266f4c",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/31865608",
+          "etag": "\"dd5f00c45554bade201623ff81de774e\"",
+          "object_bytes": 31865608
+        },
+        {
+          "start": 2994136,
+          "bytes": 4096,
+          "sha256": "f3d1797a98c56d9225684e89de2e8fcf6e539da1472ecc06cef0f00e55f26fe4",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2994136-2998231/31865608",
+          "etag": "\"dd5f00c45554bade201623ff81de774e\"",
+          "object_bytes": 31865608
+        },
+        {
+          "start": 2994192,
+          "bytes": 4560000,
+          "sha256": "fbb86db7dc26dfff55a18b613fe2660e3f2f0aafc8d4c5518eb4afdd49bb29b5",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2994192-7554191/31865608",
+          "etag": "\"dd5f00c45554bade201623ff81de774e\"",
+          "object_bytes": 31865608
+        },
+        {
+          "start": 31425032,
+          "bytes": 65536,
+          "sha256": "5fe363e29f5f5ad3db4bad5754faa6610fb91443ae82b908856481beb84c23de",
+          "source": "HTTP byte range",
+          "content_range": "bytes 31425032-31490567/31865608",
+          "etag": "\"dd5f00c45554bade201623ff81de774e\"",
+          "object_bytes": 31865608
+        }
+      ],
+      "recording_seconds": 748.18,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "fbb86db7dc26dfff55a18b613fe2660e3f2f0aafc8d4c5518eb4afdd49bb29b5",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-076",
+      "path": "derivatives/sub-076/eeg/sub-076_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-076/eeg/sub-076_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "c82e3b43c36b593fe190014be9c29d2aa9a8d8f8aab60e8940dc92eaa82883bc",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/33227256",
+          "etag": "\"c9d5738d8880daa52c54761887e99c2b\"",
+          "object_bytes": 33227256
+        },
+        {
+          "start": 1639016,
+          "bytes": 4096,
+          "sha256": "69fb9a4c3f31f0affd84e04ce6d698bdf5b132ec258042974a0a304d1c6b6e98",
+          "source": "HTTP byte range",
+          "content_range": "bytes 1639016-1643111/33227256",
+          "etag": "\"c9d5738d8880daa52c54761887e99c2b\"",
+          "object_bytes": 33227256
+        },
+        {
+          "start": 1639072,
+          "bytes": 4560000,
+          "sha256": "70df0bf7f22cbafdd597af6eadec443151003aa7a9b2c2a8421c9a1eaf875106",
+          "source": "HTTP byte range",
+          "content_range": "bytes 1639072-6199071/33227256",
+          "etag": "\"c9d5738d8880daa52c54761887e99c2b\"",
+          "object_bytes": 33227256
+        },
+        {
+          "start": 32753472,
+          "bytes": 65536,
+          "sha256": "c913f4efadcaa1a23867c50319fbbf65fa29692c8027e8cc1c75271e28df7f3f",
+          "source": "HTTP byte range",
+          "content_range": "bytes 32753472-32819007/33227256",
+          "etag": "\"c9d5738d8880daa52c54761887e99c2b\"",
+          "object_bytes": 33227256
+        }
+      ],
+      "recording_seconds": 818.8,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "70df0bf7f22cbafdd597af6eadec443151003aa7a9b2c2a8421c9a1eaf875106",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-077",
+      "path": "derivatives/sub-077/eeg/sub-077_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-077/eeg/sub-077_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "b493492b8bce5e3b73a3d05ef5533960e567fa892dc38bb13b13f7cf1e0cea4d",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/29782968",
+          "etag": "\"7510e1290bc6386754dd4badfe4d646e\"",
+          "object_bytes": 29782968
+        },
+        {
+          "start": 2797976,
+          "bytes": 4096,
+          "sha256": "3130e4cedfa8e7cd086a415813f9b28fb220488c9f8a9d363c71de522c16beb5",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2797976-2802071/29782968",
+          "etag": "\"7510e1290bc6386754dd4badfe4d646e\"",
+          "object_bytes": 29782968
+        },
+        {
+          "start": 2798032,
+          "bytes": 4560000,
+          "sha256": "c67a9638252622245d1160a086da9a23a9460f003e6cd0782c53bad858748b56",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2798032-7358031/29782968",
+          "etag": "\"7510e1290bc6386754dd4badfe4d646e\"",
+          "object_bytes": 29782968
+        },
+        {
+          "start": 29365352,
+          "bytes": 65536,
+          "sha256": "9a7014984c00032767ec754016f8d38512dc4ae480b61ee389ad18782c91e129",
+          "source": "HTTP byte range",
+          "content_range": "bytes 29365352-29430887/29782968",
+          "etag": "\"7510e1290bc6386754dd4badfe4d646e\"",
+          "object_bytes": 29782968
+        }
+      ],
+      "recording_seconds": 699.14,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "c67a9638252622245d1160a086da9a23a9460f003e6cd0782c53bad858748b56",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-078",
+      "path": "derivatives/sub-078/eeg/sub-078_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-078/eeg/sub-078_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "1f3a2bf3caa37dda8507f5a5352d5a2cae2693e38ef31686daea277c9d8bf4b8",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/37082904",
+          "etag": "\"1d6375800213ff45bd36300fad7cc9a2\"",
+          "object_bytes": 37082904
+        },
+        {
+          "start": 3485016,
+          "bytes": 4096,
+          "sha256": "858853990c50a7a9c676082237cd0a8636668e2bc373500c1784f2ec1c423e9a",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3485016-3489111/37082904",
+          "etag": "\"1d6375800213ff45bd36300fad7cc9a2\"",
+          "object_bytes": 37082904
+        },
+        {
+          "start": 3485072,
+          "bytes": 4560000,
+          "sha256": "fdf6fcc04cb28146d454cc2ff07f106552abecc8cdf4a5a653271589933bb228",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3485072-8045071/37082904",
+          "etag": "\"1d6375800213ff45bd36300fad7cc9a2\"",
+          "object_bytes": 37082904
+        },
+        {
+          "start": 36579272,
+          "bytes": 65536,
+          "sha256": "e75e256f7f90563e0b874d3edc7df3eff54c8a463aa2db64cd6e5d98c9679204",
+          "source": "HTTP byte range",
+          "content_range": "bytes 36579272-36644807/37082904",
+          "etag": "\"1d6375800213ff45bd36300fad7cc9a2\"",
+          "object_bytes": 37082904
+        }
+      ],
+      "recording_seconds": 870.9,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "fdf6fcc04cb28146d454cc2ff07f106552abecc8cdf4a5a653271589933bb228",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-079",
+      "path": "derivatives/sub-079/eeg/sub-079_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-079/eeg/sub-079_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "362e3f46272358cf027c57ffd69582875b67d8ba242f53c2635351f3a3e4d2b9",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/34780448",
+          "etag": "\"9b58c9759f3039e674eccffd04d699fb\"",
+          "object_bytes": 34780448
+        },
+        {
+          "start": 3268136,
+          "bytes": 4096,
+          "sha256": "a0de94765e43eb1d31634ca4c6b5e8c9b7b825cad8015163210428ece46a893d",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3268136-3272231/34780448",
+          "etag": "\"9b58c9759f3039e674eccffd04d699fb\"",
+          "object_bytes": 34780448
+        },
+        {
+          "start": 3268192,
+          "bytes": 4560000,
+          "sha256": "fd07a8dfdc5c2e6acd9d0bb1f1614678bdc96a55bf60fb06a148528082500b5f",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3268192-7828191/34780448",
+          "etag": "\"9b58c9759f3039e674eccffd04d699fb\"",
+          "object_bytes": 34780448
+        },
+        {
+          "start": 34302032,
+          "bytes": 65536,
+          "sha256": "b000df7fe0354ce58861bd6a4290b3215502f5224a0a5947d55d716564746018",
+          "source": "HTTP byte range",
+          "content_range": "bytes 34302032-34367567/34780448",
+          "etag": "\"9b58c9759f3039e674eccffd04d699fb\"",
+          "object_bytes": 34780448
+        }
+      ],
+      "recording_seconds": 816.68,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "fd07a8dfdc5c2e6acd9d0bb1f1614678bdc96a55bf60fb06a148528082500b5f",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-080",
+      "path": "derivatives/sub-080/eeg/sub-080_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-080/eeg/sub-080_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "70845d592b4a23e5440de55bf736354ecbfc207fb1c81656d921b826d90f225f",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/38969512",
+          "etag": "\"f25da1003413e1710d17f3d01dfec174\"",
+          "object_bytes": 38969512
+        },
+        {
+          "start": 3661976,
+          "bytes": 4096,
+          "sha256": "69bb7633dd775542dfa9867e7a75d10b4fe46fa8bae41a514ffa6090caa482f5",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3661976-3666071/38969512",
+          "etag": "\"f25da1003413e1710d17f3d01dfec174\"",
+          "object_bytes": 38969512
+        },
+        {
+          "start": 3662032,
+          "bytes": 4560000,
+          "sha256": "a4f8c67332e4c2ed48543c5b98c1efd40ea3d937f671bd7dde78e34042976b71",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3662032-8222031/38969512",
+          "etag": "\"f25da1003413e1710d17f3d01dfec174\"",
+          "object_bytes": 38969512
+        },
+        {
+          "start": 38437352,
+          "bytes": 65536,
+          "sha256": "e6dcae0957cbf02cf4a8c53bc9781d3a46a48d856fbb5bc9b2ca9b9ce7f6e9c6",
+          "source": "HTTP byte range",
+          "content_range": "bytes 38437352-38502887/38969512",
+          "etag": "\"f25da1003413e1710d17f3d01dfec174\"",
+          "object_bytes": 38969512
+        }
+      ],
+      "recording_seconds": 915.14,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "a4f8c67332e4c2ed48543c5b98c1efd40ea3d937f671bd7dde78e34042976b71",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-081",
+      "path": "derivatives/sub-081/eeg/sub-081_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-081/eeg/sub-081_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "51683bade84c27fc30dcfb22c079ff0193dc273581e0a3bb226682224b7a7d23",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/35109744",
+          "etag": "\"e4ec3875ffbfc0a07c0d5202cc475d2f\"",
+          "object_bytes": 35109744
+        },
+        {
+          "start": 3299336,
+          "bytes": 4096,
+          "sha256": "16fb9e4a54dcf8c49c33df51b11897594d9f12f4b2c62afc212d33858befa2f1",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3299336-3303431/35109744",
+          "etag": "\"e4ec3875ffbfc0a07c0d5202cc475d2f\"",
+          "object_bytes": 35109744
+        },
+        {
+          "start": 3299392,
+          "bytes": 4560000,
+          "sha256": "9556b4bb78beb2ff1700000b9620cff9f3b6fe30d8fbe3c34a438f7243fa7e6f",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3299392-7859391/35109744",
+          "etag": "\"e4ec3875ffbfc0a07c0d5202cc475d2f\"",
+          "object_bytes": 35109744
+        },
+        {
+          "start": 34629632,
+          "bytes": 65536,
+          "sha256": "93dcd47d5a38c1db20c232cf59477e373583cc9180c56a4d7134c2608a488b61",
+          "source": "HTTP byte range",
+          "content_range": "bytes 34629632-34695167/35109744",
+          "etag": "\"e4ec3875ffbfc0a07c0d5202cc475d2f\"",
+          "object_bytes": 35109744
+        }
+      ],
+      "recording_seconds": 824.48,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "9556b4bb78beb2ff1700000b9620cff9f3b6fe30d8fbe3c34a438f7243fa7e6f",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-082",
+      "path": "derivatives/sub-082/eeg/sub-082_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-082/eeg/sub-082_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "fcbcc7db1147b4c32084bf3372c2ac616e981387bcbb34b8d716c07b937675e7",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/31559320",
+          "etag": "\"bf8cb95374bfbb309563af51205bc918\"",
+          "object_bytes": 31559320
+        },
+        {
+          "start": 1556616,
+          "bytes": 4096,
+          "sha256": "938997cd8cadaeeca77522d10bfdeccdea84ea07573eb82fd254dfe4cfd890af",
+          "source": "HTTP byte range",
+          "content_range": "bytes 1556616-1560711/31559320",
+          "etag": "\"bf8cb95374bfbb309563af51205bc918\"",
+          "object_bytes": 31559320
+        },
+        {
+          "start": 1556672,
+          "bytes": 4560000,
+          "sha256": "76c35d1ffed0785bb2740ce2aca9167b635a5396d31969981f3254b4dc75a983",
+          "source": "HTTP byte range",
+          "content_range": "bytes 1556672-6116671/31559320",
+          "etag": "\"bf8cb95374bfbb309563af51205bc918\"",
+          "object_bytes": 31559320
+        },
+        {
+          "start": 31105472,
+          "bytes": 65536,
+          "sha256": "ed960c5e4babd5beacfc84b67b3f3203dce479f2e97ecc06fd45882b57f9537a",
+          "source": "HTTP byte range",
+          "content_range": "bytes 31105472-31171007/31559320",
+          "etag": "\"bf8cb95374bfbb309563af51205bc918\"",
+          "object_bytes": 31559320
+        }
+      ],
+      "recording_seconds": 777.6,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "76c35d1ffed0785bb2740ce2aca9167b635a5396d31969981f3254b4dc75a983",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-083",
+      "path": "derivatives/sub-083/eeg/sub-083_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-083/eeg/sub-083_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "9ae1fd0e0f92bd9a2fcc9ebea692277ea9cd0e802f405d82bd7ba4ab689fc836",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/37050784",
+          "etag": "\"ba19147c8f4acd725808bf3ea4081198\"",
+          "object_bytes": 37050784
+        },
+        {
+          "start": 1827816,
+          "bytes": 4096,
+          "sha256": "3ffab76a31ec243cdd29eb9518ec283ec7672e7cede59b9844a08d67810c2548",
+          "source": "HTTP byte range",
+          "content_range": "bytes 1827816-1831911/37050784",
+          "etag": "\"ba19147c8f4acd725808bf3ea4081198\"",
+          "object_bytes": 37050784
+        },
+        {
+          "start": 1827872,
+          "bytes": 4560000,
+          "sha256": "2f12359b5e9efe60f483a04d957b1387fb7c3e88048186b53778390ed93fe349",
+          "source": "HTTP byte range",
+          "content_range": "bytes 1827872-6387871/37050784",
+          "etag": "\"ba19147c8f4acd725808bf3ea4081198\"",
+          "object_bytes": 37050784
+        },
+        {
+          "start": 36529472,
+          "bytes": 65536,
+          "sha256": "3f05693bf62950f5fefe7ad0f1b20eb780b6fec1016e8c1420ed2d02a0d1d017",
+          "source": "HTTP byte range",
+          "content_range": "bytes 36529472-36595007/37050784",
+          "etag": "\"ba19147c8f4acd725808bf3ea4081198\"",
+          "object_bytes": 37050784
+        }
+      ],
+      "recording_seconds": 913.2,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "2f12359b5e9efe60f483a04d957b1387fb7c3e88048186b53778390ed93fe349",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-084",
+      "path": "derivatives/sub-084/eeg/sub-084_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-084/eeg/sub-084_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "ff60ad3843db7cc5e9972dfdebd7854eecbbe3e0408a94024d81d76ed6bbe4b0",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/26475912",
+          "etag": "\"1c0b3f17a64e6df165ab9573f6876647\"",
+          "object_bytes": 26475912
+        },
+        {
+          "start": 1305616,
+          "bytes": 4096,
+          "sha256": "0fb99b5537bfda00e3ac602bf138f8e77de01f0a1553580d7bec4b5ffd4938fd",
+          "source": "HTTP byte range",
+          "content_range": "bytes 1305616-1309711/26475912",
+          "etag": "\"1c0b3f17a64e6df165ab9573f6876647\"",
+          "object_bytes": 26475912
+        },
+        {
+          "start": 1305672,
+          "bytes": 4560000,
+          "sha256": "c34cf9f9b6c08c4f648db4faaf1201397effafff1f82278f6a36ca80961d8a9c",
+          "source": "HTTP byte range",
+          "content_range": "bytes 1305672-5865671/26475912",
+          "etag": "\"1c0b3f17a64e6df165ab9573f6876647\"",
+          "object_bytes": 26475912
+        },
+        {
+          "start": 26085472,
+          "bytes": 65536,
+          "sha256": "1bc3634035ab58060b0eb5e6e59924f81771c4361e96a018e69c67a0a46a060f",
+          "source": "HTTP byte range",
+          "content_range": "bytes 26085472-26151007/26475912",
+          "etag": "\"1c0b3f17a64e6df165ab9573f6876647\"",
+          "object_bytes": 26475912
+        }
+      ],
+      "recording_seconds": 652.1,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "c34cf9f9b6c08c4f648db4faaf1201397effafff1f82278f6a36ca80961d8a9c",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-085",
+      "path": "derivatives/sub-085/eeg/sub-085_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-085/eeg/sub-085_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "56a1b6e770d3dd2271c8f841bd96f712e3b16f1b8f99166b2c3f83d4036cf298",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/23872736",
+          "etag": "\"af2cb88a602226a1e811736ca0c6f62c\"",
+          "object_bytes": 23872736
+        },
+        {
+          "start": 2241656,
+          "bytes": 4096,
+          "sha256": "c96e9d95ecbcf5a3f9df880a7bf7338bef010ff88cbb67efa86a39d273febb0a",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2241656-2245751/23872736",
+          "etag": "\"af2cb88a602226a1e811736ca0c6f62c\"",
+          "object_bytes": 23872736
+        },
+        {
+          "start": 2241712,
+          "bytes": 4560000,
+          "sha256": "f0f945470c0e5f63f53f4a65912c8e70487746b70ee547e404d6ee179d648014",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2241712-6801711/23872736",
+          "etag": "\"af2cb88a602226a1e811736ca0c6f62c\"",
+          "object_bytes": 23872736
+        },
+        {
+          "start": 23523992,
+          "bytes": 65536,
+          "sha256": "1ab00bf0ddbe9b6f66a42d112b8c3bdb15ccc6fe90dee4f0525de7fdfe1b3471",
+          "source": "HTTP byte range",
+          "content_range": "bytes 23523992-23589527/23872736",
+          "etag": "\"af2cb88a602226a1e811736ca0c6f62c\"",
+          "object_bytes": 23872736
+        }
+      ],
+      "recording_seconds": 560.06,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "f0f945470c0e5f63f53f4a65912c8e70487746b70ee547e404d6ee179d648014",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-086",
+      "path": "derivatives/sub-086/eeg/sub-086_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-086/eeg/sub-086_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "c0f93b86f5392f674eee33bece53f603aa3c0c1bdabae923b8f65377f5e97f1b",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/24714304",
+          "etag": "\"b6accbb413552d5b0f95d2ec1b0842c3\"",
+          "object_bytes": 24714304
+        },
+        {
+          "start": 2316616,
+          "bytes": 4096,
+          "sha256": "421e25b8749ebd23406170b63e840cff9700194c83a0f25bd6ba19e2c05000a3",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2316616-2320711/24714304",
+          "etag": "\"b6accbb413552d5b0f95d2ec1b0842c3\"",
+          "object_bytes": 24714304
+        },
+        {
+          "start": 2316672,
+          "bytes": 4560000,
+          "sha256": "c1ea3295c9e8ee449ceaa628591fccc0d93b6aae4dc0675ae56422ebf412b98a",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2316672-6876671/24714304",
+          "etag": "\"b6accbb413552d5b0f95d2ec1b0842c3\"",
+          "object_bytes": 24714304
+        },
+        {
+          "start": 24311072,
+          "bytes": 65536,
+          "sha256": "38812255a454981ba0cb7b96de518a8fba65e88174405d3842e270c57c8ffaac",
+          "source": "HTTP byte range",
+          "content_range": "bytes 24311072-24376607/24714304",
+          "etag": "\"b6accbb413552d5b0f95d2ec1b0842c3\"",
+          "object_bytes": 24714304
+        }
+      ],
+      "recording_seconds": 578.8,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "c1ea3295c9e8ee449ceaa628591fccc0d93b6aae4dc0675ae56422ebf412b98a",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-087",
+      "path": "derivatives/sub-087/eeg/sub-087_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-087/eeg/sub-087_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "72a986103c5198be645b3d723d0f7240de861e643b7e013a4938c5f9baa644e3",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/25685272",
+          "etag": "\"266e1af220345a29b5d41543338394d4\"",
+          "object_bytes": 25685272
+        },
+        {
+          "start": 2412456,
+          "bytes": 4096,
+          "sha256": "4122d337bae36a602dd8429553366119930249a1451774115fa672a065eecef5",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2412456-2416551/25685272",
+          "etag": "\"266e1af220345a29b5d41543338394d4\"",
+          "object_bytes": 25685272
+        },
+        {
+          "start": 2412512,
+          "bytes": 4560000,
+          "sha256": "ec6da5230060ae7f5e90927c7f9f43a484eeb6f6a0acf7f238cb81cf52b28d88",
+          "source": "HTTP byte range",
+          "content_range": "bytes 2412512-6972511/25685272",
+          "etag": "\"266e1af220345a29b5d41543338394d4\"",
+          "object_bytes": 25685272
+        },
+        {
+          "start": 25317392,
+          "bytes": 65536,
+          "sha256": "bc0a9854c49b9f72cfc221fd90aea58e767b7103d1be3ecd8fc1e9127ce61ea3",
+          "source": "HTTP byte range",
+          "content_range": "bytes 25317392-25382927/25685272",
+          "etag": "\"266e1af220345a29b5d41543338394d4\"",
+          "object_bytes": 25685272
+        }
+      ],
+      "recording_seconds": 602.76,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "ec6da5230060ae7f5e90927c7f9f43a484eeb6f6a0acf7f238cb81cf52b28d88",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    },
+    {
+      "id": "sub-088",
+      "path": "derivatives/sub-088/eeg/sub-088_task-eyesclosed_eeg.set",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds004504/derivatives/sub-088/eeg/sub-088_task-eyesclosed_eeg.set",
+      "range_reads": [
+        {
+          "start": 0,
+          "bytes": 4096,
+          "sha256": "f31acec35c358d6bae83fbf78b6e8ccc19bcfc1487929d117608c62e817a5c00",
+          "source": "HTTP byte range",
+          "content_range": "bytes 0-4095/33421328",
+          "etag": "\"dc7778bd0bd3896b0339459ec3ef51a2\"",
+          "object_bytes": 33421328
+        },
+        {
+          "start": 3140216,
+          "bytes": 4096,
+          "sha256": "a2da8c9191c2946c374186b928e2e8aee7a253193f4f1b1d5d6484ac458229ec",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3140216-3144311/33421328",
+          "etag": "\"dc7778bd0bd3896b0339459ec3ef51a2\"",
+          "object_bytes": 33421328
+        },
+        {
+          "start": 3140272,
+          "bytes": 4560000,
+          "sha256": "b6aee25c38af85928613e2b44acd3480e61fc51e7ed862db6f2603c9fc65a97e",
+          "source": "HTTP byte range",
+          "content_range": "bytes 3140272-7700271/33421328",
+          "etag": "\"dc7778bd0bd3896b0339459ec3ef51a2\"",
+          "object_bytes": 33421328
+        },
+        {
+          "start": 32958872,
+          "bytes": 65536,
+          "sha256": "ec3c28d39a49f8c0d72a43b96ce85bc1ab4a65c0e9675c8a65d739c5b1180c65",
+          "source": "HTTP byte range",
+          "content_range": "bytes 32958872-33024407/33421328",
+          "etag": "\"dc7778bd0bd3896b0339459ec3ef51a2\"",
+          "object_bytes": 33421328
+        }
+      ],
+      "recording_seconds": 784.7,
+      "source_values": "Exact first 120 seconds of source data matrix; not resampled or synthesized",
+      "data_window_sha256": "b6aee25c38af85928613e2b44acd3480e61fc51e7ed862db6f2603c9fc65a97e",
+      "sampling_hz": 500.0,
+      "window_seconds": 120,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F3",
+        "F4",
+        "C3",
+        "C4",
+        "P3",
+        "P4",
+        "O1",
+        "O2",
+        "F7",
+        "F8",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "Fz",
+        "Cz",
+        "Pz"
+      ],
+      "active_channels": 19
+    }
+  ],
+  "participants": 59,
+  "ad_n": 36,
+  "feature_file_sha256": "467a148b66068915879e216e8425c3eabbe551981387cd8ed222941b121b0ea2",
+  "pipeline_sha256": "dc9bb1ab87c8a53a0a25d2e08efda68dd470650521389bad5e15147f7bb8046a"
+}

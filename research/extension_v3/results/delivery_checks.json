@@ -1,0 +1,14 @@
+{
+  "scientific_tests": 5,
+  "tests_status": "passed",
+  "manuscript_pages": 7,
+  "all_rendered_pages_visually_reviewed": true,
+  "figure_formats": [
+    "png",
+    "pdf"
+  ],
+  "figures": 4,
+  "manuscript_sha256": "7173302cf6e5f36fdff3aa054b4e3737f7730e59878f24dc83f6e12f41e35cf8",
+  "code_hash_matches_training_run": true,
+  "publication_scope": "Source, aggregate results, public source provenance, figures and manuscripts only. Raw data, participant predictions, private partition manifests and model bundles excluded."
+}

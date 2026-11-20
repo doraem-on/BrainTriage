@@ -1,0 +1,30 @@
+[
+  {
+    "cohort": "oasis2",
+    "development_n": 120,
+    "positives": 52,
+    "excluded_exposed_holdout_n": 30,
+    "holdout_used": false
+  },
+  {
+    "cohort": "oasis1",
+    "development_n": 158,
+    "positives": 80,
+    "excluded_exposed_holdout_n": 40,
+    "holdout_used": false
+  },
+  {
+    "cohort": "csf",
+    "development_n": 142,
+    "positives": 73,
+    "excluded_exposed_holdout_n": 36,
+    "holdout_used": false
+  },
+  {
+    "cohort": "eeg_ad_ftd",
+    "development_n": 41,
+    "positives": 25,
+    "excluded_exposed_holdout_n": 18,
+    "holdout_used": false
+  }
+]
