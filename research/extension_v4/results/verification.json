@@ -1,0 +1,17 @@
+{
+  "companion_partition_checks": 106,
+  "companion_saved_predictions": 648,
+  "sensitivity_partition_checks": 204,
+  "sensitivity_saved_predictions": 984,
+  "identical_feature_rows": 0,
+  "holdouts_excluded": true,
+  "final_probability_arithmetic_errors": {
+    "spectral": 1.1102230246251565e-16,
+    "covariance": 3.3306690738754696e-16,
+    "original_basic": 2.220446049250313e-16,
+    "original_advanced": 2.220446049250313e-16
+  },
+  "arithmetic_scope": "Independent einsum PCA and logistic calculations for final models, including saved external predictions; intermediate fits not independently reconstructed.",
+  "external_models_and_thresholds_published_before_evaluation_commit": "02d3e24",
+  "tests_passed": 5
+}

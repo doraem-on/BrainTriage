@@ -1,5 +1,7 @@
 # BrainTriage measured-data research
 
+**Latest update:** [Independent EEG validation and sensitivity study](extension_v4/README.md) trains on 54 Greek participants and tests two frozen companion classifiers on 23 Spanish participants. Both external AUROCs were 0.864; covariance missed 0/12 AD cases but falsely flagged 7/11 controls, versus 2/12 and 1/11 for spectral features. Lower source thresholds did not recover additional external AD cases. The original AD/FTD model still lacks compatible external validation. The current manuscript and four new figures are in `extension_v4/`.
+
 Start with extension_v3/README.md for the current nested-selection extension and extension_v2/README.md for the completed earlier study. The application demonstration is separate from these experiments: synthetic PET and cross-person modality combinations are not research evidence.
 
 The v2 study includes measured OASIS, CSF and EEG data, 16 local fitted bundles, a twelve-page manuscript and ten figures. Its method did not reliably outperform baselines. Earlier holdouts are exposed and are not reused in v3. The v3 protocol is committed before its performance evaluation; its development analysis remains exploratory because earlier findings informed it.

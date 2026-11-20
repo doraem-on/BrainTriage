@@ -1,0 +1,19 @@
+{
+  "tests_passed": 5,
+  "partition_records_checked": 310,
+  "source_prediction_rows_checked": 1632,
+  "external_participants": 23,
+  "external_evaluation_count": 1,
+  "source_freeze_commit": "02d3e24",
+  "manuscript_pages": 8,
+  "all_pages_visually_reviewed": true,
+  "figures": 4,
+  "figure_formats": [
+    "png",
+    "pdf"
+  ],
+  "manuscript_sha256": "ca534e104aa49564393dfd2dcbccf325f6fe1605b1a52ca18f5062bc311541bd",
+  "frozen_code_and_models_unchanged": true,
+  "original_ad_ftd_external_validation": "Blocked by unavailable authorized Synapse downloads; no completion claim",
+  "publication_scope": "Source code, aggregate results, source hashes, figures, manuscript; excludes raw recordings, participant rows, private partitions and model bundles"
+}

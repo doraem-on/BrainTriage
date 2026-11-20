@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "reference": "Miltiadous A, et al. A Dataset of Scalp EEG Recordings of Alzheimer\u2019s Disease, Frontotemporal Dementia and Healthy Subjects from Routine EEG. Data. 2023;8(6):95.",
+    "url": "https://doi.org/10.3390/data8060095"
+  },
+  {
+    "id": 2,
+    "reference": "Smith K, Ab\u00e1solo D, Escudero J. Accounting for the complex hierarchical topology of EEG phase-based functional connectivity in network binarisation. PLoS ONE. 2017;12(10):e0186164.",
+    "url": "https://doi.org/10.1371/journal.pone.0186164"
+  },
+  {
+    "id": 3,
+    "reference": "Smith K. Public analysis data accompanying the network binarisation study. OSF project JBYSN; AD_Data.tar.gz. Accessed 20 November 2026.",
+    "url": "https://osf.io/jbysn/"
+  },
+  {
+    "id": 4,
+    "reference": "DL4mHealth. LEAD APAVA preprocessing notebook. Diagnosis mapping in data_preprocessing/APAVA/APAVA_preprocessing.ipynb, Git blob b6b9c130b9e519366c2844a8c203b80c9d5d8536. Accessed 20 November 2026.",
+    "url": "https://github.com/DL4mHealth/LEAD/blob/main/data_preprocessing/APAVA/APAVA_preprocessing.ipynb"
+  },
+  {
+    "id": 5,
+    "reference": "Chen Y, Wiesel A, Eldar YC, Hero AO. Shrinkage Algorithms for MMSE Covariance Estimation. IEEE Transactions on Signal Processing. 2010.",
+    "url": "https://arxiv.org/abs/0907.4698"
+  },
+  {
+    "id": 6,
+    "reference": "Hou R, Tang S, Jin W. An Adaptive Machine Learning Triage Framework for Predicting Alzheimer\u2019s Disease Progression. ML4H Findings. 2025.",
+    "url": "https://arxiv.org/abs/2511.06681"
+  },
+  {
+    "id": 7,
+    "reference": "Varma S, Simon R. Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics. 2006;7:91.",
+    "url": "https://doi.org/10.1186/1471-2105-7-91"
+  },
+  {
+    "id": 8,
+    "reference": "OpenNeuro ds006036 providers. README documenting participant overlap with ds004504. Accessed 20 November 2026.",
+    "url": "https://github.com/OpenNeuroDatasets/ds006036/blob/main/README"
+  },
+  {
+    "id": 9,
+    "reference": "Prado P, et al. The BrainLat project, a multimodal neuroimaging dataset of neurodegeneration from underrepresented backgrounds. Scientific Data. 2023;10:889.",
+    "url": "https://doi.org/10.1038/s41597-023-02806-8"
+  }
+]

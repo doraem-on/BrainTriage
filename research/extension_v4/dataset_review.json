@@ -2,11 +2,35 @@
   "date": "2026-11-20",
   "purpose": "Independent EEG validation of BrainTriage and reduction of missed AD cases",
   "candidates": [
-    {"name":"OpenNeuro ds006036", "decision":"Excluded as independent cohort", "reason":"Provider README states same participants as ds004504 with matching participant numbers; photic-stimulation recordings do not create independent people.", "source":"https://github.com/OpenNeuroDatasets/ds006036/blob/main/README"},
-    {"name":"BrainLat", "decision":"Best endpoint match, download blocked", "reason":"Independent Latin American AD/bvFTD cohort. Public directory contains 35 AD and 19 bvFTD folders. Metadata readable anonymously, file download HTTP 403: Anonymous users have only READ access permission. User reports no Synapse access. No restricted data downloaded.", "source":"https://www.synapse.org/Synapse:syn51549340/wiki/624187", "descriptor":"https://doi.org/10.1038/s41597-023-02806-8"},
-    {"name":"Figshare ADSZ", "decision":"Downloaded for metadata audit; not primary validation", "reason":"Independent historical AD/healthy-control source, CC0. Archive has 12 eyes-closed AD and 12 eyes-closed control records, with open-eye counterparts. Recording-to-person mapping is insufficiently documented for a strong participant-level validation claim. No performance evaluated.", "source":"https://doi.org/10.6084/m9.figshare.19091771.v1"},
-    {"name":"APAVA / Valladolid", "decision":"Assess for independent EEG-only companion validation", "reason":"Original publication documents 12 AD and 11 control participants with 16-channel recordings. Different endpoint and input schema from the original AD/FTD triage model; requires a separately frozen source-trained EEG-only model. Do not describe it as validation of the frozen v3 triage model.", "source":"https://osf.io/jbysn/", "descriptor":"https://doi.org/10.1371/journal.pone.0186164"}
+    {
+      "name": "OpenNeuro ds006036",
+      "decision": "Excluded as independent cohort",
+      "reason": "Provider README states same participants as ds004504 with matching participant numbers; photic-stimulation recordings do not create independent people.",
+      "source": "https://github.com/OpenNeuroDatasets/ds006036/blob/main/README"
+    },
+    {
+      "name": "BrainLat",
+      "decision": "Best endpoint match, download blocked",
+      "reason": "Independent Latin American AD/bvFTD cohort. Public directory contains 35 AD and 19 bvFTD folders. Metadata readable anonymously, file download HTTP 403: Anonymous users have only READ access permission. User reports no Synapse access. No restricted data downloaded.",
+      "source": "https://www.synapse.org/Synapse:syn51549340/wiki/624187",
+      "descriptor": "https://doi.org/10.1038/s41597-023-02806-8"
+    },
+    {
+      "name": "Figshare ADSZ",
+      "decision": "Downloaded for metadata audit; not primary validation",
+      "reason": "Independent historical AD/healthy-control source, CC0. Archive has 12 eyes-closed AD and 12 eyes-closed control records, with open-eye counterparts. Recording-to-person mapping is insufficiently documented for a strong participant-level validation claim. No performance evaluated.",
+      "source": "https://doi.org/10.6084/m9.figshare.19091771.v1"
+    },
+    {
+      "name": "APAVA / Valladolid",
+      "decision": "Completed independent EEG-only companion evaluation after source freeze",
+      "reason": "Original publication documents 12 AD and 11 control participants with 16-channel recordings. Different endpoint and input schema from the original AD/FTD triage model; requires a separately frozen source-trained EEG-only model. Do not describe it as validation of the frozen v3 triage model.",
+      "source": "https://osf.io/jbysn/",
+      "descriptor": "https://doi.org/10.1371/journal.pone.0186164"
+    }
   ],
-  "original_model_external_validation_status":"Not completed; compatible BrainLat files require authorized Synapse download access.",
-  "external_performance_examined":false
+  "original_model_external_validation_status": "Not completed; compatible BrainLat files require authorized Synapse download access.",
+  "external_performance_examined_at_initial_screening": false,
+  "external_companion_status": "Completed once after source-model freeze commit 02d3e24; APAVA 23 participants; no original AD/FTD external validation claim",
+  "external_performance_examined": true
 }

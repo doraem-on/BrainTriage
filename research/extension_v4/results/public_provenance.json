@@ -1,0 +1,24 @@
+{
+  "adapter_sha256": "509bc1131881ac6d4cf0b6aca4e1f3340ea308e2c75885c7e8a3d67b56d74187",
+  "label_mapping_source_blob": "b6b9c130b9e519366c2844a8c203b80c9d5d8536",
+  "archive_sha256": "125b85ae83c5258a25cb46935069fe6c7aa3aea9482c54c3710a9c3ed17d0812",
+  "feature_hashes": {
+    "source_features.csv": "a0036ac38e13376662a53e959ed31c2ee9683a9a4858e4e93e04b334c4d95491",
+    "external_features.csv": "f4b6c2f09e63f0c53144a8e12d3b9d5dd819d341d3d859dfe8ba41378272d483"
+  },
+  "source_participants": 54,
+  "external_participants": 23,
+  "source_segments_per_person": 24,
+  "external_segment_count_distribution": {
+    "24": 15,
+    "10": 1,
+    "1": 1,
+    "22": 1,
+    "3": 1,
+    "18": 1,
+    "19": 1,
+    "17": 1,
+    "2": 1
+  },
+  "publication_scope": "Archive and feature hashes retained; participant identifiers and per-person provenance remain local."
+}

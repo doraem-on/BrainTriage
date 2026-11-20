@@ -1,0 +1,13 @@
+{
+  "delta_brier": {
+    "covariance_minus_spectral": 0.047199716105824366,
+    "low": -0.047927566866129624,
+    "high": 0.14029483782716368
+  },
+  "delta_auroc": {
+    "covariance_minus_spectral": -1.1102230246251565e-16,
+    "low": -0.20454545454545447,
+    "high": 0.18181818181818166
+  },
+  "scope": "Paired stratified participant bootstrap; conditional on frozen models; does not include source-training uncertainty."
+}

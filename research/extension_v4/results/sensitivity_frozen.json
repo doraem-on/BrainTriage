@@ -1,0 +1,10 @@
+{
+  "thresholds": {
+    "basic": 0.4704726409553037,
+    "full": 0.3654877847023155,
+    "uncertainty": 0.3654877847023155,
+    "ridge_gain": 0.4289979908883558
+  },
+  "model_sha256": "cb7c00270f2f77755d092ff31128c0643dee11f5782c76abf8c6ad5d4ad7c904",
+  "scope": "Original41source-development participants only; no independent validation"
+}
