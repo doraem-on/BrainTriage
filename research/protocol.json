@@ -1,0 +1,70 @@
+{
+  "title": "Confidence gain versus error reduction for budgeted dementia assessment",
+  "created": "2026-11-20",
+  "status": "Locally frozen analysis plan before new model evaluation; not a public preregistration",
+  "seed": 20261120,
+  "cohorts": [
+    "oasis2",
+    "oasis1",
+    "csf"
+  ],
+  "primary_cohort": "oasis2",
+  "primary_endpoint": "Concurrent CDR greater than zero at first observed visit; not biomarker-confirmed Alzheimer disease or future progression",
+  "csf_endpoint": "Recorded Alzheimer diagnosis versus mild cognitive impairment among symptomatic participants; supplementary task",
+  "primary_model": "logistic",
+  "sensitivity_models": [
+    "random_forest",
+    "hist_gradient"
+  ],
+  "locked_test_fraction": 0.2,
+  "development_outer_folds": 5,
+  "development_repeats": 2,
+  "gate_crossfit_folds": 4,
+  "calibration_folds": 3,
+  "budgets": [
+    0,
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.75,
+    1
+  ],
+  "primary_budget": 0.3,
+  "primary_comparison": "Brier-gain gate minus continuous certainty-gain gate in Brier score at 30% capacity; negative favors Brier gain",
+  "primary_policies": [
+    "risk",
+    "uncertainty",
+    "certainty_gain",
+    "certainty_continuous",
+    "brier_gain",
+    "random"
+  ],
+  "certainty_gate_target": "Indicator abs(p_full-0.5)-abs(p_basic-0.5)>0.2, learned from cross-fitted training predictions",
+  "brier_gate_target": "(y-p_basic)^2-(y-p_full)^2, learned from cross-fitted training predictions",
+  "gate_models": "Regularized logistic regression for certainty gain; ridge regression alpha=10 for Brier gain; basic features only",
+  "classification_threshold": 0.5,
+  "random_policy_replicates": 30,
+  "bootstrap_replicates": 2000,
+  "reporting": "AUROC, average precision, Brier, log loss, balanced accuracy, macro F1, sensitivity, specificity, missed positives, referrals, calibration bins, subgroup counts and errors",
+  "data_rules": [
+    "One earliest visit per participant",
+    "Never pool OASIS releases or call them independent external validation",
+    "Fit imputation and scaling inside every training fold",
+    "No CDR or Group as OASIS predictor",
+    "No outcome/progression fields as CSF predictor",
+    "No synthetic PET or cross-person joins",
+    "No inferred monetary savings",
+    "Capacity ranking uses pretest features only",
+    "Test set never used for tuning"
+  ],
+  "limitations": [
+    "Small convenience cohorts",
+    "Diagnosis may incorporate cognitive and CSF measures",
+    "MRI features are volumetric summaries rather than image encoders",
+    "Retrospective feature acquisition simulation, not actual clinical utility",
+    "No clinical deployment or first-ever novelty claim"
+  ],
+  "protocol_amendment": "After development-only evaluation: add continuous certainty gain with the same ridge learner as Brier gain, to isolate the surrogate target and avoid a sparse fixed-threshold comparator. Preserve original binary certainty gate as secondary. No final-test metrics were accessed.",
+  "continuous_certainty_target": "abs(p_full-0.5)-abs(p_basic-0.5), fit by ridge alpha=10 on training cross-fitted predictions"
+}

@@ -1,0 +1,7 @@
+{
+  "stage": "Before extension holdout outcome metrics",
+  "status": "Existing cohort test outcomes known from initial study; EEG holdout new for this extension",
+  "protocol_sha256": "0f6b0beb427c9dc0c1b764fa8872d34f52e6a2ec5e79fb38724fe254abdabd41",
+  "research_sha256": "416ea23576867ae4a24cda2c50287e59e56a4e201adc08a4feed841d9c7ede16",
+  "tuning": "All configurations and penalties fixed; no selection from holdout results"
+}

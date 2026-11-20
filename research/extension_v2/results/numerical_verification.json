@@ -1,0 +1,136 @@
+{
+  "protocol_unchanged": true,
+  "training_code_unchanged": true,
+  "bundles": [
+    {
+      "cohort": "oasis2",
+      "configuration": "logistic",
+      "sha256": "334073d5544f149bab961c22b555139aee0a7bd92380222b4733acd0f9a7e58f",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 0.0
+    },
+    {
+      "cohort": "oasis2",
+      "configuration": "spline_logistic",
+      "sha256": "d330ed2911235ca5c062831958e97e1c81e01bbef73f7cd10070b90dad2050c0",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 0.0
+    },
+    {
+      "cohort": "oasis2",
+      "configuration": "logistic_uncalibrated",
+      "sha256": "6238a38be4d76c3df17a520452959a210b8b37efd71b02b55f46ca91346974b9",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 0.0
+    },
+    {
+      "cohort": "oasis2",
+      "configuration": "logistic_no_mmse",
+      "sha256": "a15a35bc593ff2cb920076896aa598542f3f588eda17bffca7ffb3084a1bf1ec",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 0.0
+    },
+    {
+      "cohort": "oasis1",
+      "configuration": "logistic",
+      "sha256": "13695fbb7ba5e4549571818f58942e3f1c8051216f630ad49bdd82c4d476884b",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 0.0
+    },
+    {
+      "cohort": "oasis1",
+      "configuration": "spline_logistic",
+      "sha256": "8995a1aa3aa75efaeafd6bf2b02228cab45a84475a6bb3e28965e4bbf8549a8d",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 0.0
+    },
+    {
+      "cohort": "oasis1",
+      "configuration": "logistic_uncalibrated",
+      "sha256": "423054c15a001ebb5a3e3edc433267f38715baa3eb56309b6b93931e48456cb2",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 0.0
+    },
+    {
+      "cohort": "oasis1",
+      "configuration": "logistic_no_mmse",
+      "sha256": "81ad7d01247828155e6b0d2c4391c7d8e6cb6675814dac58aa9dae0fbf92ddc8",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 0.0
+    },
+    {
+      "cohort": "csf",
+      "configuration": "logistic",
+      "sha256": "97f0287e697c20b958ab604e6fa73f92a55337fbe836dc58cb6c509e9e880a1a",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 2.220446049250313e-16
+    },
+    {
+      "cohort": "csf",
+      "configuration": "spline_logistic",
+      "sha256": "9dd7aecd249588872c9af7fc9b4b16088daa67e6bb152f95075aea1fbc14ef15",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 0.0
+    },
+    {
+      "cohort": "csf",
+      "configuration": "logistic_uncalibrated",
+      "sha256": "c093da11684761eccc98660e0ff63c376d80c4cc797d74047e73ffed7c566a64",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 1.1102230246251565e-16
+    },
+    {
+      "cohort": "csf",
+      "configuration": "logistic_no_mmse",
+      "sha256": "36f76bd0567a3f0631d802cbaf79f05cbb39f0599346ad1d69ea104c3ceb0226",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 2.220446049250313e-16
+    },
+    {
+      "cohort": "eeg_ad_ftd",
+      "configuration": "logistic",
+      "sha256": "8fc5ffdd1cbbc66f71039599685da8fa9b11c49c44a61a22ee69dfb406a8e1b0",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 1.1102230246251565e-16
+    },
+    {
+      "cohort": "eeg_ad_ftd",
+      "configuration": "spline_logistic",
+      "sha256": "70bcfe07f0efd13f0919cd79b5b59906a773748ab43cf437db7dea90b3e1f4ad",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 2.220446049250313e-16
+    },
+    {
+      "cohort": "eeg_ad_ftd",
+      "configuration": "logistic_uncalibrated",
+      "sha256": "1f38e827b7fce3e07b23b84f44c9579954fbbf556aae9e656118b7af003ff663",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 1.3877787807814457e-16
+    },
+    {
+      "cohort": "eeg_ad_ftd",
+      "configuration": "logistic_no_mmse",
+      "sha256": "01c64f553d93751923ea2c59b7694d0b27165e4867385e66f6616126bda20ac0",
+      "holdout_predictions_reproduced": true,
+      "maximum_manual_probability_error": 0.0
+    }
+  ],
+  "eeg_source_ranges_verified": 236,
+  "eeg_participants": 59,
+  "range_reader_sha256": "59154fdfd62b47609fadb263ec5af7b69484a8bd7a398f6aa6d72f68e634a6c4",
+  "full_file_comparisons": [
+    {
+      "participant": "sub-001",
+      "twenty_features_exactly_equal": true
+    },
+    {
+      "participant": "sub-003",
+      "twenty_features_exactly_equal": true
+    },
+    {
+      "participant": "sub-004",
+      "twenty_features_exactly_equal": true
+    }
+  ],
+  "eeg_primary_contrast": "Identical selected participants and predictions; zero conditional interval does not imply population equivalence."
+}

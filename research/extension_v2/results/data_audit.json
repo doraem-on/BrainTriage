@@ -1,0 +1,92 @@
+[
+  {
+    "cohort": "oasis2",
+    "n": 150,
+    "positive_n": 65,
+    "development_n": 120,
+    "holdout_n": 30,
+    "holdout_positive_n": 13,
+    "basic": [
+      "age",
+      "male",
+      "education",
+      "ses",
+      "mmse"
+    ],
+    "advanced": [
+      "eTIV",
+      "nWBV"
+    ]
+  },
+  {
+    "cohort": "oasis1",
+    "n": 198,
+    "positive_n": 100,
+    "development_n": 158,
+    "holdout_n": 40,
+    "holdout_positive_n": 20,
+    "basic": [
+      "age",
+      "male",
+      "ses",
+      "mmse"
+    ],
+    "advanced": [
+      "eTIV",
+      "nWBV"
+    ]
+  },
+  {
+    "cohort": "csf",
+    "n": 178,
+    "positive_n": 91,
+    "development_n": 142,
+    "holdout_n": 36,
+    "holdout_positive_n": 18,
+    "basic": [
+      "age",
+      "male",
+      "mmse"
+    ],
+    "advanced": [
+      "amyloid",
+      "ttau",
+      "ptau"
+    ]
+  },
+  {
+    "cohort": "eeg_ad_ftd",
+    "n": 59,
+    "positive_n": 36,
+    "development_n": 41,
+    "holdout_n": 18,
+    "holdout_positive_n": 11,
+    "basic": [
+      "age",
+      "male",
+      "mmse"
+    ],
+    "advanced": [
+      "eeg_frontal_delta",
+      "eeg_frontal_theta",
+      "eeg_frontal_alpha",
+      "eeg_frontal_beta",
+      "eeg_central_delta",
+      "eeg_central_theta",
+      "eeg_central_alpha",
+      "eeg_central_beta",
+      "eeg_temporal_delta",
+      "eeg_temporal_theta",
+      "eeg_temporal_alpha",
+      "eeg_temporal_beta",
+      "eeg_parietal_delta",
+      "eeg_parietal_theta",
+      "eeg_parietal_alpha",
+      "eeg_parietal_beta",
+      "eeg_occipital_delta",
+      "eeg_occipital_theta",
+      "eeg_occipital_alpha",
+      "eeg_occipital_beta"
+    ]
+  }
+]

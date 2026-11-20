@@ -1,0 +1,15 @@
+{
+  "manuscript_pages": 12,
+  "all_pages_visually_reviewed": true,
+  "figure_count": 10,
+  "tables": 3,
+  "references": 17,
+  "scientific_tests_passed": 5,
+  "saved_fitted_bundles": 16,
+  "original_clinical_source_hashes_reverified": 3,
+  "model_audit": "numerical_verification.json",
+  "protocol_and_training_code_unchanged": true,
+  "manuscript_sha256": "874a619cbc9899f54b81a0aa0c2cc14fd30931f690951ecb96dd26127dd97b01",
+  "test_source_sha256": "e43bb6035f3ae3db33be78c0e7e6c9ce48531c53a45c12ad86512943e4f8cdd2",
+  "manuscript_status": "Author-review research manuscript; not submitted; no superiority or clinical validation established"
+}

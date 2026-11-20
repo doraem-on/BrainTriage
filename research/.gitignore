@@ -1,0 +1,8 @@
+**/data_raw/
+**/models/
+**/__pycache__/
+**/qa*/
+**/*predictions*.csv
+**/*patient*.csv
+*.log
+*.zip
