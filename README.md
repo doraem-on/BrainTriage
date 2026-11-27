@@ -1,5 +1,75 @@
 ## BrainTriage project
 
+## Project report and model metrics
+
+- [Detailed project report (PDF)](docs/report/BrainTriage_Report.pdf)
+- [Editable project report (Word)](docs/report/BrainTriage_Report.docx)
+- [Complete model metrics and evaluation limits](docs/report/MODEL_METRICS.md)
+- [Aggregate metrics snapshot (JSON)](docs/report/model_metrics.json)
+
+The report includes accuracy, macro F1, AUROC, Brier loss, prediction-set coverage, error counts, candidate-selection scores, acquisition MSE/RMSE, survival concordance and MMSE forecast errors. Pretrained tools without a local accuracy benchmark are identified explicitly. Results are exploratory development estimates, not external clinical validation.
+
+## Screenshots
+
+Captured from the local teaching build on 27 November 2026. The displayed patient measurements are fictional. MRI Studio shows the shared MNI152 population template; these images demonstrate the interface and do not validate clinical performance. The report identifies the installed model versions and local implementation scope.
+
+### Brain health overview
+
+The landing screen introduces the patient workspace with an anatomical brain illustration.
+
+![BrainTriage overview with an anatomical brain illustration](docs/screenshots/brain-overview.jpg)
+
+### MRI Studio
+
+Linked axial, coronal and sagittal views with SynthSeg 1.0 anatomical overlays.
+
+![MRI Studio showing three linked slices of the shared reference template](docs/screenshots/mri-studio.jpg)
+
+### Live hand-camera assessment
+
+Camera controls and saved finger-tapping measurements, including tap rate, timing variability, relative movement and tracking quality. The camera is off in this screenshot; the saved trace is a labelled synthetic teaching example, not a recorded MediaPipe session.
+
+![Live Assessment hand-camera controls and synthetic saved tapping measurements](docs/screenshots/live-hand-camera.jpg)
+
+<details>
+<summary>Assessment and saved model probabilities</summary>
+
+Saving measurements runs the eligible fitted model. The screen identifies the estimator, saved probabilities and review status.
+
+![Fictional case assessment with the cognitive classifier and saved probabilities](docs/screenshots/assessment.jpg)
+
+</details>
+
+<details>
+<summary>Diagnostic review and evidence coverage</summary>
+
+Cognitive, measured MRI, CSF and EEG evidence appear beside image and live-task records, with disagreement flagged for review.
+
+![Diagnostic review showing evidence coverage and disagreement for a fictional case](docs/screenshots/diagnostic-review.jpg)
+
+</details>
+
+<details>
+<summary>Progression and recorded visits</summary>
+
+Observed measurements remain distinct from exploratory progression and next-MMSE estimates.
+
+![Three fictional annual MMSE observations and exploratory longitudinal estimates](docs/screenshots/progression.jpg)
+
+</details>
+
+<details>
+<summary>Test allocation and saved proposals</summary>
+
+Per-test capacities and prioritisation controls support reviewable planning simulations. The expanded saved proposal uses fictional teaching cases.
+
+![Test allocation controls and an expanded fictional demonstration proposal](docs/screenshots/test-allocation.jpg)
+
+</details>
+
+
+The report and screenshots document the expanded local teaching build. The application description and setup instructions below refer to the earlier implementation currently committed on `main`.
+
 AI-driven prioritization for early Alzheimer's diagnostic pathways — built for
 the **Precision Care Challenge 2026**.
 

@@ -1,0 +1,740 @@
+{
+  "classification_and_allocation": {
+    "version": "2.0-20261126T152602Z",
+    "trained_at": "2026-11-26T15:26:02.710412+00:00",
+    "seed": 20261126,
+    "models": {
+      "oasis": {
+        "source": "oasis",
+        "extra_features": [
+          "etiv",
+          "nwbv",
+          "asf"
+        ],
+        "basic": {
+          "columns": [
+            "age",
+            "ses",
+            "sex_male",
+            "mmse_score"
+          ],
+          "labels": [
+            "CDR 0",
+            "CDR 0.5",
+            "CDR ≥1"
+          ],
+          "chosen": "logistic",
+          "comparison": [
+            {
+              "model": "logistic",
+              "cv_brier": 0.3902535769817102
+            },
+            {
+              "model": "forest",
+              "cv_brier": 0.3951538661446979
+            },
+            {
+              "model": "boosting",
+              "cv_brier": 0.4439149163893106
+            }
+          ],
+          "metrics": {
+            "n": 64,
+            "accuracy": 0.65625,
+            "macro_f1": 0.521431543903454,
+            "multiclass_brier": 0.4271246869661738,
+            "auroc": 0.8471085595413674,
+            "missed_positive": 19,
+            "false_positive": 0,
+            "set_coverage": 0.9375,
+            "mean_set_size": 1.6875
+          },
+          "endpoint": "CDR-derived impairment category; not Alzheimer pathology",
+          "counts": {
+            "fit": 192,
+            "calibration": 64,
+            "prediction_set": 65,
+            "evaluation": 64
+          },
+          "evaluation_type": "Exploratory development partition; previously studied source cohort",
+          "source_sha256": "7abbf6f71e96f22260228196377d987dcac4f87f286b18c62f9b70e7e9a3e605"
+        },
+        "advanced": {
+          "columns": [
+            "age",
+            "ses",
+            "sex_male",
+            "mmse_score",
+            "etiv",
+            "nwbv",
+            "asf"
+          ],
+          "labels": [
+            "CDR 0",
+            "CDR 0.5",
+            "CDR ≥1"
+          ],
+          "chosen": "logistic",
+          "comparison": [
+            {
+              "model": "logistic",
+              "cv_brier": 0.3726934050081961
+            },
+            {
+              "model": "forest",
+              "cv_brier": 0.37460985949724473
+            },
+            {
+              "model": "boosting",
+              "cv_brier": 0.38922731636408353
+            }
+          ],
+          "metrics": {
+            "n": 64,
+            "accuracy": 0.65625,
+            "macro_f1": 0.5095959595959596,
+            "multiclass_brier": 0.4309066901985382,
+            "auroc": 0.8542422458921527,
+            "missed_positive": 18,
+            "false_positive": 0,
+            "set_coverage": 0.921875,
+            "mean_set_size": 1.578125
+          },
+          "endpoint": "CDR-derived impairment category; not Alzheimer pathology",
+          "counts": {
+            "fit": 192,
+            "calibration": 64,
+            "prediction_set": 65,
+            "evaluation": 64
+          },
+          "evaluation_type": "Exploratory development partition; previously studied source cohort",
+          "source_sha256": "7abbf6f71e96f22260228196377d987dcac4f87f286b18c62f9b70e7e9a3e605"
+        },
+        "fusion": {
+          "columns": [
+            "age",
+            "ses",
+            "sex_male",
+            "mmse_score",
+            "etiv",
+            "nwbv",
+            "asf"
+          ],
+          "labels": [
+            "CDR 0",
+            "CDR 0.5",
+            "CDR ≥1"
+          ],
+          "chosen": "OOF logistic probability fusion",
+          "comparison": [],
+          "metrics": {
+            "n": 64,
+            "accuracy": 0.6875,
+            "macro_f1": 0.5185878649734071,
+            "multiclass_brier": 0.41497493518806683,
+            "auroc": 0.8400705860774607,
+            "missed_positive": 14,
+            "false_positive": 1,
+            "set_coverage": 0.953125,
+            "mean_set_size": 1.75
+          },
+          "endpoint": "CDR-derived impairment category; not Alzheimer pathology",
+          "counts": {
+            "fit": 192,
+            "calibration": 64,
+            "prediction_set": 65,
+            "evaluation": 64
+          },
+          "evaluation_type": "Exploratory development partition; previously studied source cohort",
+          "source_sha256": "7abbf6f71e96f22260228196377d987dcac4f87f286b18c62f9b70e7e9a3e605"
+        },
+        "gate": {
+          "columns": [
+            "age",
+            "ses",
+            "sex_male",
+            "mmse_score"
+          ],
+          "selected": "ridge",
+          "comparison": [
+            {
+              "model": "ridge",
+              "cv_mse": 0.015762099156294698
+            },
+            {
+              "model": "boosting",
+              "cv_mse": 0.01604120741250792
+            }
+          ],
+          "target": "Cross-fitted reduction in multiclass Brier loss; not treatment benefit",
+          "heldout_mse": 0.0055158730690906,
+          "policies": {
+            "learned_gain": {
+              "n": 64,
+              "accuracy": 0.65625,
+              "macro_f1": 0.521431543903454,
+              "multiclass_brier": 0.4253909690064503,
+              "auroc": 0.8463491541105174,
+              "missed_positive": 19,
+              "false_positive": 0,
+              "acquired": 20
+            },
+            "uncertainty": {
+              "n": 64,
+              "accuracy": 0.65625,
+              "macro_f1": 0.5095959595959596,
+              "multiclass_brier": 0.42651618823103427,
+              "auroc": 0.8515009336214588,
+              "missed_positive": 18,
+              "false_positive": 0,
+              "acquired": 20
+            },
+            "risk": {
+              "n": 64,
+              "accuracy": 0.65625,
+              "macro_f1": 0.5095959595959596,
+              "multiclass_brier": 0.42651618823103427,
+              "auroc": 0.8515009336214588,
+              "missed_positive": 18,
+              "false_positive": 0,
+              "acquired": 20
+            }
+          },
+          "endpoint": "CDR-derived impairment category; not Alzheimer pathology"
+        }
+      },
+      "csf": {
+        "source": "csf",
+        "extra_features": [
+          "apoe4_positive",
+          "csf_amyloid",
+          "csf_ttau",
+          "csf_ptau"
+        ],
+        "basic": {
+          "columns": [
+            "age",
+            "sex_male",
+            "mmse_score"
+          ],
+          "labels": [
+            "Control",
+            "Clinical MCI",
+            "Clinical AD"
+          ],
+          "chosen": "forest",
+          "comparison": [
+            {
+              "model": "logistic",
+              "cv_brier": 0.4712041436404855
+            },
+            {
+              "model": "forest",
+              "cv_brier": 0.46337821808022106
+            },
+            {
+              "model": "boosting",
+              "cv_brier": 0.5129127705068839
+            }
+          ],
+          "metrics": {
+            "n": 33,
+            "accuracy": 0.7272727272727273,
+            "macro_f1": 0.6566951566951568,
+            "multiclass_brier": 0.44530629549669143,
+            "auroc": 0.7528123428858723,
+            "missed_positive": 0,
+            "false_positive": 2,
+            "set_coverage": 0.8484848484848485,
+            "mean_set_size": 1.5757575757575757
+          },
+          "endpoint": "Recorded clinical group in the CSF source study",
+          "counts": {
+            "fit": 99,
+            "calibration": 33,
+            "prediction_set": 33,
+            "evaluation": 33
+          },
+          "evaluation_type": "Exploratory development partition; previously studied source cohort",
+          "source_sha256": "ec75120a2fdf262e85e8f52d9dc4fd0ff686a79ccbda2370e801d281c5a76990"
+        },
+        "advanced": {
+          "columns": [
+            "age",
+            "sex_male",
+            "mmse_score",
+            "apoe4_positive",
+            "csf_amyloid",
+            "csf_ttau",
+            "csf_ptau"
+          ],
+          "labels": [
+            "Control",
+            "Clinical MCI",
+            "Clinical AD"
+          ],
+          "chosen": "forest",
+          "comparison": [
+            {
+              "model": "logistic",
+              "cv_brier": 0.5021108244766691
+            },
+            {
+              "model": "forest",
+              "cv_brier": 0.4246433062027755
+            },
+            {
+              "model": "boosting",
+              "cv_brier": 0.46972789813293125
+            }
+          ],
+          "metrics": {
+            "n": 33,
+            "accuracy": 0.6666666666666666,
+            "macro_f1": 0.4641975308641975,
+            "multiclass_brier": 0.4153875001610936,
+            "auroc": 0.8518141444612032,
+            "missed_positive": 1,
+            "false_positive": 3,
+            "set_coverage": 0.9393939393939394,
+            "mean_set_size": 1.7272727272727273
+          },
+          "endpoint": "Recorded clinical group in the CSF source study",
+          "counts": {
+            "fit": 99,
+            "calibration": 33,
+            "prediction_set": 33,
+            "evaluation": 33
+          },
+          "evaluation_type": "Exploratory development partition; previously studied source cohort",
+          "source_sha256": "ec75120a2fdf262e85e8f52d9dc4fd0ff686a79ccbda2370e801d281c5a76990"
+        },
+        "gate": {
+          "columns": [
+            "age",
+            "sex_male",
+            "mmse_score"
+          ],
+          "selected": "ridge",
+          "comparison": [
+            {
+              "model": "ridge",
+              "cv_mse": 0.059787976343551326
+            },
+            {
+              "model": "boosting",
+              "cv_mse": 0.062329941897811436
+            }
+          ],
+          "target": "Cross-fitted reduction in multiclass Brier loss; not treatment benefit",
+          "heldout_mse": 0.10829739345462983,
+          "policies": {
+            "learned_gain": {
+              "n": 33,
+              "accuracy": 0.7272727272727273,
+              "macro_f1": 0.5,
+              "multiclass_brier": 0.41932919060031354,
+              "auroc": 0.8130886542651249,
+              "missed_positive": 0,
+              "false_positive": 3,
+              "acquired": 10
+            },
+            "uncertainty": {
+              "n": 33,
+              "accuracy": 0.6666666666666666,
+              "macro_f1": 0.4576023391812865,
+              "multiclass_brier": 0.45055073512752036,
+              "auroc": 0.7726715686274509,
+              "missed_positive": 1,
+              "false_positive": 3,
+              "acquired": 10
+            },
+            "risk": {
+              "n": 33,
+              "accuracy": 0.7272727272727273,
+              "macro_f1": 0.6555555555555556,
+              "multiclass_brier": 0.4572284505855677,
+              "auroc": 0.7790933467404054,
+              "missed_positive": 0,
+              "false_positive": 2,
+              "acquired": 10
+            }
+          },
+          "endpoint": "Recorded clinical group in the CSF source study"
+        }
+      },
+      "eeg": {
+        "source": "eeg",
+        "extra_features": [
+          "eeg_frontal_delta",
+          "eeg_frontal_theta",
+          "eeg_frontal_alpha",
+          "eeg_frontal_beta",
+          "eeg_central_delta",
+          "eeg_central_theta",
+          "eeg_central_alpha",
+          "eeg_central_beta",
+          "eeg_temporal_delta",
+          "eeg_temporal_theta",
+          "eeg_temporal_alpha",
+          "eeg_temporal_beta",
+          "eeg_parietal_delta",
+          "eeg_parietal_theta",
+          "eeg_parietal_alpha",
+          "eeg_parietal_beta",
+          "eeg_occipital_delta",
+          "eeg_occipital_theta",
+          "eeg_occipital_alpha",
+          "eeg_occipital_beta"
+        ],
+        "basic": {
+          "columns": [
+            "age",
+            "sex_male",
+            "mmse_score"
+          ],
+          "labels": [
+            "FTD",
+            "AD"
+          ],
+          "chosen": "logistic",
+          "comparison": [
+            {
+              "model": "logistic",
+              "cv_brier": 0.3847942676105337
+            },
+            {
+              "model": "svm",
+              "cv_brier": 0.697190100543792
+            },
+            {
+              "model": "forest",
+              "cv_brier": 0.4660606522504991
+            }
+          ],
+          "metrics": {
+            "n": 7,
+            "accuracy": 0.8571428571428571,
+            "macro_f1": 0.8571428571428571,
+            "multiclass_brier": 0.26607149928145785,
+            "auroc": 0.9166666666666667,
+            "missed_positive": 1,
+            "false_positive": 0,
+            "set_coverage": 1.0,
+            "mean_set_size": 2.0
+          },
+          "endpoint": "Clinical AD versus FTD; excludes healthy controls",
+          "counts": {
+            "fit": 20,
+            "calibration": 7,
+            "prediction_set": 7,
+            "evaluation": 7
+          },
+          "evaluation_type": "Exploratory development partition; previously studied source cohort",
+          "source_sha256": "30e8650130d05803fe80dfb351fe62f998fd23edb31439ef16658758c5d69889"
+        },
+        "advanced": {
+          "columns": [
+            "age",
+            "sex_male",
+            "mmse_score",
+            "eeg_frontal_delta",
+            "eeg_frontal_theta",
+            "eeg_frontal_alpha",
+            "eeg_frontal_beta",
+            "eeg_central_delta",
+            "eeg_central_theta",
+            "eeg_central_alpha",
+            "eeg_central_beta",
+            "eeg_temporal_delta",
+            "eeg_temporal_theta",
+            "eeg_temporal_alpha",
+            "eeg_temporal_beta",
+            "eeg_parietal_delta",
+            "eeg_parietal_theta",
+            "eeg_parietal_alpha",
+            "eeg_parietal_beta",
+            "eeg_occipital_delta",
+            "eeg_occipital_theta",
+            "eeg_occipital_alpha",
+            "eeg_occipital_beta"
+          ],
+          "labels": [
+            "FTD",
+            "AD"
+          ],
+          "chosen": "logistic",
+          "comparison": [
+            {
+              "model": "logistic",
+              "cv_brier": 0.3500546652298886
+            },
+            {
+              "model": "svm",
+              "cv_brier": 0.685489057522084
+            },
+            {
+              "model": "forest",
+              "cv_brier": 0.4442684068824324
+            }
+          ],
+          "metrics": {
+            "n": 7,
+            "accuracy": 0.5714285714285714,
+            "macro_f1": 0.36363636363636365,
+            "multiclass_brier": 0.8243301567440747,
+            "auroc": 0.5833333333333333,
+            "missed_positive": 0,
+            "false_positive": 3,
+            "set_coverage": 1.0,
+            "mean_set_size": 2.0
+          },
+          "endpoint": "Clinical AD versus FTD; excludes healthy controls",
+          "counts": {
+            "fit": 20,
+            "calibration": 7,
+            "prediction_set": 7,
+            "evaluation": 7
+          },
+          "evaluation_type": "Exploratory development partition; previously studied source cohort",
+          "source_sha256": "30e8650130d05803fe80dfb351fe62f998fd23edb31439ef16658758c5d69889"
+        },
+        "gate": {
+          "columns": [
+            "age",
+            "sex_male",
+            "mmse_score"
+          ],
+          "selected": "boosting",
+          "comparison": [
+            {
+              "model": "ridge",
+              "cv_mse": 0.08723101128856461
+            },
+            {
+              "model": "boosting",
+              "cv_mse": 0.07945992160084578
+            }
+          ],
+          "target": "Cross-fitted reduction in multiclass Brier loss; not treatment benefit",
+          "heldout_mse": 1.3475469124229307,
+          "policies": {
+            "learned_gain": {
+              "n": 7,
+              "accuracy": 0.8571428571428571,
+              "macro_f1": 0.8444444444444444,
+              "multiclass_brier": 0.34326496312329496,
+              "auroc": 0.6666666666666667,
+              "missed_positive": 0,
+              "false_positive": 1,
+              "acquired": 3
+            },
+            "uncertainty": {
+              "n": 7,
+              "accuracy": 0.8571428571428571,
+              "macro_f1": 0.8444444444444444,
+              "multiclass_brier": 0.34113320644374306,
+              "auroc": 0.7500000000000001,
+              "missed_positive": 0,
+              "false_positive": 1,
+              "acquired": 3
+            },
+            "risk": {
+              "n": 7,
+              "accuracy": 0.8571428571428571,
+              "macro_f1": 0.8571428571428571,
+              "multiclass_brier": 0.21404090826464733,
+              "auroc": 0.9166666666666667,
+              "missed_positive": 1,
+              "false_positive": 0,
+              "acquired": 3
+            }
+          },
+          "endpoint": "Clinical AD versus FTD; excludes healthy controls"
+        }
+      }
+    },
+    "progression": {
+      "status": "trained_exploratory",
+      "chosen": "survival_forest",
+      "comparison": [
+        {
+          "model": "cox",
+          "cv_concordance": 0.6144439407105168
+        },
+        {
+          "model": "survival_forest",
+          "cv_concordance": 0.6659387711410832
+        }
+      ],
+      "subjects": 150,
+      "events": 31,
+      "train_subjects": 112,
+      "evaluation_subjects": 38,
+      "evaluation_concordance": 0.6631578947368421,
+      "endpoint": "Time to first observed CDR increase from baseline; last visit censored otherwise",
+      "limitations": "Small retrospective cohort; visit-detected events are interval-censored in reality. No AD conversion or clinical-time recommendation.",
+      "columns": [
+        "age",
+        "education_years",
+        "mmse_score",
+        "nwbv",
+        "baseline_cdr"
+      ],
+      "max_days": 2508.0,
+      "evaluation_type": "Exploratory participant-disjoint development check"
+    },
+    "limitations": [
+      "Development estimates on previously studied datasets, not external validation.",
+      "CDR severity, source clinical diagnoses, and AD-versus-FTD are different endpoints.",
+      "Synthetic PET is excluded. No cross-person modality joins.",
+      "Education is excluded from pooled OASIS classification because source coding differs; progression uses OASIS-2 years.",
+      "Learned acquisition benefit is prediction-error reduction, not proven clinical benefit.",
+      "ADNI/OASIS-3 paired PET/biomarker and expanded progression training awaits approved data."
+    ]
+  },
+  "profiles": {
+    "version": "oasis2-neighbours-v1",
+    "trained_at": "2026-11-26T16:42:02.425066+00:00",
+    "dataset": "OASIS-2 baseline observations",
+    "source": "https://sites.wustl.edu/oasisbrains/home/oasis-2/",
+    "source_sha256": "d2f0a15ff35fa4a65c35c064b848fc1b396e9d2f4aec935c88d6e1588d31d40e",
+    "participants": 150,
+    "endpoint": "CDR-derived impairment category; not Alzheimer pathology",
+    "evaluation_scope": "Exploratory participant-disjoint development evaluation, not independent clinical validation",
+    "models": {
+      "cognitive": {
+        "model": "Distance-weighted k-nearest neighbours",
+        "neighbors": 5,
+        "features": [
+          "age",
+          "sex_male",
+          "mmse_score"
+        ],
+        "training_participants": 112,
+        "evaluation_participants": 38,
+        "evaluation": {
+          "n": 38,
+          "accuracy": 0.631578947368421,
+          "balanced_accuracy": 0.4160839160839161,
+          "macro_f1": 0.4144310823311748,
+          "majority_accuracy": 0.5789473684210527
+        },
+        "training_cv": [
+          {
+            "neighbors": 5,
+            "cv_balanced_accuracy": 0.6570004070004071
+          },
+          {
+            "neighbors": 9,
+            "cv_balanced_accuracy": 0.6351241351241351
+          },
+          {
+            "neighbors": 15,
+            "cv_balanced_accuracy": 0.5764143264143263
+          }
+        ]
+      },
+      "cognitive_mri": {
+        "model": "Distance-weighted k-nearest neighbours",
+        "neighbors": 9,
+        "features": [
+          "age",
+          "sex_male",
+          "mmse_score",
+          "etiv",
+          "nwbv",
+          "asf"
+        ],
+        "training_participants": 112,
+        "evaluation_participants": 38,
+        "evaluation": {
+          "n": 38,
+          "accuracy": 0.7105263157894737,
+          "balanced_accuracy": 0.4825174825174825,
+          "macro_f1": 0.4750073942620527,
+          "majority_accuracy": 0.5789473684210527
+        },
+        "training_cv": [
+          {
+            "neighbors": 5,
+            "cv_balanced_accuracy": 0.4542124542124542
+          },
+          {
+            "neighbors": 9,
+            "cv_balanced_accuracy": 0.4818884818884819
+          },
+          {
+            "neighbors": 15,
+            "cv_balanced_accuracy": 0.4424094424094424
+          }
+        ]
+      }
+    }
+  },
+  "forecast": {
+    "version": "mmse-forecast-20261126T164349Z",
+    "source": "OASIS-2 longitudinal tabular cohort",
+    "source_url": "https://sites.wustl.edu/oasisbrains/home/oasis-2/",
+    "source_sha256": "d2f0a15ff35fa4a65c35c064b848fc1b396e9d2f4aec935c88d6e1588d31d40e",
+    "source_participants": 150,
+    "source_visits": 373,
+    "split_sizes": {
+      "train": {
+        "participants": 89,
+        "pairs": 135
+      },
+      "calibration": {
+        "participants": 30,
+        "pairs": 44
+      },
+      "test": {
+        "participants": 30,
+        "pairs": 42
+      }
+    },
+    "selected_model": "ridge",
+    "training_cv_mae": {
+      "ridge": 1.3152919889179349,
+      "random_forest": 1.385028550160042
+    },
+    "training_no_change_mae": 1.237037037037037,
+    "evaluation": {
+      "pairs": 42,
+      "participants": 30,
+      "mae": 1.6891196122769405,
+      "no_change_mae": 1.5952380952380953,
+      "interval_coverage": 0.9523809523809523,
+      "mean_interval_width": 8.338914236800392
+    },
+    "calibration_radius": 6.183202828815276,
+    "nominal_coverage": 0.9,
+    "horizon_days": {
+      "min": 182.0,
+      "max": 1707.0
+    },
+    "columns": [
+      "age",
+      "sex_male",
+      "education_years",
+      "mmse_score",
+      "nwbv",
+      "baseline_cdr",
+      "elapsed_days"
+    ],
+    "limitations": [
+      "Small previously studied source cohort; no independent clinical validation.",
+      "Target is the MMSE observed at the next recorded visit, not Alzheimer conversion or an exact future trajectory.",
+      "Forecast uses baseline tabular measurements and requested time horizon; segmentation and live task measurements are not model inputs.",
+      "Intervals use held-out participant-level maximum residuals and are exploratory under population shift."
+    ]
+  },
+  "unmeasured_components": {
+    "SynthSeg 1.0": "Local Dice/IoU/volume error not evaluated against labelled reference scans",
+    "MediaPipe Hand Landmarker": "Local landmark or tap-count error not evaluated against annotated recordings",
+    "Whisper tiny.en": "Local word/character error rate not evaluated against an independently transcribed test set",
+    "Silero VAD": "Local speech-interval precision/recall/F1 not evaluated against annotated recordings",
+    "Isolation Forest": "Labelled anomaly precision/recall/AUROC not evaluated",
+    "Optional hosted assistant": "No benchmark recorded; separate from local assessment models"
+  }
+}
